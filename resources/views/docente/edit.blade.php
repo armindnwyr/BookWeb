@@ -7,8 +7,8 @@
 @stop
 
 @section('content')
-    <a href="{{route('docente.store')}}" class="btn btn-info">Regresar Lista Docente</a>
-    
+    <a href="{{route('docente.store')}}" class="btn btn-info mb-3">Regresar Lista Docente</a>
+    <div class="shadow p-5 mb-5 bg-white rounded">
         <form action="{{route('docente.update', $docente)}}" method="post">
             @csrf
             @method('put')
@@ -33,10 +33,20 @@
               <div class="form-group col-md-6 mt-2">
                 <label>Apellido Materno</label>
                 <input type="text" class="form-control" id="inputEmail4" name="materno" value="{{old('materno', $docente->doce_materno)}}">
-
                   @error('materno')
                   <small class="text-danger">{{$message}}</small>
                   @enderror 
+              </div>
+              <div class="form-group col-md-6">
+                <label class=" mb-3">Genero</label>
+                <select class="form-control" name="genero">
+                    <option value="Masculino"  {{ old('genero', $docente->doce_sexo) == 'Masculino' ? 'selected' : '' }}>Masculino</option>
+                    <option value="Femenino" {{ old('genero', $docente->doce_sexo) == 'Femenino' ? 'selected' : '' }}>Femenino</option>
+                    <option value="No especificado" {{ old('genero', $docente->doce_sexo) == 'No Especificado' ? 'selected' : '' }}>No Especificado</option>
+                </select>
+                @error('genero')
+                <small class="text-danger">{{$message}}</small>
+                @enderror 
               </div>
               <div class="form-group col-md-6 mt-2">
                 <label>Numero de Celular</label>
@@ -56,5 +66,6 @@
 
             <button type="submit" class="btn btn-primary mt-3">Enviar Formulario</button>
           </form>
+    </div>
 
 @stop

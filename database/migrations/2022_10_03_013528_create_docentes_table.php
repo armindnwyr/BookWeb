@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('doce_nombre',  60);
             $table->string('doce_paterno', 60);
             $table->string('doce_materno', 60);
-            //$table->enum('doce_sexo',['Masculino','Femenino','No Especificado']);
+            $table->enum('doce_sexo',['Masculino','Femenino','No Especificado']);
             $table->integer('doce_celular')->length(9);
             $table->string('doce_correo', 60);
             $table->timestamps();

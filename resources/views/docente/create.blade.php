@@ -37,6 +37,18 @@
                   <small class="text-danger">{{$message}}</small>
                   @enderror 
               </div>
+              <div class="form-group col-md-6">
+                <label class=" mb-3">Genero</label>
+                <select id="inputState" class="form-control" name="genero">
+                  <option value="">Seleccionar</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                  <option value="No Especificado">No Especificado</option>
+                </select>
+                @error('genero')
+                <small class="text-danger">{{$message}}</small>
+                @enderror 
+              </div>
               <div class="form-group col-md-6 mt-2">
                 <label>Numero de Celular</label>
                 <input type="text" class="form-control" id="inputEmail4" name="celular" value="{{old('celular')}}">
@@ -55,6 +67,9 @@
 
             <button type="submit" class="btn btn-primary mt-3">Enviar Formulario</button>
           </form>
+
+          
     </div>
+    
 
 @stop
