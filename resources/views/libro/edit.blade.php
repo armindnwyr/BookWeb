@@ -15,7 +15,7 @@
         <div class="row">
         <div class="form-group col-sm-4">
         <label >Titulo</label>
-        <input type="text" class="form-control" placeholder="Titulo" name="titulo" value="{{old('nombre',$libro->li_titulo)}}">
+        <input type="text" class="form-control" placeholder="Titulo" name="titulo" value="{{old('titulo',$libro->li_titulo)}}">
             @error('titulo')
             <small class="text-danger">{{$message}}</small>
             @enderror
