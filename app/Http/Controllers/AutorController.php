@@ -14,7 +14,8 @@ class AutorController extends Controller
      */
     public function index()
     {
-        return view('autor.index');
+        $autores = Autor::all();
+        return view('autor.index', compact('autores'));
     }
 
     /**

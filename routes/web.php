@@ -71,7 +71,7 @@ Route::get('categoria/{show}',[CategoriaController::class,'show'])->name('catego
 
 Route::post('categoria',[CategoriaController::class,'store'])->name('categoria.store');
 
-Route::get('categoria/{categoria}/edit',[CategoriaController::class,'create'])->name('categoria.edit');
+Route::get('categoria/{categoria}/edit',[CategoriaController::class,'edit'])->name('categoria.edit');
 
 Route::put('categoria/{categoria}',[CategoriaController::class,'update'])->name('categoria.update');
 
@@ -88,7 +88,7 @@ Route::get('autor/{show}',[AutorController::class,'show'])->name('autor.show');
 
 Route::post('autor',[AutorController::class,'store'])->name('autor.store');
 
-Route::get('autor/{autor}/edit',[AutorController::class,'create'])->name('autor.edit');
+Route::get('autor/{autor}/edit',[AutorController::class,'edit'])->name('autor.edit');
 
 Route::put('autor/{autor}',[AutorController::class,'update'])->name('autor.update');
 
@@ -105,7 +105,7 @@ Route::get('informe/{show}',[InformeController::class,'show'])->name('informe.sh
 
 Route::post('informe',[InformeController::class,'store'])->name('informe.store');
 
-Route::get('informe/{informe}/edit',[InformeController::class,'create'])->name('informe.edit');
+Route::get('informe/{informe}/edit',[InformeController::class,'edit'])->name('informe.edit');
 
 Route::put('informe/{informe}',[InformeController::class,'update'])->name('informe.update');
 
