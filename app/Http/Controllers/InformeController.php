@@ -14,7 +14,7 @@ class InformeController extends Controller
      */
     public function index()
     {
-        //
+        return view('informe.index');
     }
 
     /**
