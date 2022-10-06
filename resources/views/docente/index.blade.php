@@ -3,16 +3,16 @@
 @section('title', 'Docente')
 
 @section('content_header')
-    <h1>Lista de Docentes</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Lista de Docentes</h1>
 @stop
 
 @section('content')
 
 
 <a class="btn btn-info mb-3" href="{{route('docente.create')}}">Crear nuevo docente</a>
-<div class="table-responsive shadow-lg p-3 mb-5 bg-body rounded">    
-<table class="table">
-    <thead>
+<div class="table-responsive">    
+<table class="table table-sm table-bordered text-center ">
+    <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nombre</th>

@@ -8,8 +8,8 @@
 
 @section('content')
 <a class="btn btn-info mb-3" href="{{route('categoria.create')}}">Crear Nueva Categoria</a>
-<table class="table">
-    <thead>
+<table class="table table-sm text-center">
+    <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nombre</th>
