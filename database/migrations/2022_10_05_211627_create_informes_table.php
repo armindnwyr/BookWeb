@@ -24,9 +24,10 @@ return new class extends Migration
             //$table->unsignedBigInteger('categorias_id');
             //$table->unsignedBigInteger('autors_id');
 
-            //$table->foreignId('docentes_id')->constrained();
-            //$table->foreignId('categorias_id')->constrained();
-            //$table->foreignId('autors_id')->constrained();
+            //Llave Foranea
+            $table->foreignId('docente_id')->constrained('docentes');
+            $table->foreignId('categoria_id')->constrained('categorias');
+            $table->foreignId('autor_id')->constrained('autors');
             $table->timestamps();
         });
     }
