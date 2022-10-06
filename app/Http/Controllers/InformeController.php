@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\docente;
 use App\Models\informe;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class InformeController extends Controller
@@ -14,7 +16,8 @@ class InformeController extends Controller
      */
     public function index()
     {
-        return view('informe.index');
+        $informe = Informe::All();
+        return view('informe.index', compact('informe'));
     }
 
     /**
@@ -24,7 +27,7 @@ class InformeController extends Controller
      */
     public function create()
     {
-        //
+        return view('informe.create');
     }
 
     /**
@@ -35,7 +38,24 @@ class InformeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'codigo'=>'required',
+            'enlace'=>'required',
+        ]);
+
+        $informe = new informe();
+
+        $informe->info_nombre = $request->nombre;
+        $informe->info_descripcion = $request->descripcion;
+        $informe->info_codigo = $request->codigo;
+        $informe->info_centro = $request->centro;
+        $informe->info_enlace = $request->enlace;
+
+        $informe->save();
+
+        return redirect()->route('informe.index');
     }
 
     /**
@@ -46,7 +66,7 @@ class InformeController extends Controller
      */
     public function show(informe $informe)
     {
-        //
+        return view('informe.index', compact('informe'));
     }
 
     /**
@@ -57,7 +77,7 @@ class InformeController extends Controller
      */
     public function edit(informe $informe)
     {
-        //
+        return view('informe.edit', compact('informe'));
     }
 
     /**
@@ -69,7 +89,24 @@ class InformeController extends Controller
      */
     public function update(Request $request, informe $informe)
     {
-        //
+        $request->validate([
+            'nombre'=>'required',
+            'descripcion'=>'required',
+            'codigo'=>'required',
+            'enlace'=>'required',
+        ]);
+
+        //$informe = new informe();
+
+        $informe->info_nombre = $request->nombre;
+        $informe->info_descripcion = $request->descripcion;
+        $informe->info_codigo = $request->codigo;
+        $informe->info_centro = $request->centro;
+        $informe->info_enlace = $request->enlace;
+
+        $informe->save();
+
+        return redirect()->route('informe.index');
     }
 
     /**
@@ -80,6 +117,8 @@ class InformeController extends Controller
      */
     public function destroy(informe $informe)
     {
-        //
+        $informe->delete();
+
+        return redirect()->route('informe.index');
     }
 }
