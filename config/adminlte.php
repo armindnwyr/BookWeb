@@ -379,8 +379,18 @@ return [
             'icon' => 'fa fa-users fa-fw',
         ],
         [
+            'text' => 'Autor',
+            'route' => 'autor.index',
+            'icon' => 'fa fa-user fa-fw',
+        ],
+        [
+            'text' => 'Categoria',
+            'route' => 'categoria.index',
+            'icon' => 'fa fa-bookmark fa-fw',
+        ],
+        [
             'text' => 'Informe',
-            'url' => 'admin',
+            'route' => 'informe.index',
             'icon' => 'fa fa-file-pdf fa-fw',
         ],
         [

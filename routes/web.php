@@ -4,6 +4,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\AutorController;
+use App\Http\Controllers\InformeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +25,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//--------------DOCENTE---------------------//
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('docente',[DocenteController::class,'index'])->name('docente.index');
@@ -38,7 +43,8 @@ Route::put('docente/{docente}',[DocenteController::class,'update'])->name('docen
 
 Route::delete('docente/{docente}',[DocenteController::class,'destroy'])->name('docente.destroy');
 
-//-----------------------------------//
+
+//--------------LIBRO---------------------//
 
 Route::get('libro',[LibroController::class,'index'])->name('libro.index');
 
@@ -55,3 +61,52 @@ Route::put('libro/{libro}',[LibroController::class,'update'])->name('libro.updat
 Route::delete('libro/{libro}',[LibroController::class,'destroy'])->name('libro.destroy');
 
 
+//--------------CATEGORIA---------------------//
+
+Route::get('categoria',[CategoriaController::class,'index'])->name('categoria.index');
+
+Route::get('categoria/create',[CategoriaController::class,'create'])->name('categoria.create');
+
+Route::get('categoria/{show}',[CategoriaController::class,'show'])->name('categoria.show');
+
+Route::post('categoria',[CategoriaController::class,'store'])->name('categoria.store');
+
+Route::get('categoria/{categoria}/edit',[CategoriaController::class,'create'])->name('categoria.edit');
+
+Route::put('categoria/{categoria}',[CategoriaController::class,'update'])->name('categoria.update');
+
+Route::delete('categoria/{categoria}',[CategoriaController::class,'destroy'])->name('categoria.destroy');
+
+
+//--------------AUTOR---------------------//
+
+Route::get('autor',[AutorController::class,'index'])->name('autor.index');
+
+Route::get('autor/create',[AutorController::class,'create'])->name('autor.create');
+
+Route::get('autor/{show}',[AutorController::class,'show'])->name('autor.show');
+
+Route::post('autor',[AutorController::class,'store'])->name('autor.store');
+
+Route::get('autor/{autor}/edit',[AutorController::class,'create'])->name('autor.edit');
+
+Route::put('autor/{autor}',[AutorController::class,'update'])->name('autor.update');
+
+Route::delete('autor/{autor}',[AutorController::class,'destroy'])->name('autor.destroy');
+
+
+//--------------INFORME---------------------//
+
+Route::get('informe',[InformeController::class,'index'])->name('informe.index');
+
+Route::get('informe/create',[InformeController::class,'create'])->name('informe.create');
+
+Route::get('informe/{show}',[InformeController::class,'show'])->name('informe.show');
+
+Route::post('informe',[InformeController::class,'store'])->name('informe.store');
+
+Route::get('informe/{informe}/edit',[InformeController::class,'create'])->name('informe.edit');
+
+Route::put('informe/{informe}',[InformeController::class,'update'])->name('informe.update');
+
+Route::delete('informe/{informe}',[InformeController::class,'destroy'])->name('informe.destroy');
