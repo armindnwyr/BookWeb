@@ -40,6 +40,39 @@
                 <small class="text-danger">{{$message}}</small>
                 @enderror 
               </div>
+              <div class="form-group col-md-6">
+                <label class="mb-3">Docente</label>
+                <select id="inputState" class="form-control" name="docente">
+                  @foreach ($docente as $item)
+                  <option value="{{$item->id}}">{{$item->doce_nombre}}</option>
+                  @endforeach
+                </select>
+                @error('docente')
+                <small class="text-danger">{{$message}}</small>
+                @enderror 
+              </div>
+              <div class="form-group col-md-6">
+                <label class="mb-3">Categoria</label>
+                <select id="inputState" class="form-control" name="categoria">
+                  @foreach ($categoria as $item)
+                  <option value="{{$item->id}}">{{$item->cate_nombre}}</option>
+                  @endforeach
+                </select>
+                @error('categoria')
+                <small class="text-danger">{{$message}}</small>
+                @enderror 
+              </div>
+              <div class="form-group col-md-6">
+                <label class="mb-3">Autor</label>
+                <select id="inputState" class="form-control" name="autor">
+                  @foreach ($autor as $item)
+                  <option value="{{$item->id}}">{{$item->au_nombre}}</option>
+                  @endforeach
+                </select>
+                @error('categoria')
+                <small class="text-danger">{{$message}}</small>
+                @enderror 
+              </div>
             </div>
               <div class="form-group">
                 <label>Descripción</label>

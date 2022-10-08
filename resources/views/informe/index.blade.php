@@ -18,10 +18,10 @@
         <th scope="col">Nombre</th>
         <th scope="col">Codigo</th>
         <th scope="col">Centro</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Drive</th>
         <th scope="col">Docente</th>
-        <th scope="col">Tipo</th>
+        <th scope="col">Practicas</th>
+        <th scope="col">Estudiante</th>
+        <th scope="col">Drive</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
       </tr>
@@ -33,9 +33,9 @@
         <td>{{$item->info_nombre}}</td>
         <td>{{$item->info_codigo}}</td>
         <td>{{$item->info_centro}}</td>
-        <td>{{$item->info_descripcion}}</td>
         <td>{{$item->docentes->doce_nombre}} {{$item->docentes->doce_paterno}} {{$item->docentes->doce_materno}}</td>
         <td>{{$item->categoria->cate_nombre}}</td>
+        <td>{{$item->autor->au_nombre}} {{$item->autor->au_paterno}} {{$item->autor->au_materno}}</td>
         <td><a href="{{$item->info_enlace}}" class="btn btn-success" target="_blank">Drive</a></td>
         <td><a href="{{route('informe.edit', $item)}}" class="btn btn-success">Editar</a></td>
         <td><form action="{{route('informe.destroy', $item)}}" method="post"> @csrf @method('delete') <button type="submit" class="btn btn-danger">Eliminar</button></form></td>

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\autor;
 use App\Models\docente;
 use App\Models\informe;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
-
+use App\Models\categoria;
 class InformeController extends Controller
 {
     /**
@@ -27,7 +28,10 @@ class InformeController extends Controller
      */
     public function create()
     {
-        return view('informe.create');
+        $docente = Docente::all();
+        $categoria = Categoria::all();
+        $autor = Autor::all();
+        return view('informe.create', compact('docente','categoria','autor'));
     }
 
     /**
@@ -52,6 +56,9 @@ class InformeController extends Controller
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;
         $informe->info_enlace = $request->enlace;
+        $informe->doce_id = $request->docente;
+        $informe->cate_id = $request->categoria;
+        $informe->au_id = $request->autor;
 
         $informe->save();
 

@@ -9,6 +9,8 @@ class informe extends Model
 {
     use HasFactory;
 
+    //protected $fillable = ['doce_id', 'cate_id', 'au_id'];
+
     public function autor(){
         return $this->belongsTo(Autor::class, 'au_id', 'id');
     }
