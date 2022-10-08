@@ -9,7 +9,7 @@ class docente extends Model
 {
     use HasFactory;
 
-    public function informe(){
+    public function informes(){
         return $this->hasMany(Informe::class);
     }
 }

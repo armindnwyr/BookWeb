@@ -31,6 +31,7 @@ class InformeController extends Controller
         $docente = Docente::all();
         $categoria = Categoria::all();
         $autor = Autor::all();
+        //dd($docente);
         return view('informe.create', compact('docente','categoria','autor'));
     }
 
@@ -47,6 +48,10 @@ class InformeController extends Controller
             'descripcion'=>'required',
             'codigo'=>'required',
             'enlace'=>'required',
+            'centro'=>'required',
+            'docente'=>'required',
+            'categoria'=>'required',
+            'autor'=>'required',
         ]);
 
         $informe = new informe();
@@ -56,9 +61,9 @@ class InformeController extends Controller
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;
         $informe->info_enlace = $request->enlace;
-        $informe->doce_id = $request->docente;
-        $informe->cate_id = $request->categoria;
-        $informe->au_id = $request->autor;
+        $informe->docente_id = $request->docente;
+        $informe->categoria_id = $request->categoria;
+        $informe->autor_id = $request->autor;
 
         $informe->save();
 
@@ -84,7 +89,10 @@ class InformeController extends Controller
      */
     public function edit(informe $informe)
     {
-        return view('informe.edit', compact('informe'));
+        $docente = Docente::all();
+        $categoria = Categoria::all();
+        $autor = Autor::all();
+        return view('informe.edit', compact('informe','docente', 'categoria', 'autor'));
     }
 
     /**
@@ -101,6 +109,10 @@ class InformeController extends Controller
             'descripcion'=>'required',
             'codigo'=>'required',
             'enlace'=>'required',
+            'centro'=>'required',
+            'docente'=>'required',
+            'categoria'=>'required',
+            'autor'=>'required',
         ]);
 
         //$informe = new informe();
@@ -110,6 +122,9 @@ class InformeController extends Controller
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;
         $informe->info_enlace = $request->enlace;
+        $informe->docente_id = $request->docente;
+        $informe->categoria_id = $request->categoria;
+        $informe->autor_id = $request->autor;
 
         $informe->save();
 

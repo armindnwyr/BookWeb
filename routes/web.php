@@ -7,7 +7,7 @@ use App\Http\Controllers\LibroController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\InformeController;
-
+use App\Http\Controllers\BibliotecaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +19,10 @@ use App\Http\Controllers\InformeController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+Route::get('/',[BibliotecaController::class, 'index']);
 
 Auth::routes();
 
@@ -59,6 +60,9 @@ Route::get('libro/{libro}/edit',[LibroController::class,'edit'])->name('libro.ed
 Route::put('libro/{libro}',[LibroController::class,'update'])->name('libro.update');
 
 Route::delete('libro/{libro}',[LibroController::class,'destroy'])->name('libro.destroy');
+
+
+Route::get('biblioteca',[BibliotecaController::class, 'index']);
 
 
 //--------------CATEGORIA---------------------//

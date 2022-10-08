@@ -83,9 +83,5 @@
             </div>
             <button type="submit" class="btn btn-primary mt-3">Enviar Formulario</button>
           </form>
-
-          
     </div>
-    
-
 @stop

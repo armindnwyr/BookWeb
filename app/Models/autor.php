@@ -11,7 +11,7 @@ class autor extends Model
     use HasFactory;
 
     //Relacion de uno a muchos
-    public function informe(){
+    public function informes(){
         return $this->hasMany(Informe::class);
     }
 }

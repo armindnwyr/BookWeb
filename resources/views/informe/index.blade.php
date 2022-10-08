@@ -33,7 +33,7 @@
         <td>{{$item->info_nombre}}</td>
         <td>{{$item->info_codigo}}</td>
         <td>{{$item->info_centro}}</td>
-        <td>{{$item->docentes->doce_nombre}} {{$item->docentes->doce_paterno}} {{$item->docentes->doce_materno}}</td>
+        <td>{{$item->docente->doce_nombre}} {{$item->docente->doce_paterno}} {{$item->docente->doce_materno}}</td>
         <td>{{$item->categoria->cate_nombre}}</td>
         <td>{{$item->autor->au_nombre}} {{$item->autor->au_paterno}} {{$item->autor->au_materno}}</td>
         <td><a href="{{$item->info_enlace}}" class="btn btn-success" target="_blank">Drive</a></td>
