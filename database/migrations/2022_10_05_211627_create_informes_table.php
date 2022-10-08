@@ -20,14 +20,15 @@ return new class extends Migration
             $table->string('info_codigo', 10);
             $table->string('info_centro', 60);
             $table->string('info_enlace', 80);
-            //$table->unsignedBigInteger('docentes_id');
-            //$table->unsignedBigInteger('categorias_id');
-            //$table->unsignedBigInteger('autors_id');
+            $table->unsignedBigInteger('docente_id')->nullable();
+            $table->unsignedBigInteger('categoria_id')->nullable();
+            $table->unsignedBigInteger('autor_id')->nullable();
 
             //Llave Foranea
-            $table->foreignId('docente_id')->constrained('docentes');
-            $table->foreignId('categoria_id')->constrained('categorias');
-            $table->foreignId('autor_id')->constrained('autors');
+            $table->foreignId('doce_id')->references('id')->on('docentes')->onDelete('cascade');
+            $table->foreignId('cate_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->foreignId('au_id')->references('id')->on('autors')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
