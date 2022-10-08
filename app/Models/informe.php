@@ -10,15 +10,15 @@ class informe extends Model
     use HasFactory;
 
     public function autor(){
-        return $this->belongsTo(Autor::class);
+        return $this->belongsTo(Autor::class, 'au_id', 'id');
     }
 
-    public function docente(){
-        return $this->belongsTo(Docente::class);
+    public function docentes(){
+        return $this->belongsTo(Docente::class, 'doce_id', 'id');
     }
 
     public function categoria(){
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class, 'cate_id', 'id');
     }
 
 }
