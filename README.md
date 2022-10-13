@@ -9,6 +9,16 @@
 
 ## About Laravel
 
+- **git clone**
+- **configurar el .env**
+- **composer install**
+- **relizar migracion php artisan migrate**
+- **npm install**
+- **npm run dev**
+- **php aritsan key:generate**
+- **Contar con Node.js v.17**
+- **Contar con PHP v.8**
+
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
