@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<a class="btn btn-info mb-3" href="{{route('categoria.create')}}">Crear Nueva Categoria</a>
+<a class="btn btn-info mb-3" href="{{route('categorias.create')}}">Crear Nueva Categoria</a>
 <table class="table table-sm text-center">
     <thead class="thead-dark">
       <tr>
@@ -22,8 +22,8 @@
       <tr>
         <th scope="row">{{$item->id}}</th>
         <td>{{$item->cate_nombre}}</td>
-        <td><a href="{{route('categoria.edit', $item)}}" class="btn btn-success">Editar</a></td>
-        <td><form action="{{route('categoria.destroy', $item)}}" method="post"> @csrf @method('delete') <button type="submit" class="btn btn-danger">Eliminar</button></form></td>
+        <td><a href="{{route('categorias.edit', $item)}}" class="btn btn-success">Editar</a></td>
+        <td><form action="{{route('categorias.destroy', $item)}}" method="post"> @csrf @method('delete') <button type="submit" class="btn btn-danger">Eliminar</button></form></td>
       </tr>
     </tbody>
     @endforeach

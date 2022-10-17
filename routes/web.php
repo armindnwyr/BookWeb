@@ -8,6 +8,8 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\BibliotecaController;
+use Spatie\Permission\Contracts\Role;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,20 +69,21 @@ Route::get('biblioteca',[BibliotecaController::class, 'index']);
 
 //--------------CATEGORIA---------------------//
 
-Route::get('categoria',[CategoriaController::class,'index'])->name('categoria.index');
+// Route::get('categoria',[CategoriaController::class,'index'])->name('categoria.index');
 
-Route::get('categoria/create',[CategoriaController::class,'create'])->name('categoria.create');
+// Route::get('categoria/create',[CategoriaController::class,'create'])->name('categoria.create');
 
-Route::get('categoria/{show}',[CategoriaController::class,'show'])->name('categoria.show');
+// Route::get('categoria/{show}',[CategoriaController::class,'show'])->name('categoria.show');
 
-Route::post('categoria',[CategoriaController::class,'store'])->name('categoria.store');
+// Route::post('categoria',[CategoriaController::class,'store'])->name('categoria.store');
 
-Route::get('categoria/{categoria}/edit',[CategoriaController::class,'edit'])->name('categoria.edit');
+// Route::get('categoria/{categoria}/edit',[CategoriaController::class,'edit'])->name('categoria.edit');
 
-Route::put('categoria/{categoria}',[CategoriaController::class,'update'])->name('categoria.update');
+// Route::put('categoria/{categoria}',[CategoriaController::class,'update'])->name('categoria.update');
 
-Route::delete('categoria/{categoria}',[CategoriaController::class,'destroy'])->name('categoria.destroy');
+// Route::delete('categoria/{categoria}',[CategoriaController::class,'destroy'])->name('categoria.destroy');
 
+Route::resource('categorias', CategoriaController::class);
 
 //--------------AUTOR---------------------//
 

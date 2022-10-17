@@ -1,20 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Categoria')
+@section('title', 'Crear Categoria')
 
 @section('content_header')
-    <h1>Editar Categoria</h1>
+    <h1>Crear una Nueva Categoria</h1>
 @stop
 
 @section('content')
-<a href="{{route('categoria.store')}}" class="btn btn-info mb-3">Regresar a Lista de Categoria</a>
+<a href="{{route('categorias.store')}}" class="btn btn-info mb-3">Regresar Lista Docente</a>
 <div class="shadow p-5 mb-5 bg-white rounded">
-    <form action="{{route('categoria.update', $categoria)}}" method="post">
+    <form action="{{route('categorias.store')}}" method="post">
         @csrf
-        @method('put')
           <div class="form-group col-md-6">
             <label>Nombre</label>
-            <input type="text" class="form-control" id="inputEmail4" name="nombre" value="{{old('nombre',$categoria->cate_nombre)}}">
+            <input type="text" class="form-control" id="inputEmail4" name="nombre" value="{{old('nombre')}}">
               @error('nombre')
               <small class="text-danger">{{$message}}</small>
               @enderror 
@@ -23,3 +22,4 @@
         </form>
       </div>
 @stop
+

@@ -385,7 +385,7 @@ return [
         ],
         [
             'text' => 'Categoria',
-            'route' => 'categoria.index',
+            'route' => 'categorias.index',
             'icon' => 'fa fa-bookmark fa-fw',
         ],
         [
