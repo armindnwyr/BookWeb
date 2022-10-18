@@ -379,6 +379,11 @@ return [
             'icon' => 'fa fa-users fa-fw',
         ],
         [
+            'text' => 'Crear Docente',
+            'route' => 'docente.create',
+            'icon' => 'fa fa-users fa-fw',
+        ],
+        [
             'text' => 'Autor',
             'route' => 'autor.index',
             'icon' => 'fa fa-user fa-fw',
