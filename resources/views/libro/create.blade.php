@@ -46,7 +46,7 @@
         </div>
         <div class="form-group">
         <label for="exampleFormControlTextarea1">Descripción</label>
-        <textarea class="form-control" rows="3" name="descripcion" value="{{old('descripcion')}}"></textarea>
+        <textarea class="form-control" rows="3" name="descripcion" value="">{{old('descripcion')}}</textarea>
             @error('descripcion')
             <small class="text-danger">{{$message}}</small>
             @enderror
