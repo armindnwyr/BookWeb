@@ -19,9 +19,9 @@ class LibroFactory extends Factory
         return [
             'li_titulo'=>$this->faker->name(),
             'li_autor'=>$this->faker->name(),
-            'li_descripcion'=>$this->faker->text(),
-            'li_enlace'=>$this->faker->name(),
-            'li_image'=>$this->faker->name(),
+            'li_descripcion'=>$this->faker->realText(500),
+            'li_enlace'=>$this->faker->url(),
+            'li_image'=>$this->faker->imageUrl(),
         ];
     }
 }
