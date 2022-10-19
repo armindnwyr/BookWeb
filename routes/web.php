@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\BibliotecaController;
+use App\Http\Controllers\UsuarioController;
 use Spatie\Permission\Contracts\Role;
 
 /*
@@ -117,3 +118,5 @@ Route::get('informe/{informe}/edit',[InformeController::class,'edit'])->name('in
 Route::put('informe/{informe}',[InformeController::class,'update'])->name('informe.update');
 
 Route::delete('informe/{informe}',[InformeController::class,'destroy'])->name('informe.destroy');
+
+Route::resource('usuarios', UsuarioController::class);
