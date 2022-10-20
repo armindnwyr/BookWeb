@@ -369,14 +369,6 @@ return [
         [
             'text' => 'Usuario',
             'route' => 'usuarios.index',
-<<<<<<< HEAD
-=======
-            'icon' => 'fa fa-users fa-fw',
-        ],
-        [
-            'text' => 'Docente',
-            'route' => 'docente.index',
->>>>>>> 51db3afda69685439a23a384da6f268bc99fa365
             'icon' => 'fa fa-users fa-fw',
         ],
         [
