@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\libro;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LibroController extends Controller
 {
@@ -47,21 +49,26 @@ class LibroController extends Controller
             'autor'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
-            'imagen' => 'required',
+            'imagen' => 'required|image|max:2048',
         ]);
 
         //return $request->all();
+        $imagenes = $request->file('imagen')->store('public/imagenes');
+        
         $libro = new libro();
 
         $libro->li_titulo = $request->titulo;
         $libro->li_autor = $request->autor;
         $libro->li_enlace = $request->drive;
-        $libro->li_image = $request->imagen;
+        $libro->li_image =  $url = Storage::url($imagenes);
         $libro->li_descripcion = $request->descripcion;
+        
+        $libro->save();
 
-       $libro->save();
+        return redirect()->route('libro.index');
 
-       return redirect()->route('libro.index');
+       
+
     }
 
     /**

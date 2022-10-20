@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class libro extends Model
 {
     use HasFactory;
+    protected $fillable = ['li_image'];
 }
