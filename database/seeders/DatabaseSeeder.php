@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,9 +23,16 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+
         $this->call(RoleSeeder::class);
         $this->call(DocenteSeeder::class);
         $this->call(AutorSeeder::class);
         $this->call(LibroSeeder::class);
+        $user=User::create([
+            'name'=>'admin',
+            'email'=>'admin@gmail.com',
+            'password'=>bcrypt('administrador'),
+        ]);
+        $user->assignRole([1]);
     }
 }
