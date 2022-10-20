@@ -374,6 +374,11 @@ return [
         ],
         ['header' => 'labels'],
         [
+            'text' => 'Usuario',
+            'route' => 'usuarios.index',
+            'icon' => 'fa fa-users fa-fw',
+        ],
+        [
             'text' => 'Docente',
             'route' => 'docente.index',
             'icon' => 'fa fa-users fa-fw',

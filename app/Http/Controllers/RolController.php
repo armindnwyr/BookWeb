@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::all();
-        return view('usuario.index',compact('usuarios'));
+        //
     }
 
     /**
@@ -25,8 +23,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-
-        return view('usuario.create');
+        //
     }
 
     /**
@@ -38,7 +35,6 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
     }
 
     /**
@@ -50,7 +46,6 @@ class UsuarioController extends Controller
     public function show($id)
     {
         //
-
     }
 
     /**
@@ -61,7 +56,7 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        return view('docente.edit');
+        //
     }
 
     /**

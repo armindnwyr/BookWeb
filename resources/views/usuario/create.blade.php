@@ -10,23 +10,25 @@
 <a href="" class="btn btn-info mb-3">Regresar</a>
 <div class="card">
     <div class="card-body">
-        <form>
+        <form action="{{route('usuarios.store')}}" method="POST">
+        @method('POST')
+        @csrf
         <div class="form-row">
             <div class="col-md-6">
                 <label for="">Nombre</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="name">
             </div>
             <div class="col-md-6">
                 <label for="">Correo</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="email">
             </div>
             <div class="col-md-6">
                 <label for="">Contraseña</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="password">
             </div>
             <div class="col-md-6">
                 <label for="">Confirmar Contraseña</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="password">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputState">Rol</label>
