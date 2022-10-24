@@ -6,7 +6,11 @@
     <h1>Lista de libros</h1>
 @stop
 
+@vite('plugins')
+
+
 @section('content')
+
 <a href="{{route('libro.create')}}" class="btn btn-info mb-3">Crear Nuevo Libro</a>
 <div class="card">
   <div class="card-body">
@@ -65,16 +69,12 @@
 </div>
 </div> --}}
 
-
-@section('css')
-
-@stop
-
-
 @section('js')
+
 <script>
-    $(document).ready(function () {
-        $('#libro').DataTable();
-    });
+  $(document).ready(function () {
+    $('#libro').DataTable();
+  });
 </script>
-@stop
+    
+@endsection
