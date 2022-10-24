@@ -33,23 +33,29 @@ class RoleSeeder extends Seeder
        Permission::create(['name' => 'autor.create']);
        Permission::create(['name' => 'autor.edit']);
        Permission::create(['name' => 'autor.destroy']);
-       
+
        /*PERMISON PARA CATEGORIA*/
        Permission::create(['name' => 'categoria.index']);
        Permission::create(['name' => 'categoria.create']);
        Permission::create(['name' => 'categoria.edit']);
        Permission::create(['name' => 'categoria.destroy']);
-       
+
        /*PERMISON PARA INFORME*/
        Permission::create(['name' => 'informe.index']);
        Permission::create(['name' => 'informe.create']);
        Permission::create(['name' => 'informe.edit']);
-       Permission::create(['name' => 'informe.destroy']);  
-       
+       Permission::create(['name' => 'informe.destroy']);
+
               /*PERMISON PARA LIBRO*/
        Permission::create(['name' => 'libro.index']);
        Permission::create(['name' => 'libro.create']);
        Permission::create(['name' => 'libro.edit']);
-       Permission::create(['name' => 'libro.destroy']);  
+       Permission::create(['name' => 'libro.destroy']);
+       $permisos = Permission::all();
+
+           $role1->syncPermissions($permisos);
+
     }
+
+
 }
