@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UsuarioController extends Controller
 {
@@ -25,8 +28,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-
-        return view('usuario.create');
+        $roles=Role::all();
+        return view('usuario.create',compact('roles'));
     }
 
     /**
@@ -38,7 +41,20 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
+        $this->validate($request,[
+            'name' =>'required',
+            'email' =>'required|email|unique:users,email',
+            'password' => 'required|same:contrasena-confirmar',
+            'rol' => 'required'
+        ]);
+
+        $input= $request->all();
+        $input['password'] = Hash::make($input['password']);
+
+        $user=User::create($input);
+        $user->assignRole($request->input('rol'));
+
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -61,7 +77,10 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        return view('docente.edit');
+
+        $roles=Role::all();
+        $usuario=User::find($id);
+        return view('usuario.edit', compact('roles','usuario'));
     }
 
     /**
@@ -74,6 +93,15 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $usuario=User::find($id);
+        //dd($request);
+        $usuario->name=$request->input('name');
+        $usuario->email=$request->input('email');
+
+        $usuario->save();
+        DB::table('model_has_roles')->Where('model_id',$id)->delete();
+        $usuario->assignRole($request->input('rol'));
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -85,5 +113,8 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         //
+        User::find($id)->delete();
+
+        return redirect()->route('usuarios.index');
     }
 }

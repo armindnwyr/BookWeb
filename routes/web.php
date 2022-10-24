@@ -9,7 +9,7 @@ use App\Http\Controllers\AutorController;
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\BibliotecaController;
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\RolController;
+use App\Http\Controllers\RolesController;
 use Spatie\Permission\Contracts\Role;
 
 /*
@@ -121,7 +121,7 @@ Route::put('informe/{informe}',[InformeController::class,'update'])->name('infor
 Route::delete('informe/{informe}',[InformeController::class,'destroy'])->name('informe.destroy');
 
 Route::resource('usuarios', UsuarioController::class);
-Route::resource('roles', RolController::class);
+Route::resource('roles', RolesController::class);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
