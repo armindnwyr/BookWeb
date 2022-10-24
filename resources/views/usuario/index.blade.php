@@ -33,8 +33,8 @@
                             @endforeach
 
                         </td>
-                        <td width="10px"><a href="" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a></td>
-                        <td width="10px"><form action="" method="post"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form></td>
+                        <td width="10px"><a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a></td>
+                        <td width="10px"><form action="{{route('usuarios.destroy',$usuario->id)}}" method="post"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form></td>
                     </tr>
                 @endforeach
 

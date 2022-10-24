@@ -10,31 +10,36 @@
 <a href="" class="btn btn-info mb-3">Regresar</a>
 <div class="card">
     <div class="card-body">
-        <form>
+        <form action="{{route('usuarios.update',$usuario)}}" method="POST">
+        @method('PUT')
+        @csrf
         <div class="form-row">
             <div class="col-md-6">
                 <label for="">Nombre</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" value="{{old('name',$usuario)}}" name="name">
             </div>
             <div class="col-md-6">
                 <label for="">Correo</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" value="{{old('email',$usuario)}}" name="email">
             </div>
             <div class="col-md-6">
                 <label for="">Contraseña</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" value="" name="password">
             </div>
             <div class="col-md-6">
                 <label for="">Confirmar Contraseña</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" value="" name="contrasena-confirmar">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputState">Rol</label>
-                <select id="inputState" class="form-control">
-                  <option>Selecione</option>
-                  <option>Administrador</option>
-                  <option>Asistente</option>
+                <select id="" class="form-control" value="{{old('name',$usuario)}}" name="rol">
+                    @foreach($roles as $rol)
+                        <option value="{{$rol->id}}"  {{ $usuario->roles->first()->id == $rol->id ? 'selected' : '' }}>
+                            {{$rol->name}}
+                        </option>
+                    @endforeach
                 </select>
+
               </div>
         </div>
         <button class="btn btn-info">Enviar</button>

@@ -372,6 +372,11 @@ return [
             'icon' => 'fa fa-users fa-fw',
         ],
         [
+            'text' => 'Roles',
+            'route' => 'roles.index',
+            'icon' => 'fa fa-users fa-fw',
+        ],
+        [
             'text' => 'Docente',
             'route' => 'docente.index',
             'icon' => 'fa fa-users fa-fw',

@@ -28,14 +28,14 @@
             </div>
             <div class="col-md-6">
                 <label for="">Confirmar Contraseña</label>
-                <input type="text" class="form-control" name="password">
+                <input type="text" class="form-control" name="contrasena-confirmar">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputState">Rol</label>
-                <select id="inputState" class="form-control">
-                  <option>Selecione</option>
-                  <option>Administrador</option>
-                  <option>Asistente</option>
+                <select id="" class="form-control" name="rol">
+                    @foreach($roles as $rol)
+                        <option value="{{$rol->name}}">{{$rol->name}}</option>
+                    @endforeach
                 </select>
               </div>
         </div>

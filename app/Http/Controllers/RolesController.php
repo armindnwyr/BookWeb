@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RolesController extends Controller
 {
@@ -13,7 +17,9 @@ class RolesController extends Controller
      */
     public function index()
     {
-        return view('roles.index');
+
+        $roles=Role::all();
+        return view('roles.index',compact('roles'));
     }
 
     /**
@@ -23,7 +29,10 @@ class RolesController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
+        $permisos=Permission::all();
+
+
+        return view('roles.create',compact('permisos'));
     }
 
     /**
@@ -35,6 +44,14 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->all());
+        $this->validate($request,['nombre'=>'required']);
+
+
+        $role = Role::create(['name'=>$request->input('nombre')]);
+        $role->syncPermissions($request->input('permisos'));
+        dd($request->all());
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -56,7 +73,13 @@ class RolesController extends Controller
      */
     public function edit($id)
     {
-        return view('roles.edit');
+        $rol=Role::find($id);
+        $permisos=Permission::get();
+        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
+            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
+            ->all();
+
+        return view('roles.edit',compact('rol','permisos','rolePermissions'));
     }
 
     /**
@@ -69,6 +92,11 @@ class RolesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $rol=Role::find($id);
+        $rol->name=$request->input('nombre');
+        $rol->save();
+        $rol->syncPermissions($request->input('permisos'));
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -80,5 +108,7 @@ class RolesController extends Controller
     public function destroy($id)
     {
         //
+        $rol=Role::find($id)->delete();
+        return redirect()->route('roles.index');
     }
 }
