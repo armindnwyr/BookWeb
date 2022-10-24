@@ -9,7 +9,7 @@
 @section('content')
     <a href="{{route('libro.index')}}" class="btn btn-info mb-3">Regresar Lista Libros</a>
     <div class="shadow p-5 mb-5 bg-white rounded">
-    <form action="{{route('libro.update',$libro)}}" method="post">
+    <form action="{{route('libro.update',$libro)}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="row">

@@ -122,3 +122,6 @@ Route::delete('informe/{informe}',[InformeController::class,'destroy'])->name('i
 
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('roles', RolController::class);
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

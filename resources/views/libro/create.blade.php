@@ -9,7 +9,7 @@
 @section('content')
     <a href="{{route('libro.index')}}" class="btn btn-info mb-3">Regresar Lista Libros</a>
     <div class="shadow p-5 mb-5 bg-white rounded">
-    <form action="{{route('libro.store')}}" method="post">
+    <form action="{{route('libro.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
         <div class="form-group col-sm-4">
@@ -36,7 +36,7 @@
         <div class="form-group col-sm-4">
             <label>Subir Imagen</label>
             <div class="custom-file">
-              <input type="file" class="custom-file-input" name="imagen" value="{{old('imagen')}}">
+              <input type="file" class="custom-file-input" name="imagen" value="{{old('imagen')}}" accept="image/*">
               <label class="custom-file-label" for="inputGroupFile01">Eliga foto</label>
             </div>
             @error('imagen')
