@@ -15,6 +15,6 @@
 - **relizar migracion php artisan migrate**
 - **npm install**
 - **npm run dev**
-- **php aritsan key:generate**
+- **php artisan key:generate**
 - **Contar con Node.js v.17**
 - **Contar con PHP v.8**
