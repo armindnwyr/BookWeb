@@ -390,13 +390,13 @@ return [
             'text' => 'Autor',
             'route' => 'autor.index',
             'icon' => 'fa fa-user fa-fw',
-            'active' => ['autor*']
+            'active' => ['autor*'],
         ],
         [
             'text' => 'Categoria',
             'route' => 'categorias.index',
             'icon' => 'fa fa-bookmark fa-fw',
-            'active' => ['categorias*']
+            'active' => ['categorias*'],
         ],
         [
             'text' => 'Informe',
