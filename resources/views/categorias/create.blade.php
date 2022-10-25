@@ -8,7 +8,7 @@
 
 @section('content')
       <div class="row justify-content-center">
-        <div class="card shadow p-5 mb-5 bg-white rounded" style="width: 50rem;">
+        <div class="card" style="width: 50rem;">
             <div class="card-body">
               <form action="{{route('categorias.store')}}" method="post">
                 @csrf

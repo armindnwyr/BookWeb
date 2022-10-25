@@ -373,12 +373,14 @@ return [
         [
             'text' => 'Usuario',
             'route' => 'usuarios.index',
-            'icon' => 'fa fa-users fa-fw',
+            'icon' => 'fa fa-user-secret fa-fw',
+            'active' => ['usuarios*'],
         ],
         [
             'text' => 'Roles',
             'route' => 'roles.index',
-            'icon' => 'fa fa-users fa-fw',
+            'icon' => 'fa fa-sort fa-fw',
+            'active' => ['roles*'],
         ],
         [
             'text' => 'Docente',
@@ -389,13 +391,13 @@ return [
         [
             'text' => 'Autor',
             'route' => 'autor.index',
-            'icon' => 'fa fa-user fa-fw',
+            'icon' => 'fa fa-users fa-fw',
             'active' => ['autor*'],
         ],
         [
             'text' => 'Categoria',
             'route' => 'categorias.index',
-            'icon' => 'fa fa-bookmark fa-fw',
+            'icon' => 'fa fa-bars fa-fw',
             'active' => ['categorias*'],
         ],
         [
@@ -508,11 +510,11 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
                 ],
             ],
