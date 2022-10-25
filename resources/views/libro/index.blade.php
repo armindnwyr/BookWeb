@@ -10,13 +10,17 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
 @stop --}}
 
+@section('css')
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/keytable/2.7.0/css/keyTable.bootstrap4.min.css"> --}}
+@stop
+
 @section('content')
 
 <a href="{{route('libro.create')}}" class="btn btn-info mb-3">Crear Nuevo Libro</a>
 <div class="card">
   <div class="card-body">
 <div class="table-responsive">
-    <table id="tlibro" class="table table table-striped">
+    <table id="tlibro" class="table">
         <thead class="thead-dark">
           <tr>
             <th>Titulo</th>
@@ -77,10 +81,11 @@
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> --}}
 {{-- <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script> --}}
+{{-- <script src="https://cdn.datatables.net/keytable/2.7.0/js/dataTables.keyTable.min.js"></script> --}}
 <script>
     $('#tlibro').DataTable({
       responsive: true,
-      autoWidth: false,
+      autoWidth: false,     
       "language": {
             "lengthMenu": "Mostrar "+`
             <select class="custom-select custom-select-sm form-control form-control-sm">
