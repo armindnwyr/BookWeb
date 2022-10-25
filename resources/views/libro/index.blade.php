@@ -7,7 +7,7 @@
 @stop
 
 {{-- @section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css">
 @stop --}}
 
 @section('content')
@@ -22,6 +22,7 @@
             <th>Titulo</th>
             <th>Autor</th>
             <th>Imagen</th>
+            <th>Descripcion</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -31,7 +32,8 @@
             <td>{{$li->li_titulo}}</td>
             <td>{{$li->li_autor}}</td>
             <td><img src="{{$li->li_image}}" alt="" width="50px"></td>
-            <td>
+            <td>{{$li->li_descripcion}}</td>
+            <td width="140px">
               <a href="{{$li->li_enlace}}" class="btn btn-outline-dark btn-sm" target="_blank"><i class="fas fa-lg fa-file"></i></a>
               <a href="{{route('libro.edit', $li)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
               <form action="{{route('libro.destroy', $li)}}" method="post"  style="display: inline"> @csrf @method('delete')<button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
@@ -65,7 +67,7 @@
   </div>
 </div>
 @endforeach
-</div>
+</div
 @endforeach
 </div>
 </div> --}}
@@ -73,10 +75,33 @@
 @section('js')
 {{-- 
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> --}}
+{{-- <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script> --}}
 <script>
-$(document).ready(function () {
-    $('#tlibro').DataTable();
-});
+    $('#tlibro').DataTable({
+      responsive: true,
+      autoWidth: false,
+      "language": {
+            "lengthMenu": "Mostrar "+`
+            <select class="custom-select custom-select-sm form-control form-control-sm">
+              <option value="10">10</option> 
+              <option value="25">25</option> 
+              <option value="50">50</option> 
+              <option value="100">100</option> 
+              <option value="-1">All</option> 
+            </select>
+            `+" registros por paginas",
+            "zeroRecords": "Nada encontrado - lo siento",
+            "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtrado de _MAX_ registro total)",
+            "search":"Buscar: ",
+            "paginate":{
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+        }
+    });
 </script>
     
 @stop

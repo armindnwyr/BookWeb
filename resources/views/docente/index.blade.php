@@ -12,37 +12,63 @@
 <div class="card">
   <div class="card-body">
       <div class="table-responsive">    
-      <table class="table table-striped text-center ">
+      <table class="table table-striped text-center" id="tdocente">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Paterno</th>
-              <th scope="col">Materno</th>
-              <th scope="col">Sexo</th>
-              <th scope="col">Celular</th>
-              <th colspan="2">Acciones</th>
+              <th>Nombre</th>
+              <th>Paterno</th>
+              <th>Materno</th>
+              <th>Sexo</th>
+              <th>Celular</th>
+              <th>Acciones</th>
             </tr>
-          @foreach ($docentes as $item)
           </thead>
           <tbody>
+            @foreach ($docentes as $item)
             <tr>
-              <th scope="row">{{$item->id}}</th>
               <td>{{$item->doce_nombre}}</td>
               <td>{{$item->doce_paterno}}</td>
               <td>{{$item->doce_materno}}</td>
               <td>{{$item->doce_sexo}}</td>
               <td>{{$item->doce_celular}}</td>
-              <td width="10px"><a href="{{route('docente.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a></td>
-              <td width="10px"><form action="{{route('docente.destroy', $item)}}" method="post"> @csrf @method('delete')<x-adminlte-button class="btn-sm" type="submit" theme="outline-danger" icon="fas fa-lg fa-trash"/></form></td>
+              <td width="140px">
+                <a href="{{route('docente.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
+                <form action="{{route('docente.destroy', $item)}}" method="post" style="display: inline"> @csrf @method('delete')<x-adminlte-button class="btn-sm" type="submit" theme="outline-danger" icon="fas fa-lg fa-trash"/></form>
+              </td>
             </tr>
+            @endforeach
           </tbody>
-          @endforeach
         </table>
       </div>
   </div>
 </div>
+@stop
 
-
-
+@section('js')
+<script>
+  $('#tdocente').DataTable({
+    responsive: true,
+    autoWidth: false,
+    "language": {
+          "lengthMenu": "Mostrar "+`
+          <select class="custom-select custom-select-sm form-control form-control-sm">
+            <option value="10">10</option> 
+            <option value="25">25</option> 
+            <option value="50">50</option> 
+            <option value="100">100</option> 
+            <option value="-1">All</option> 
+          </select>
+          `+" registros por paginas",
+          "zeroRecords": "Nada encontrado - lo siento",
+          "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+          "infoEmpty": "No records available",
+          "infoFiltered": "(filtrado de _MAX_ registro total)",
+          "search":"Buscar: ",
+          "paginate":{
+            "next": "Siguiente",
+            "previous": "Anterior"
+          }
+      }
+  });
+</script>
 @stop

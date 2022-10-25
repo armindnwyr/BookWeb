@@ -10,26 +10,54 @@
 <a class="btn btn-info mb-3" href="{{route('categorias.create')}}">Crear Nueva Categoria</a>
 <div class="card">
   <div class="card-body">
-    <table class="table table-striped text-center">
+    <table class="table table-striped text-center" id="tcategoria">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th colspan="2">Acciones</th>
+          <th>Nombre</th>
+          <th>Acciones</th>
         </tr>
-      @foreach ($categorias as $item)
       </thead>
       <tbody>
+        @foreach ($categorias as $item)
         <tr>
-          <th scope="row">{{$item->id}}</th>
           <td>{{$item->cate_nombre}}</td>
-          <td width="10px"><a href="{{route('categorias.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a></td>
-          <td width="10px"><form action="{{route('categorias.destroy', $item)}}" method="post"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form></td>
+          <td width="140px">
+            <a href="{{route('categorias.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
+            <form action="{{route('categorias.destroy', $item)}}" method="post" style="display: inline"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
+          </td>
         </tr>
+        @endforeach
       </tbody>
-      @endforeach
     </table>
   </div>
 </div>
 @stop
 
+@section('js')
+<script>
+  $('#tcategoria').DataTable({
+    responsive: true,
+    autoWidth: false,
+    "language": {
+          "lengthMenu": "Mostrar "+`
+          <select class="custom-select custom-select-sm form-control form-control-sm">
+            <option value="10">10</option> 
+            <option value="25">25</option> 
+            <option value="50">50</option> 
+            <option value="100">100</option> 
+            <option value="-1">All</option> 
+          </select>
+          `+" registros por paginas",
+          "zeroRecords": "Nada encontrado - lo siento",
+          "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+          "infoEmpty": "No records available",
+          "infoFiltered": "(filtrado de _MAX_ registro total)",
+          "search":"Buscar: ",
+          "paginate":{
+            "next": "Siguiente",
+            "previous": "Anterior"
+          }
+      }
+  });
+</script>
+@stop
