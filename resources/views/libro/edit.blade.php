@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear Libro')
+@section('title', 'Editar Libro')
 
 @section('content_header')
     <h1 class="text-center font-weight-bold text-uppercase">Editar libro</h1>
@@ -38,13 +38,14 @@
                 <label>Subir Imagen</label>
                 <div class="custom-file">
                 <input type="file" class="custom-file-input" name="imagen" accept="image/*">
-                <label class="custom-file-label" for="inputGroupFile01">Eliga foto</label>
+                <label class="custom-file-label" for="inputGroupFile01">{{old('imagen',$libro->li_image)}}</label>
                 </div>
-                <img src="{{$libro->li_image}}" class="img-thumbnail">
                 @error('imagen')
                 <small class="text-danger">{{$message}}</small>
                 @enderror
-                </div>
+                
+                <img src="{{$libro->li_image}}" height="200" width="200" >
+            </div>
             </div>
             <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción</label>

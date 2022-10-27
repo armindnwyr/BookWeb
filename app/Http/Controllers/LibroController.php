@@ -107,20 +107,30 @@ class LibroController extends Controller
             'autor'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
-            'imagen' => 'required|image|max:2048',
         ]);
 
+        // $libro = libro::find(32);
+
+        if($request->hasFile('imagen')){
+            $request->validate([
+                'imagen' =>'required|image|max:2048',
+            ]);
+            $imagenes = $request->file('imagen')->store('public/imagenes');
+            
+            $libro->li_image = Storage::url($imagenes);
+        }
+
         //return $request->all();
+        
 
         $libro->li_titulo = $request->titulo;
         $libro->li_autor = $request->autor;
         $libro->li_enlace = $request->drive;
-        $libro->li_image = $request->imagen;
         $libro->li_descripcion = $request->descripcion;
-
-       $libro->save();
-
-       return redirect()->route('libros.index');
+        
+        $libro->save();
+        
+        return redirect()->route('libros.index');
     }
 
     /**
@@ -131,6 +141,9 @@ class LibroController extends Controller
      */
     public function destroy(libro $libro)
     {
+        $url = str_replace('storage','public', $libro->li_image);
+        Storage::delete($url);
+
         $libro->delete();
 
         return redirect()->route('libros.index');
