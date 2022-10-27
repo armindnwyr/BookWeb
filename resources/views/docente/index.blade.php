@@ -8,7 +8,7 @@
 
 @section('content')
 
-<a class="btn btn-info mb-3" href="{{route('docente.create')}}">Crear nuevo docente</a>
+<a class="btn btn-info mb-3" href="{{route('docentes.create')}}">Crear nuevo docente</a>
 <div class="card">
   <div class="card-body">
       <div class="table-responsive">    
@@ -32,8 +32,8 @@
               <td>{{$item->doce_sexo}}</td>
               <td>{{$item->doce_celular}}</td>
               <td width="140px">
-                <a href="{{route('docente.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
-                <form action="{{route('docente.destroy', $item)}}" method="post" style="display: inline"> @csrf @method('delete')<x-adminlte-button class="btn-sm" type="submit" theme="outline-danger" icon="fas fa-lg fa-trash"/></form>
+                <a href="{{route('docentes.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
+                <form action="{{route('docentes.destroy', $item)}}" method="post" style="display: inline"> @csrf @method('delete')<x-adminlte-button class="btn-sm" type="submit" theme="outline-danger" icon="fas fa-lg fa-trash"/></form>
               </td>
             </tr>
             @endforeach

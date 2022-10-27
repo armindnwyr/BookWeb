@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
   <div class="card-body">
-      <form action="{{route('docente.update', $docente)}}" method="post">
+      <form action="{{route('docentes.update', $docente)}}" method="post">
           @csrf
           @method('put')
           <div class="form-row">
@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="row justify-content-center">
-            <a href="{{route('docente.store')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
+            <a href="{{route('docentes.index')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
             <button type="submit" class="btn btn-success m-3 col-md-3">Enviar</button>
           </div>
         </form>

@@ -63,7 +63,7 @@ class DocenteController extends Controller
 
        $docente->save();
 
-       return redirect()->route('docente.index');
+       return redirect()->route('docentes.index');
     }
 
     /**
@@ -117,7 +117,7 @@ class DocenteController extends Controller
 
        $docente->save();
 
-       return redirect()->route('docente.index');
+       return redirect()->route('docentes.index');
     }
 
     /**
@@ -130,6 +130,6 @@ class DocenteController extends Controller
     {
         $docente->delete();
 
-        return redirect()->route('docente.index');
+        return redirect()->route('docentes.index');
     }
 }

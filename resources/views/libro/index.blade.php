@@ -16,7 +16,7 @@
 
 @section('content')
 
-<a href="{{route('libro.create')}}" class="btn btn-info mb-3">Crear Nuevo Libro</a>
+<a href="{{route('libros.create')}}" class="btn btn-info mb-3">Crear Nuevo Libro</a>
 <div class="card">
   <div class="card-body">
 <div class="table-responsive">
@@ -36,11 +36,11 @@
             <td>{{$li->li_titulo}}</td>
             <td>{{$li->li_autor}}</td>
             <td><img src="{{$li->li_image}}" alt="" width="50px"></td>
-            <td>{{$li->li_descripcion}}</td>
+            <td class="text-justify" >{{$li->li_descripcion}}</td>
             <td width="140px">
               <a href="{{$li->li_enlace}}" class="btn btn-outline-dark btn-sm" target="_blank"><i class="fas fa-lg fa-file"></i></a>
-              <a href="{{route('libro.edit', $li)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
-              <form action="{{route('libro.destroy', $li)}}" method="post"  style="display: inline"> @csrf @method('delete')<button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
+              <a href="{{route('libros.edit', $li)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
+              <form action="{{route('libros.destroy', $li)}}" method="post" class="d-inline"> @csrf @method('delete')<button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
             </td>
           </tr>
           {{-- <img src="{{$li->li_image}}" alt=""> --}}

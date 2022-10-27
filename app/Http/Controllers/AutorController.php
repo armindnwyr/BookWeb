@@ -58,7 +58,7 @@ class AutorController extends Controller
         
         $autores->save();
         
-        return redirect()->route('autor.index');
+        return redirect()->route('autors.index');
     }
 
     /**
@@ -114,7 +114,7 @@ class AutorController extends Controller
         
         $autor->save();
         
-        return redirect()->route('autor.index');
+        return redirect()->route('autors.index');
     }
 
     /**
@@ -127,6 +127,6 @@ class AutorController extends Controller
     {
         $autor->delete();
 
-        return redirect()->route('autor.index');
+        return redirect()->route('autors.index');
     }
 }

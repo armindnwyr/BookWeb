@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{route('libro.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('libros.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
             <div class="form-group col-sm-4">
@@ -52,7 +52,7 @@
                 @enderror
             </div>
             <div class="row justify-content-center">
-                <a href="{{route('libro.index')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
+                <a href="{{route('libros.index')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
                 <button type="submit" class="btn btn-success m-3 col-md-3">Enviar</button>
             </div>
         </form>

@@ -34,37 +34,39 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('docente',[DocenteController::class,'index'])->name('docente.index');
+// Route::get('docente',[DocenteController::class,'index'])->name('docente.index');
 
-Route::get('docente/create', [DocenteController::class, 'create'])->name('docente.create');
+// Route::get('docente/create', [DocenteController::class, 'create'])->name('docente.create');
 
-Route::get('docente/{docente}', [DocenteController::class, 'show'])->name('curso.show');
+// Route::get('docente/{docente}', [DocenteController::class, 'show'])->name('curso.show');
 
-Route::post('docente',[DocenteController::class,'store'])->name('docente.store');
+// Route::post('docente',[DocenteController::class,'store'])->name('docente.store');
 
-Route::get('docente/{docente}/edit',[DocenteController::class,'edit'])->name('docente.edit');
+// Route::get('docente/{docente}/edit',[DocenteController::class,'edit'])->name('docente.edit');
 
-Route::put('docente/{docente}',[DocenteController::class,'update'])->name('docente.update');
+// Route::put('docente/{docente}',[DocenteController::class,'update'])->name('docente.update');
 
-Route::delete('docente/{docente}',[DocenteController::class,'destroy'])->name('docente.destroy');
+// Route::delete('docente/{docente}',[DocenteController::class,'destroy'])->name('docente.destroy');
 
-
+Route::resource('docentes', DocenteController::class);
 //--------------LIBRO---------------------//
 
-Route::get('libro',[LibroController::class,'index'])->name('libro.index');
+// Route::get('libro',[LibroController::class,'index'])->name('libro.index');
 
-Route::get('libro/create', [LibroController::class, 'create'])->name('libro.create');
+// Route::get('libro/create', [LibroController::class, 'create'])->name('libro.create');
 
-Route::get('libro/{libro}', [LibroController::class, 'show'])->name('libro.show');
+// Route::get('libro/{libro}', [LibroController::class, 'show'])->name('libro.show');
 
-Route::post('libro',[LibroController::class,'store'])->name('libro.store');
+// Route::post('libro',[LibroController::class,'store'])->name('libro.store');
 
-Route::get('libro/{libro}/edit',[LibroController::class,'edit'])->name('libro.edit');
+// Route::get('libro/{libro}/edit',[LibroController::class,'edit'])->name('libro.edit');
 
-Route::put('libro/{libro}',[LibroController::class,'update'])->name('libro.update');
+// Route::put('libro/{libro}',[LibroController::class,'update'])->name('libro.update');
 
-Route::delete('libro/{libro}',[LibroController::class,'destroy'])->name('libro.destroy');
+// Route::delete('libro/{libro}',[LibroController::class,'destroy'])->name('libro.destroy');
 
+
+Route::resource('libros', LibroController::class);
 
 Route::get('biblioteca',[BibliotecaController::class, 'index']);
 
@@ -89,36 +91,40 @@ Route::resource('categorias', CategoriaController::class);
 
 //--------------AUTOR---------------------//
 
-Route::get('autor',[AutorController::class,'index'])->name('autor.index');
+// Route::get('autor',[AutorController::class,'index'])->name('autor.index');
 
-Route::get('autor/create',[AutorController::class,'create'])->name('autor.create');
+// Route::get('autor/create',[AutorController::class,'create'])->name('autor.create');
 
-Route::get('autor/{show}',[AutorController::class,'show'])->name('autor.show');
+// Route::get('autor/{show}',[AutorController::class,'show'])->name('autor.show');
 
-Route::post('autor',[AutorController::class,'store'])->name('autor.store');
+// Route::post('autor',[AutorController::class,'store'])->name('autor.store');
 
-Route::get('autor/{autor}/edit',[AutorController::class,'edit'])->name('autor.edit');
+// Route::get('autor/{autor}/edit',[AutorController::class,'edit'])->name('autor.edit');
 
-Route::put('autor/{autor}',[AutorController::class,'update'])->name('autor.update');
+// Route::put('autor/{autor}',[AutorController::class,'update'])->name('autor.update');
 
-Route::delete('autor/{autor}',[AutorController::class,'destroy'])->name('autor.destroy');
+// Route::delete('autor/{autor}',[AutorController::class,'destroy'])->name('autor.destroy');
 
+Route::resource('autors', AutorController::class);
 
 //--------------INFORME---------------------//
 
-Route::get('informe',[InformeController::class,'index'])->name('informe.index');
+// Route::get('informe',[InformeController::class,'index'])->name('informe.index');
 
-Route::get('informe/create',[InformeController::class,'create'])->name('informe.create');
+// Route::get('informe/create',[InformeController::class,'create'])->name('informe.create');
 
-Route::get('informe/{show}',[InformeController::class,'show'])->name('informe.show');
+// Route::get('informe/{show}',[InformeController::class,'show'])->name('informe.show');
 
-Route::post('informe',[InformeController::class,'store'])->name('informe.store');
+// Route::post('informe',[InformeController::class,'store'])->name('informe.store');
 
-Route::get('informe/{informe}/edit',[InformeController::class,'edit'])->name('informe.edit');
+// Route::get('informe/{informe}/edit',[InformeController::class,'edit'])->name('informe.edit');
 
-Route::put('informe/{informe}',[InformeController::class,'update'])->name('informe.update');
+// Route::put('informe/{informe}',[InformeController::class,'update'])->name('informe.update');
 
-Route::delete('informe/{informe}',[InformeController::class,'destroy'])->name('informe.destroy');
+// Route::delete('informe/{informe}',[InformeController::class,'destroy'])->name('informe.destroy');
+
+Route::resource('informes', InformeController::class);
+// USUARIOS Y ROLES 
 
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('roles', RolesController::class);

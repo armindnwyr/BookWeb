@@ -384,13 +384,13 @@ return [
         ],
         [
             'text' => 'Docente',
-            'route' => 'docente.index',
+            'route' => 'docentes.index',
             'icon' => 'fa fa-users fa-fw',
             'active' => ['docente*'],
         ],
         [
             'text' => 'Autor',
-            'route' => 'autor.index',
+            'route' => 'autors.index',
             'icon' => 'fa fa-users fa-fw',
             'active' => ['autor*'],
         ],
@@ -402,13 +402,13 @@ return [
         ],
         [
             'text' => 'Informe',
-            'route' => 'informe.index',
+            'route' => 'informes.index',
             'icon' => 'fa fa-file-pdf fa-fw',
             'active' => ['informe*']
         ],
         [
             'text' => 'Libros',
-            'route' => 'libro.index',
+            'route' => 'libros.index',
             'icon' => 'fa fa-book fa-fw',
             'active' => ['libro*']
         ],

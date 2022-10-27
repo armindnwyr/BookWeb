@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form action="{{route('libro.update',$libro)}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('libros.update',$libro)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="row">
@@ -37,9 +37,10 @@
             <div class="form-group col-sm-4">
                 <label>Subir Imagen</label>
                 <div class="custom-file">
-                <input type="file" class="custom-file-input" name="imagen" value="{{old('imagen',$libro->li_image)}}">
+                <input type="file" class="custom-file-input" name="imagen" accept="image/*">
                 <label class="custom-file-label" for="inputGroupFile01">Eliga foto</label>
                 </div>
+                <img src="{{$libro->li_image}}" class="img-thumbnail">
                 @error('imagen')
                 <small class="text-danger">{{$message}}</small>
                 @enderror
@@ -53,7 +54,7 @@
                 @enderror
             </div>
             <div class="row justify-content-center">
-                <a href="{{route('libro.index')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
+                <a href="{{route('libros.index')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
                 <button type="submit" class="btn btn-success m-3 col-md-3">Enviar</button>
             </div>
         </form>

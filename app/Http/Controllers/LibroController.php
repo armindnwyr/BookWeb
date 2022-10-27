@@ -65,7 +65,7 @@ class LibroController extends Controller
         
         $libro->save();
 
-        return redirect()->route('libro.index');
+        return redirect()->route('libros.index');
 
        
 
@@ -107,7 +107,7 @@ class LibroController extends Controller
             'autor'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
-            'imagen' => 'required',
+            'imagen' => 'required|image|max:2048',
         ]);
 
         //return $request->all();
@@ -120,7 +120,7 @@ class LibroController extends Controller
 
        $libro->save();
 
-       return redirect()->route('libro.index');
+       return redirect()->route('libros.index');
     }
 
     /**
@@ -133,6 +133,6 @@ class LibroController extends Controller
     {
         $libro->delete();
 
-        return redirect()->route('libro.index');
+        return redirect()->route('libros.index');
     }
 }

@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<a class="btn btn-info mb-3" href="{{route('informe.create')}}">Crear Nuevo Informe</a>
+<a class="btn btn-info mb-3" href="{{route('informes.create')}}">Crear Nuevo Informe</a>
 <div class="card">
   <div class="card-body">
     <div class="table-responsive">    
@@ -34,8 +34,8 @@
               <td>{{$item->autor->au_nombre}} {{$item->autor->au_paterno}} {{$item->autor->au_materno}}</td>
               <td width="140px">
                 <a href="{{$item->info_enlace}}" class="btn btn-outline-dark btn-sm" target="_blank"><i class="fas fa-lg fa-file"></i></a>
-                <a href="{{route('informe.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
-                <form action="{{route('informe.destroy', $item)}}" method="post" style="display: inline;"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
+                <a href="{{route('informes.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
+                <form action="{{route('informes.destroy', $item)}}" method="post" style="display: inline;"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
               </td>
             </tr>
             @endforeach

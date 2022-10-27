@@ -67,7 +67,7 @@ class InformeController extends Controller
 
         $informe->save();
 
-        return redirect()->route('informe.index');
+        return redirect()->route('informes.index');
     }
 
     /**
@@ -128,7 +128,7 @@ class InformeController extends Controller
 
         $informe->save();
 
-        return redirect()->route('informe.index');
+        return redirect()->route('informes.index');
     }
 
     /**
@@ -141,6 +141,6 @@ class InformeController extends Controller
     {
         $informe->delete();
 
-        return redirect()->route('informe.index');
+        return redirect()->route('informes.index');
     }
 }
