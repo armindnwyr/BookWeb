@@ -37,15 +37,17 @@
             <div class="form-group col-sm-4">
                 <label>Subir Imagen</label>
                 <div class="custom-file">
-                <input type="file" class="custom-file-input" name="imagen" accept="image/*">
-                <label class="custom-file-label" for="inputGroupFile01">{{old('imagen',$libro->li_image)}}</label>
+                <input type="file" class="custom-file-input" name="imagen" accept="image/*" onchange="loadFile(event)">
+                <label class="custom-file-label" for="inputGroupFile01" >Seleccione una Imagen</label>
                 </div>
                 @error('imagen')
                 <small class="text-danger">{{$message}}</small>
                 @enderror
-                
-                <img src="{{$libro->li_image}}" height="200" width="200" >
+
             </div>
+            </div>
+            <div class="text-center">
+                <img src="{{$libro->li_image}}" id="output" class="rounded img-thumbnail" width="300" height="300">
             </div>
             <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción</label>
@@ -65,4 +67,16 @@
     <div class="shadow p-5 mb-5 bg-white rounded">
 
     </div> --}}
+@stop
+
+@section('js')
+
+<script>
+    var loadFile = function(event){
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output = document.getElementById("output").width = "300"
+    };
+</script>
+
 @stop

@@ -6,6 +6,7 @@ use App\Models\libro;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class LibroController extends Controller
 {
@@ -115,8 +116,13 @@ class LibroController extends Controller
             $request->validate([
                 'imagen' =>'required|image|max:2048',
             ]);
+
+            $path = '/storage/imagenes/'.$request->li_image;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
             $imagenes = $request->file('imagen')->store('public/imagenes');
-            
             $libro->li_image = Storage::url($imagenes);
         }
 
