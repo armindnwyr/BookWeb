@@ -6,7 +6,7 @@ use App\Models\libro;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use File;
+// use File;
 
 class LibroController extends Controller
 {
@@ -68,8 +68,6 @@ class LibroController extends Controller
 
         return redirect()->route('libros.index');
 
-       
-
     }
 
     /**
@@ -117,11 +115,11 @@ class LibroController extends Controller
                 'imagen' =>'required|image|max:2048',
             ]);
 
-            $path = '/storage/imagenes/'.$request->li_image;
-            if(File::exists($path))
-            {
-                File::delete($path);
-            }
+            // $path = '/storage/imagenes/'.$request->li_image;
+            // if(File::exists($path))
+            // {
+            //     File::delete($path);
+            // }
             $imagenes = $request->file('imagen')->store('public/imagenes');
             $libro->li_image = Storage::url($imagenes);
         }
