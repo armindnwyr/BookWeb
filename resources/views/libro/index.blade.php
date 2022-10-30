@@ -33,7 +33,7 @@
         <tbody>
           @foreach ($libros as $li)
           <tr>
-            <td>{{$li->li_titulo}}</td>
+            <td><a href="{{route('libros.show', $li)}}" class="text-decoration-none">{{$li->li_titulo}}</a></td>
             <td>{{$li->li_autor}}</td>
             <td><img src="{{$li->li_image}}" alt="" width="50px"></td>
             <td class="text-justify" >{{$li->li_descripcion}}</td>
