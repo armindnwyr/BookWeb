@@ -8,6 +8,8 @@
 
 @section('content')
 <a href="" class="btn btn-info mb-3">Regresar</a>
+<div class="row">
+    <div class="col-md-6 offset-md-3 mt-5">
 <div class="card">
     <div class="card-body">
         <form action="{{route('usuarios.store')}}" method="POST">
@@ -41,6 +43,8 @@
         </div>
         <button class="btn btn-info">Enviar</button>
         </form>
+    </div>
+</div>
     </div>
 </div>
 @stop

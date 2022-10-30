@@ -7,6 +7,8 @@
 @stop
 
 @section('content')
+<div class="row">
+  <div class="col-md-6 offset-md-3 mt-5">
 <div class="card">
   <div class="card-body">
       <form action="{{route('docentes.update', $docente)}}" method="post">
@@ -68,6 +70,8 @@
             <button type="submit" class="btn btn-success m-3 col-md-3">Enviar</button>
           </div>
         </form>
+  </div>
+</div>
   </div>
 </div>
     {{-- <a href="{{route('docente.store')}}" class="btn btn-info mb-3">Regresar Lista Docente</a> --}}

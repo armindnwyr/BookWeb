@@ -7,6 +7,8 @@
 @stop
 
 @section('content')
+<div class="row">
+  <div class="col-md-6 offset-md-3 mt-5">
 <div class="card">
   <div class="card-body">
     <form action="{{route('autors.store')}}" method="post">
@@ -84,5 +86,8 @@
         
     </div>
      --}}
+
+  </div>
+</div>
 
 @stop

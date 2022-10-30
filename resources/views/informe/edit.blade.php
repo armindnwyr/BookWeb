@@ -7,6 +7,8 @@
 @stop
 
 @section('content')
+<div class="row">
+  <div class="col-md-6 offset-md-3 mt-5">
 <div class="card">
   <div class="card-body">
     <form action="{{route('informes.update', $informe)}}" method="post">
@@ -93,4 +95,7 @@
     {{-- <div class="shadow p-5 mb-5 bg-white rounded">
         
     </div> --}}
+
+  </div>
+</div>
 @stop
