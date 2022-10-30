@@ -3,7 +3,7 @@
 @section('title', 'Libro Digital')
 
 @section('content_header')
-    <h1>Lista de libros</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Lista de libros</h1>
 @stop
 
 {{-- @section('css')

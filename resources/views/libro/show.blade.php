@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
     <div class="row mt-2">
-    <div class="col-12">
+    <div class="col-md-12 offset-md-12 mt-4">
         <div class="card">
         <div class="card-body">
             <div class="row  align-items-center">
@@ -20,7 +20,7 @@
             <div class="col-md-10">
                 <h5 style="text-align: justify;">{{$libro->li_titulo}}</h5>
                 <div class="row">
-                <p class="fs-6">Diaz Estela, Maritza Yudit; Zenteno Sarayasi, Tania Mayli (Universidad Peruana UniónPE, 2022-10-12)</p>
+                <p class="fs-6">{{$libro->li_autor}} (Universidad Nacional del Altiplano - Puno, {{$libro->updated_at}})</p>
                 <p class="lh-sm" style="text-align: justify;">
                     {{$libro->li_descripcion}}
                 </p>
