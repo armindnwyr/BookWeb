@@ -61,7 +61,7 @@ class LibroController extends Controller
         $libro->li_titulo = $request->titulo;
         $libro->li_autor = $request->autor;
         $libro->li_enlace = $request->drive;
-        $libro->li_image =  $url = Storage::url($imagenes);
+        $libro->li_image =  $imagenes;
         $libro->li_descripcion = $request->descripcion;
         
         $libro->save();
