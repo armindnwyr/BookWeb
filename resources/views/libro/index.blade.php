@@ -35,7 +35,7 @@
           <tr>
             <td><a href="{{route('libros.show', $li)}}" class="text-decoration-none">{{$li->li_titulo}}</a></td>
             <td>{{$li->li_autor}}</td>
-            <td><img src="{{$li->li_image}}" alt="" width="50px"></td>
+            <td><img src="{{asset($li->li_image)}}" alt="" width="50px"></td>
             <td class="text-justify" >{{$li->li_descripcion}}</td>
             <td width="140px">
               <a href="{{$li->li_enlace}}" class="btn btn-outline-dark btn-sm" target="_blank"><i class="fas fa-lg fa-file"></i></a>

@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'Biblioteca | ',
     'title_postfix' => '',
 
     /*
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -151,7 +151,7 @@ return [
     'layout_topnav' => null,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => true,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => false,
     'layout_dark_mode' => false,
 
@@ -192,7 +192,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-warning elevation-2',
+    'classes_sidebar' => 'sidebar-dark-info elevation-2',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-dark navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -375,42 +375,49 @@ return [
             'route' => 'usuarios.index',
             'icon' => 'fa fa-user-secret fa-fw',
             'active' => ['usuarios*'],
+            'icon_color' => 'light',
         ],
         [
             'text' => 'Roles',
             'route' => 'roles.index',
             'icon' => 'fa fa-sort fa-fw',
             'active' => ['roles*'],
+            'icon_color' => 'light',
         ],
         [
             'text' => 'Docente',
             'route' => 'docentes.index',
             'icon' => 'fa fa-users fa-fw',
             'active' => ['docente*'],
+            'icon_color' => 'light',
         ],
         [
             'text' => 'Autor',
             'route' => 'autors.index',
             'icon' => 'fa fa-users fa-fw',
             'active' => ['autor*'],
+            'icon_color' => 'light',
         ],
         [
             'text' => 'Categoria',
             'route' => 'categorias.index',
             'icon' => 'fa fa-bars fa-fw',
             'active' => ['categorias*'],
+            'icon_color' => 'light',
         ],
         [
             'text' => 'Informe',
             'route' => 'informes.index',
             'icon' => 'fa fa-file-pdf fa-fw',
-            'active' => ['informe*']
+            'active' => ['informe*'],
+            'icon_color' => 'light',
         ],
         [
             'text' => 'Libros',
             'route' => 'libros.index',
             'icon' => 'fa fa-book fa-fw',
-            'active' => ['libro*']
+            'active' => ['libro*'],
+            'icon_color' => 'light',
         ],
     ],
 
