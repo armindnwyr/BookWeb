@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\autor;
+use App\Models\docente;
+use App\Models\informe;
+use App\Models\libro;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $autor = autor::count();
+        $docente = docente::count();
+        $informe = informe::count();
+        $libro = libro::count();
+
+        // dd($libro);
+
+        return view('home', compact('autor','docente','informe','libro'));
     }
 }
