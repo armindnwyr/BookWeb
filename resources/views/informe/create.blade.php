@@ -8,10 +8,10 @@
 
 @section('content')
 <div class="row">
-  <div class="col-md-6 offset-md-3 mt-5">
+<div class="col-md-6 offset-md-3 mt-5">
 <div class="card">
   <div class="card-body">
-    <form action="{{route('informes.store')}}" method="post">
+    <form action="{{route('informes.store')}}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="form-row">
         <div class="form-group col-md-6 mt-2">
@@ -36,9 +36,19 @@
             @enderror 
         </div>
         <div class="form-group col-md-6 mt-2">
-          <label>Enlace del Drive</label>
-          <input type="text" class="form-control" id="inputEmail4" name="enlace" value="{{old('enlace')}}">
-          @error('enlace')
+          <label>Subir Informe</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="pdf" value="{{old('pdf')}}" accept="file/*">
+            <label class="custom-file-label" for="inputGroupFile01">Seleccione un pdf</label>
+          </div>
+            @error('pdf')
+            <small class="text-danger">{{$message}}</small>
+            @enderror 
+        </div>
+        <div class="form-group col-md-6 mt-2">
+          <label>Fecha del Informe</label>
+          <input type="date" class="form-control" id="inputEmail4" name="fecha" value="{{old('fecha')}}">
+          @error('fecha')
           <small class="text-danger">{{$message}}</small>
           @enderror 
         </div>
@@ -75,6 +85,7 @@
           <small class="text-danger">{{$message}}</small>
           @enderror 
         </div>
+
       </div>
         <div class="form-group">
           <label>Descripción</label>

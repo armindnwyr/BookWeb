@@ -19,7 +19,8 @@ return new class extends Migration
             $table->longText('info_descripcion');
             $table->string('info_codigo', 10);
             $table->string('info_centro', 60);
-            $table->string('info_enlace', 80);
+            $table->string('info_pdf');
+            $table->date('info_fecha');
             //$table->unsignedBigInteger('docente_id')->nullable();
             //$table->unsignedBigInteger('categoria_id')->nullable();
             //$table->unsignedBigInteger('autor_id')->nullable();

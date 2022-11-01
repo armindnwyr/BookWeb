@@ -11,7 +11,7 @@
   <div class="col-md-6 offset-md-3 mt-5">
 <div class="card">
   <div class="card-body">
-    <form action="{{route('informes.update', $informe)}}" method="post">
+    <form action="{{route('informes.update', $informe)}}" method="post" enctype="multipart/form-data">
       @csrf
       @method('put')
       <div class="form-row">
@@ -37,9 +37,20 @@
             @enderror 
         </div>
         <div class="form-group col-md-6 mt-2">
-          <label>Enlace del Drive</label>
-          <input type="text" class="form-control" id="inputEmail4" name="enlace" value="{{old('enlace', $informe->info_enlace)}}">
-          @error('enlace')
+          <label>Subir Informe</label>
+          <span class="badge bg-warning"><a href="{{$informe->info_pdf}}" class="m-2 text-white" target="_blank">Ver Informe</a></span>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="pdf" accept="file/*">
+            <label class="custom-file-label" for="inputGroupFile01">Seleccione un pdf</label>
+          </div>
+          @error('pdf')
+          <small class="text-danger">{{$message}}</small>
+          @enderror 
+        </div>
+        <div class="form-group col-md-6 mt-2">
+          <label>Fecha del Informe</label>
+          <input type="date" class="form-control" id="inputEmail4" name="fecha" value="{{old('fecha', $informe->info_fecha)}}">
+          @error('fecha')
           <small class="text-danger">{{$message}}</small>
           @enderror 
         </div>
@@ -77,6 +88,7 @@
           <small class="text-danger">{{$message}}</small>
           @enderror 
         </div>
+
       </div>
         <div class="form-group">
           <label>Descripción</label>

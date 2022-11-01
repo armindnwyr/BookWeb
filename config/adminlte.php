@@ -323,7 +323,7 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'route'  => 'perfil.index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

@@ -8,6 +8,10 @@ use App\Models\informe;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use App\Models\categoria;
+use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Facades\Storage;
+
+
 class InformeController extends Controller
 {
     /**
@@ -47,12 +51,15 @@ class InformeController extends Controller
             'nombre'=>'required',
             'descripcion'=>'required',
             'codigo'=>'required',
-            'enlace'=>'required',
+            'pdf'=>'required',
+            'fecha'=>'required',
             'centro'=>'required',
             'docente'=>'required',
             'categoria'=>'required',
             'autor'=>'required',
         ]);
+
+        $pdf = $request->file('pdf')->store('public/documento');
 
         $informe = new informe();
 
@@ -60,7 +67,8 @@ class InformeController extends Controller
         $informe->info_descripcion = $request->descripcion;
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;
-        $informe->info_enlace = $request->enlace;
+        $informe->info_pdf = $url = Storage::url($pdf);
+        $informe->info_fecha = $request->fecha;
         $informe->docente_id = $request->docente;
         $informe->categoria_id = $request->categoria;
         $informe->autor_id = $request->autor;
@@ -108,20 +116,38 @@ class InformeController extends Controller
             'nombre'=>'required',
             'descripcion'=>'required',
             'codigo'=>'required',
-            'enlace'=>'required',
+            'fecha'=>'required',
             'centro'=>'required',
             'docente'=>'required',
             'categoria'=>'required',
             'autor'=>'required',
         ]);
 
+        if($request->hasFile('pdf')){
+            $request->validate([
+                'pdf'=>'required',
+            ]);
+
+            // $path = '/storage/imagenes/'.$request->li_image;
+            // if(File::exists($path))
+            // {
+            //     File::delete($path);
+            // }
+            $url = str_replace('storage','public', $informe->info_pdf);
+            // Storage::delete($url);
+
+            $pdf = $request->file('pdf')->store('public/documento');
+            $informe->info_pdf = Storage::url($pdf);
+
+            Storage::delete($url);
+        }
         //$informe = new informe();
 
         $informe->info_nombre = $request->nombre;
         $informe->info_descripcion = $request->descripcion;
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;
-        $informe->info_enlace = $request->enlace;
+        $informe->info_fecha = $request->fecha;
         $informe->docente_id = $request->docente;
         $informe->categoria_id = $request->categoria;
         $informe->autor_id = $request->autor;
