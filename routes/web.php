@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\BibliotecaController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolesController;
 use Spatie\Permission\Contracts\Role;
@@ -128,6 +129,7 @@ Route::resource('informes', InformeController::class);
 
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('roles', RolesController::class);
+Route::resource('perfil', PerfilController::class);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

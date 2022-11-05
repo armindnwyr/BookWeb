@@ -61,7 +61,7 @@ class LibroController extends Controller
         $libro->li_titulo = $request->titulo;
         $libro->li_autor = $request->autor;
         $libro->li_enlace = $request->drive;
-        $libro->li_image =  $imagenes;
+        $libro->li_image =  $url = Storage::url($imagenes);
         $libro->li_descripcion = $request->descripcion;
         
         $libro->save();
@@ -121,8 +121,13 @@ class LibroController extends Controller
             // {
             //     File::delete($path);
             // }
+            $url = str_replace('storage','public', $libro->li_image);
+            // Storage::delete($url);
+
             $imagenes = $request->file('imagen')->store('public/imagenes');
             $libro->li_image = Storage::url($imagenes);
+
+            Storage::delete($url);
         }
 
         //return $request->all();

@@ -9,6 +9,8 @@ class informe extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['info_pdf'];
+
     //protected $fillable = ['doce_id', 'cate_id', 'au_id'];
     //return $this->belongsTo(Autor::class, 'au_id', 'id');
 
