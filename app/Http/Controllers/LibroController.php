@@ -156,6 +156,6 @@ class LibroController extends Controller
 
         $libro->delete();
 
-        return redirect()->route('libros.index');
+        return redirect()->route('libros.index')->with('eliminar' === 'delete');
     }
 }

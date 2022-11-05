@@ -35,7 +35,7 @@
               <td width="140px">
                 <a href="{{$item->info_pdf}}" class="btn btn-outline-dark btn-sm" target="_blank"><i class="fas fa-lg fa-file"></i></a>
                 <a href="{{route('informes.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
-                <form action="{{route('informes.destroy', $item)}}" method="post" style="display: inline;"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
+                <form action="{{route('informes.destroy', $item)}}" method="post" style="display: inline;" class="eliminar"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
               </td>
             </tr>
             @endforeach
@@ -47,6 +47,38 @@
 @stop
 
 @section('js')
+@if(session('eliminar') == 'delete')
+<script>
+ Swal.fire(
+          '¡Eliminado!',
+          'El registro ha sido eliminado.',
+          'success'
+        )
+</script>
+@endif
+<script>
+  $('.eliminar').submit(function(e){
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Estas seguro?',
+      text: "No podrás revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Si, eliminarlo!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.submit();
+      }
+    })
+
+  });
+</script>
+
 <script>
   $('#tinforme').DataTable({
   responsive: true,

@@ -105,6 +105,6 @@ class CategoriaController extends Controller
     {
         $categoria->delete();
 
-        return redirect()->route('categorias.index');
+        return back()->with('eliminar', 'delete');
     }
 }

@@ -130,6 +130,6 @@ class DocenteController extends Controller
     {
         $docente->delete();
 
-        return redirect()->route('docentes.index');
+        return redirect()->route('docentes.index')->with('eliminar'==='delete');
     }
 }

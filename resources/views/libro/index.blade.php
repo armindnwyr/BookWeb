@@ -40,7 +40,7 @@
             <td width="140px">
               <a href="{{$li->li_enlace}}" class="btn btn-outline-dark btn-sm" target="_blank"><i class="fas fa-lg fa-file"></i></a>
               <a href="{{route('libros.edit', $li)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
-              <form action="{{route('libros.destroy', $li)}}" method="post" class="d-inline"> @csrf @method('delete')<button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
+              <form action="{{route('libros.destroy', $li)}}" method="post" class="d-inline eliminar"> @csrf @method('delete')<button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
             </td>
           </tr>
           {{-- <img src="{{$li->li_image}}" alt=""> --}}
@@ -82,6 +82,37 @@
 {{-- <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script> --}}
 {{-- <script src="https://cdn.datatables.net/keytable/2.7.0/js/dataTables.keyTable.min.js"></script> --}}
+@if(session('eliminar') == 'delete')
+<script>
+ Swal.fire(
+          '¡Eliminado!',
+          'El registro ha sido eliminado.',
+          'success'
+        )
+</script>
+@endif
+<script>
+  $('.eliminar').submit(function(e){
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Estas seguro?',
+      text: "No podrás revertir esto!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Si, eliminarlo!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.submit();
+      }
+    })
+
+  });
+</script>
 <script>
     $('#tlibro').DataTable({
       responsive: true,
