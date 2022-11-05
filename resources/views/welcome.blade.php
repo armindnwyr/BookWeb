@@ -14,6 +14,9 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/style.css">
 
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+
+
     <title>Biblioteca Especializada - EPIS</title>
 </head>
 
@@ -88,57 +91,32 @@
                     </div>
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
+           
+            <div class="row g-4" id="paginated-list" aria-live="polite">
+                @foreach ($libro as $li)
+                <div class="col-lg-4 col-md-6" >
                     <div class="service">
-                        <img src="img/icon1.png" alt="">
-                        <h5>Digital Marketing</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
+                        <img src="{{$li->li_image}}" alt="">
+                        <h5>{{$li->li_titulo}}</h5>
+                        <p>{{substr($li->li_descripcion,0,200)}}</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon2.png" alt="">
-                        <h5>Logo Designing</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon3.png" alt="">
-                        <h5>Buisness consulting</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon4.png" alt="">
-                        <h5>Videography</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon5.png" alt="">
-                        <h5>Brand Identity</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service">
-                        <img src="img/icon6.png" alt="">
-                        <h5>Ethical Hacking</h5>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                            classical Latin literature from</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
+            <nav class="pagination-container">
+                <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">&lt;</button>
+                <div id="pagination-numbers"></div>
+                <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">&gt;</button>
+            </nav>
         </div>
+        {{-- <div class="row">
+            <div class="col-md-12">
+            {{$libro->links('pagination::bootstrap-4') }}
+            </div>
+        </div>       --}}
+
+       
+
     </section>
 
 
@@ -210,6 +188,7 @@
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/page.js"></script>
 </body>
 
 </html>
