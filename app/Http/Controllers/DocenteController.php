@@ -102,7 +102,7 @@ class DocenteController extends Controller
             'paterno'=> 'required',
             'materno'=> 'required',
             'genero' => 'required',
-            'celular' => 'numeric',
+            'celular' => 'required',
             'correo' => 'required',
         ]);
 

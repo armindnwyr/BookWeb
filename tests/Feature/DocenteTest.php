@@ -7,41 +7,44 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use App\Models\User;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
 class DocenteTest extends TestCase
 {
     /** @test */
-    public function a_docente_can_be_created(){
+    public function docenteStore(){
         // $this->withDeprecationHandling();
         // $user = User::find(1);
  
         // $response = $this->actingAs($user)
         //                  ->withSession(['email' => 'admin@gmail.com', 'password' => 'administrador'])
         //                  ->get('login');
-
-        // $this->post('docentes',[
-        //     'doce_nombre' => 'Reese Weimann',
-        //     'doce_paterno' => 'Yvette Nikolaus I',
-        //     'doce_materno' => 'Prof. Lucie Pacocha',
-        //     'doce_sexo' => 'Masculino',
-        //     'doce_celular' => 279968381,
-        //     'doce_correo' => 'marion.batz@example.org',
-        // ])->assertRedirect('login');
+        $this->withoutMiddleware();
+        $this->post('docentes',[
+            'doce_nombre' => 'German Skiles',
+            'doce_paterno' => 'Bernadine Welch',
+            'doce_materno' => 'Claudia Stamm',
+            'doce_sexo' => 'Masculino',
+            'doce_celular' => 137785331,
+            'doce_correo' => 'odare@example.com',
+        ])->assertRedirect('/');
 
         $this->assertDatabaseHas('docentes', [
-            'doce_nombre' => 'Susanna Christiansen',
-            'doce_paterno' => 'Prof. Jarred Batz',
-            'doce_materno' => 'Enola Nolan',
+            'doce_nombre' => 'German Skiles',
+            'doce_paterno' => 'Bernadine Welch',
+            'doce_materno' => 'Claudia Stamm',
             'doce_sexo' => 'Masculino',
-            'doce_celular' => 758230945,
-            'doce_correo' => 'zkuhlman@example.net',
+            'doce_celular' => 137785331,
+            'doce_correo' => 'odare@example.com',
         ]);
     }
     /** @test */
     public function docenteDestroy(){
+        $this->withoutMiddleware();
+
         $delete = docente::factory()->create();
-        $this->delete('docentes/$delete->id')->assertRedirect('login');
+        $this->delete($delete->id);
 
         $this->assertDatabaseMissing('docentes', [
             'doce_nombre' => $delete->doce_nombre,
@@ -55,6 +58,8 @@ class DocenteTest extends TestCase
 
     /** @test */
     public function docenteInsert(){
+        $this->withoutMiddleware();
+
          $this->post('docentes',[
             'doce_nombre' => 'Reese Weimann',
             'doce_paterno' => 'Yvette Nikolaus I',
@@ -62,21 +67,22 @@ class DocenteTest extends TestCase
             'doce_sexo' => 'Masculino',
             'doce_celular' => 279968381,
             'doce_correo' => 'marion.batz@example.org',
-        ])->assertRedirect('login');
+        ])->assertRedirect('/');
         
     }
 
     /** @test */
-    // public function docenteValidate(){
-    //     // $blog = docente::factory()->create();
-    //     $this->post('docentes',[
-    //         'doce_nombre' => 'null',
-    //         'doce_paterno' => '',
-    //         'doce_materno' => '',
-    //         'doce_sexo' => '',
-    //         'doce_celular',
-    //         'doce_correo' => '',
-    //     ])->assertSessionHasErrors('doce_nombre', 'doce_paterno','doce_materno','doce_sexo','doce_celular','doce_correo');
+    public function docenteValidate(){
+        $this->withoutMiddleware();
+
+        $response = $this->post('docentes',[
+            'nombre' => '',
+        ]);
+        $response->assertSessionHasErrors('nombre');
+    }
+     /** @test */
+    // public function docenteRoute(){
+    //     $this->get('docentes')->assertStatus(200);
     // }
     
 }
