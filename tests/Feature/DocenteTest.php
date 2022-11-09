@@ -14,14 +14,12 @@ class DocenteTest extends TestCase
 {
     /** @test */
     public function docenteStore(){
-        // $this->withDeprecationHandling();
-        // $user = User::find(1);
- 
-        // $response = $this->actingAs($user)
-        //                  ->withSession(['email' => 'admin@gmail.com', 'password' => 'administrador'])
-        //                  ->get('login');
-        $this->withoutMiddleware();
-        $this->post('docentes',[
+        $this->withoutMiddleware(); 
+        // Esto le permitirá probar sus rutas 
+        // Y controlador de forma aislada de cualquier problema de middleware. 
+        $this->post('docentes',[ // Esto permite verificar si esta ingresando correctamente
+            //a la ruta "docentes"
+            //Ingresamos los campos que necesitamos
             'doce_nombre' => 'German Skiles',
             'doce_paterno' => 'Bernadine Welch',
             'doce_materno' => 'Claudia Stamm',
@@ -30,6 +28,7 @@ class DocenteTest extends TestCase
             'doce_correo' => 'odare@example.com',
         ])->assertRedirect('/');
 
+        //Permite comprobar que la información almacenada existe dentro de la BD
         $this->assertDatabaseHas('docentes', [
             'doce_nombre' => 'German Skiles',
             'doce_paterno' => 'Bernadine Welch',
@@ -39,13 +38,17 @@ class DocenteTest extends TestCase
             'doce_correo' => 'odare@example.com',
         ]);
     }
+
     /** @test */
     public function docenteDestroy(){
-        $this->withoutMiddleware();
+        $this->withoutMiddleware();// Esto le permitirá probar sus rutas 
+        // Y controlador de forma aislada de cualquier problema de middleware. 
 
+        //Creamos una variable para almacenar el dato falso que vamos a eliminar
         $delete = docente::factory()->create();
-        $this->delete($delete->id);
+        $this->delete($delete->id); //Permite eliminar por el id 
 
+        //Comprueba si dicho dato deja de existir en la tabla docentes
         $this->assertDatabaseMissing('docentes', [
             'doce_nombre' => $delete->doce_nombre,
             'doce_paterno' => $delete->doce_paterno,
@@ -58,7 +61,9 @@ class DocenteTest extends TestCase
 
     /** @test */
     public function docenteInsert(){
-        $this->withoutMiddleware();
+        $this->withoutMiddleware();// Esto le permitirá probar sus rutas 
+        // Y controlador de forma aislada de cualquier problema de middleware.
+        // Esto permite verificar si esta ingresando correctamente.
 
          $this->post('docentes',[
             'doce_nombre' => 'Reese Weimann',
@@ -67,19 +72,22 @@ class DocenteTest extends TestCase
             'doce_sexo' => 'Masculino',
             'doce_celular' => 279968381,
             'doce_correo' => 'marion.batz@example.org',
-        ])->assertRedirect('/');
-        
+        ])->assertRedirect('/'); 
+        //Si esta todo bien nos va dirigir a la ruta principal
     }
 
     /** @test */
     public function docenteValidate(){
-        $this->withoutMiddleware();
+        $this->withoutMiddleware();// Esto le permitirá probar sus rutas 
+        // Y controlador de forma aislada de cualquier problema de middleware.
 
         $response = $this->post('docentes',[
             'nombre' => '',
         ]);
         $response->assertSessionHasErrors('nombre');
+        //Comprueba que la sesión tiene errores enlazados.
     }
+
      /** @test */
     // public function docenteRoute(){
     //     $this->get('docentes')->assertStatus(200);

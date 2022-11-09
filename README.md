@@ -7,6 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
 ## COMANDOS DE INSTALACIÓN
 
 - **git clone**
@@ -18,3 +19,7 @@
 - **php artisan key:generate**
 - **Contar con Node.js v.17**
 - **Contar con PHP v.8**
+
+## DESCRIPCIÓN
+
+Sistema de información para la Biblioteca Especializada de la Escuela Profesional de Ingeniería de Sistemas, con el fin de difundir y proporcionar información a los estudiantes de la EPIS, así tener una mayor calidad de investigación y el aprendizaje.
