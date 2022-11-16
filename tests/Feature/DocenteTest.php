@@ -30,12 +30,12 @@ class DocenteTest extends TestCase
 
         //Permite comprobar que la información almacenada existe dentro de la BD
         $this->assertDatabaseHas('docentes', [
-            'doce_nombre' => 'German Skiles',
-            'doce_paterno' => 'Bernadine Welch',
-            'doce_materno' => 'Claudia Stamm',
+            'doce_nombre' => 'Mrs. Kiarra Huels V',
+            'doce_paterno' => 'Lisette Block',
+            'doce_materno' => 'Magdalen Klocko',
             'doce_sexo' => 'Masculino',
-            'doce_celular' => 137785331,
-            'doce_correo' => 'odare@example.com',
+            'doce_celular' => 258330226,
+            'doce_correo' => 'rbalistreri@example.com',
         ]);
     }
 
@@ -61,6 +61,7 @@ class DocenteTest extends TestCase
 
     /** @test */
     public function docenteInsert(){
+        
         $this->withoutMiddleware();// Esto le permitirá probar sus rutas 
         // Y controlador de forma aislada de cualquier problema de middleware.
         // Esto permite verificar si esta ingresando correctamente.
