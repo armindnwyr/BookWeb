@@ -103,19 +103,21 @@
                 </div>
                 @endforeach
             </div>
-            <nav class="pagination-container">
-                <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">&lt;</button>
-                <div id="pagination-numbers"></div>
-                <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">&gt;</button>
-            </nav>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                <div class="pagination-container"style="position: relative; width: auto;">
+                    <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">&lt;</button>
+                    <div id="pagination-numbers" style="margin: 0"></div>
+                    <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">&gt;</button>
+                </div>
+                </div>
+            </div>
         </div>
         {{-- <div class="row">
             <div class="col-md-12">
             {{$libro->links('pagination::bootstrap-4') }}
             </div>
         </div>       --}}
-
-       
 
     </section>
 
