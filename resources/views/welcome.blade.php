@@ -94,11 +94,11 @@
            
             <div class="row g-4" id="paginated-list" aria-live="polite">
                 @foreach ($libro as $li)
-                <div class="col-lg-4 col-md-6" >
+                <div class="col-12 col-lg-4 col-md-6 g-4" >
                     <div class="service">
-                        <img src="{{$li->li_image}}" alt="">
+                        <img src="{{$li->li_image}}" alt="" >
                         <h5>{{$li->li_titulo}}</h5>
-                        <p>{{substr($li->li_descripcion,0,200)}}</p>
+                        <p>{{substr($li->li_descripcion,0,320)}} ...</p>
                     </div>
                 </div>
                 @endforeach
