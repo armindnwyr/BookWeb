@@ -1,5 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap');
 
+/* show libro */
+
+/* footer */
+
+/* footer {
+    min-height: 500px;
+  }
+  
+  .footer-logo {
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+  } */
+  .titulo-informe a {
+    text-decoration: none;
+  }
+  .card {
+    box-shadow: 2px 2px 2px 1px rgba(113, 112, 112, 0.2);
+  }
+  .parrafo-informe p {
+    color: #686a6c;
+    font-size: 1rem;
+    font-family: "Barlow", sans-serif;
+    font-weight: Normal;
+  }
+  .navbar-collapse a {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .navbar {
+    padding: 2rem;
+    background-color: #f5f6f7;
+  }
+  .navbar-collapse {
+    align-items: center;
+    justify-content: space-between;  
+  }
+  .footer-texto {
+    font-size: 1.5rem;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .iconos-redes-sociales a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+  }
+  
+  .iconos-redes-sociales i {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in;
+  }
+  
+  .iconos-redes-sociales a:hover {
+    background-color: white;
+    border: 2px solid rgb(13, 110, 253);
+  }
+  
+  .iconos-redes-sociales a:hover i {
+    color: black;
+  }
+  
+  .derechos-de-autor {
+    font-size: 15px;
+    color: #aeaeae;
+    padding: 20px;
+  }
+
+/* Seccion Personal */
+
+.image .personal-img{
+    height: 150px;
+    width: 150px;
+    margin: 10px 10px 20px 10px;
+}
+
 :root {
     --brand: #023e8a;
     --dark: #092032;
@@ -307,6 +393,7 @@ img{
 .project h6 {
     color: #fff;
 }
+/* Miembros de la biblioteca */
 
 .team-member {
     text-align: center;

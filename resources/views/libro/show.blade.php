@@ -1,21 +1,22 @@
 @extends('adminlte::page')
 
-@section('title', 'Libro '. $libro->li_titulo)
+@section('title', 'Libro ' . $libro->li_titulo)
 
 @section('content_header')
-    <h1 class="text-center font-weight-bold text-uppercase">Libro vista - {{$libro->li_titulo}}</h1>
+    
 @stop
 
+<link rel="stylesheet" href="/css/style2.css">
+
 @section('content')
-<div class="container">
+    {{-- <div class="container">
     <div class="row mt-2">
     <div class="col-md-12 offset-md-12 mt-4">
         <div class="card">
         <div class="card-body">
             <div class="row  align-items-center">
-            <div class="col-1 col-sm-2 d-none d-sm-block d-flex aligns-items-center justify-content-center">
-                <img src="{{$libro->li_image}}"
-                    class="img-fluid" />
+            <div class="">
+                <img src="{{$libro->li_image}}" class="img-fluid" width="400" height="600">
             </div>
             <div class="col-md-10">
                 <h5 style="text-align: justify;">{{$libro->li_titulo}}</h5>
@@ -33,6 +34,30 @@
         </div>
         </div>
     </div>
+    </div>
+</div> --}}
+<div class="container py-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="text-center font-weight-bold text-uppercase">{{ $libro->li_titulo }}</h1>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 pad">
+                    <div class="asd">
+                        <img src="{{$libro->li_image}}">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card-description">
+                        <p>{{$libro->li_descripcion}}</p>
+                    </div>
+                    <div class="">
+                        <li>Titulo: {{$libro->li_titulo}}</li>
+                        <li>Autor: {{$libro->li_autor}}</li>
+                        <li>Enlce: <a href="{{$libro->li_enlace}}" >Visulizar</a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

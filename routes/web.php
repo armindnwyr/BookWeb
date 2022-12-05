@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\BibliotecaController;
+use App\Http\Controllers\BinformeController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolesController;
@@ -70,6 +71,9 @@ Route::resource('docentes', DocenteController::class);
 Route::resource('libros', LibroController::class);
 
 Route::get('biblioteca',[BibliotecaController::class, 'index']);
+
+
+Route::get('/informe', [BinformeController::class, 'index']);
 
 
 //--------------CATEGORIA---------------------//

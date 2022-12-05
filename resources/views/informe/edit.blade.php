@@ -55,19 +55,8 @@
           @enderror 
         </div>
         <div class="form-group col-md-6">
-          <label class="mb-3">Docente</label>
-          <select id="inputState" class="form-control" name="docente">
-            @foreach ($docente as $item)
-            <option value="{{$item->id}}" {{ old('categoria', $informe->docente_id) == $item->id ? 'selected' : '' }}>{{$item->doce_nombre}}</option>
-            @endforeach
-          </select>
-          @error('docente')
-          <small class="text-danger">{{$message}}</small>
-          @enderror 
-        </div>
-        <div class="form-group col-md-6">
           <label class="mb-3">Categoria</label>
-          <select id="inputState" class="form-control" name="categoria">
+          <select class="selectpicker form-control" data-style="btn-default" data-size="5" data-live-search="true" name="categoria">
             @foreach ($categoria as $item)
             <option value="{{$item->id}}" {{ old('categoria', $informe->categoria_id) == $item->id ? 'selected' : '' }}>{{$item->cate_nombre}}</option>
             @endforeach
@@ -78,13 +67,25 @@
           @enderror 
         </div>
         <div class="form-group col-md-6">
-          <label class="mb-3">Autor</label>
-          <select id="inputState" class="form-control" name="autor">
-            @foreach ($autor as $item)
-            <option value="{{$item->id}}" {{ old('categoria', $informe->autor_id) == $item->id ? 'selected' : '' }}>{{$item->au_nombre}}</option>
+          <label class="mb-3">Docente</label>
+          <select class="selectpicker form-control" data-style="btn-default" data-size="5" data-live-search="true" name="docente">
+            @foreach ($docente as $item)
+            <option value="{{$item->id}}" {{ old('docente', $informe->docente_id) == $item->id ? 'selected' : '' }}>{{$item->doce_nombre}} {{$item->doce_paterno}} {{$item->doce_materno}}</option>
             @endforeach
           </select>
-          @error('categoria')
+          @error('docente')
+          <small class="text-danger">{{$message}}</small>
+          @enderror 
+        </div>
+        <div class="form-group col-md-6">
+          <label class="mb-3">Autor</label>
+          <select class="selectpicker form-control" data-style="btn-default" data-size="5" data-live-search="true" name="autor">
+            @foreach ($autor as $item)
+            <option value="{{$item->id}}" {{ old('autor', $informe->autor_id) == $item->id ? 'selected' : '' }}>
+              {{$item->au_nombre}} {{$item->au_paterno}} {{$item->au_materno}}</option>
+            @endforeach
+          </select>
+          @error('autor')
           <small class="text-danger">{{$message}}</small>
           @enderror 
         </div>
@@ -111,3 +112,15 @@
   </div>
 </div>
 @stop
+
+@section('js')
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+
+<script>
+  $(function () {
+    $('select').selectpicker();
+});
+</script>
+@stop 

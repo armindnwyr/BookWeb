@@ -1,0 +1,32 @@
+
+body {
+    background: url('/img/17024-4k.jpg') no-repeat;
+    /* background-size: cover; */
+    background-position: center;
+}
+
+@media (max-width: 792px) {
+    body{
+        background: url('/img/17024-4k.jpg');
+        /* background-position: center center; */
+    }
+}
+/* 
+.container form button {
+    color: #000000;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: ease-in-out .2s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}
+
+.d-grid button:hover {
+    background: #000000;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccd3d6,
+        0 0 25px #ccd3d6,
+        0 0 25px #ccd3d6,
+        0 0 25px #ccd3d6;
+} */

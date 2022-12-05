@@ -28,7 +28,7 @@
     <!-- BARRA DE NAVEGACION -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Book<span class="dot">Web</span></a>
+            <a class="navbar-brand" href="/">Book<span class="dot">Web</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,10 +38,10 @@
                 </a>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Libros</a>
+                        <a class="nav-link" aria-current="page" href="/">Libros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/informe">Informe</a>
+                        <a class="nav-link active" href="/informe">Informe</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
@@ -98,20 +98,100 @@
         </div>
     </section>
 
+    {{-- Seccion de Informe --}}
     <section id="services" class="text-center">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
                         <h6>Conoce nuestros</h6>
-                        <h1>Nuevos Ingresos</h1>
-                        <p class="mx-auto">En la biblioteca especializada de la EPIS. Contamos con nuevos libros en cada
-                            momento. Te invitamos a conocer nuestros ultimos ingresos.</p>
+                        <h1>Nuevos Ingresos de Informes</h1>
+                        <p class="mx-auto">En la biblioteca especializada de la EPIS. Contamos con Informes de Practicas
+                            Pre-Profesionales. Te invitamos a conocer nuestros ultimos ingresos.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="row g-4" id="paginated-list" aria-live="polite">
+            {{-- Card de Informe --}}
+            <div class="container">
+                <div class="row mt-4">
+                  <div class="col-12">
+                    <div class="card titulo-informe">
+                    <a href="">
+                      <div class="card-body">
+                        <div class="row  align-items-center">
+                          <div class="col-1 col-sm-2 d-none d-sm-block d-flex aligns-items-center justify-content-center">
+                            <img src="https://docplayer.es/docs-images/40/3207205/images/page_1.jpg"
+                                 class="img-fluid" />
+                          </div>
+                          <div class="col-md-10 parrafo-informe">
+                            <h5 style="text-align: justify;">Fuente de financiamiento y crecimiento empresarial de pequeñas empresas de la galería Luna Pizarro del distrito la Victoria, Lima</h5>
+                            <div class="row">
+                              <p class="fs-6">Diaz Estela, Maritza Yudit; Zenteno Sarayasi, Tania Mayli (Universidad Peruana UniónPE, 2022-10-12)</p>
+                              <p class="lh-sm" style="text-align: justify;">
+                                El financiamiento es una herramienta que usan todas las empresas para desarrollarse y así competir en el mercado, es por ello que el objetivo fue determinar la relación que existe entre financiamiento y crecimiento .
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                      <div class="card titulo-informe">
+                        <a href="#">
+                        <div class="card-body">
+                          <div class="row  align-items-center">
+                            <div class="col-1 col-sm-2 d-none d-sm-block d-flex aligns-items-center justify-content-center">
+                              <img src="https://docplayer.es/docs-images/40/3207205/images/page_1.jpg"
+                                   class="img-fluid" />
+                            </div>
+                            <div class="col-md-10 parrafo-informe">
+                              <h5 style="text-align: justify;">Fuente de financiamiento y crecimiento empresarial de pequeñas empresas de la galería Luna Pizarro del distrito la Victoria, Lima</h5>
+                              <div class="row">
+                                <p class="fs-6">Diaz Estela, Maritza Yudit; Zenteno Sarayasi, Tania Mayli (Universidad Peruana UniónPE, 2022-10-12)</p>
+                                <p class="lh-sm" style="text-align: justify;">
+                                  El financiamiento es una herramienta que usan todas las empresas para desarrollarse y así competir en el mercado, es por ello que el objetivo fue determinar la relación que existe entre financiamiento y crecimiento .
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col-12">
+                      <div class="card titulo-informe">
+                        <a href="#">
+                        <div class="card-body">
+                          <div class="row  align-items-center">
+                            <div class="col-1 col-sm-2 d-none d-sm-block d-flex aligns-items-center justify-content-center">
+                              <img src="https://docplayer.es/docs-images/40/3207205/images/page_1.jpg"
+                                   class="img-fluid" />
+                            </div>
+                            <div class="col-md-10 parrafo-informe">
+                              <h5 style="text-align: justify;">Fuente de financiamiento y crecimiento empresarial de pequeñas empresas de la galería Luna Pizarro del distrito la Victoria, Lima</h5>
+                              <div class="row">
+                                <p class="fs-6">Diaz Estela, Maritza Yudit; Zenteno Sarayasi, Tania Mayli (Universidad Peruana UniónPE, 2022-10-12)</p>
+                                <p class="lh-sm" style="text-align: justify;">
+                                  El financiamiento es una herramienta que usan todas las empresas para desarrollarse y así competir en el mercado, es por ello que el objetivo fue determinar la relación que existe entre financiamiento y crecimiento .
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+              </div> 
+          
+            {{-- <div class="row g-4" id="paginated-list" aria-live="polite">
                 @foreach ($libro as $li)
                     <div class="col-12 col-lg-4 col-md-6 g-4">
                         <div class="service">
@@ -132,7 +212,7 @@
                             title="Next page">&gt;</button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         {{-- <div class="row">
             <div class="col-md-12">
@@ -142,7 +222,7 @@
 
     </section>
 
-
+    {{-- Miembros de la Biblioteca --}}
     <section id="team">
         <div class="container">
             <div class="row">
