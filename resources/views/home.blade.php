@@ -10,22 +10,22 @@
 <div class="row">
 <div class="col-md-4">
     <x-adminlte-small-box title="{{$autor}}" text="Estudiantes Registrados" icon="fas fa-users text-white"
-    theme="dark" url="#" url-text="Ver Detalles"/>
+    theme="dark" url="{{route('autors.index')}}" url-text="Ver Detalles"/>
 </div>
 
 <div class="col-md-4">
     <x-adminlte-small-box title="{{$informe}}" text="Informes Registrados" icon="fa fa-file-pdf text-white"
-    theme="info" url="#" url-text="Ver Detalles"/>
+    theme="info" url="{{route('informes.index')}}" url-text="Ver Detalles"/>
 </div>
 
 <div class="col-md-4">
     <x-adminlte-small-box title="{{$docente}}" text="Docentes Registrados" icon="fa fa-users text-white"
-    theme="dark" url="#" url-text="Ver Detalles" id="sbUpdatable"/>
+    theme="dark" url="{{route('docentes.index')}}" url-text="Ver Detalles" id="sbUpdatable"/>
 </div>
 
 <div class="col-md-4 offset-md-4">
     <x-adminlte-small-box title="{{$libro}}" text="Libros Registrados" icon="fas fa-book text-white"
-    theme="info" url="#" url-text="Ver Detalles" id="sbUpdatable"/>
+    theme="info" url="{{route('libros.index')}}" url-text="Ver Detalles" id="sbUpdatable"/>
 </div>
 
 
