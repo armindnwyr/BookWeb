@@ -29,7 +29,6 @@
                                 </div>
                             </div>
                             <input type="text"  class="form-control" aria-label="Text input with checkbox" value="{{$permiso->name}}" disabled>
-
                         </div>
                     @endforeach
                 </div>
