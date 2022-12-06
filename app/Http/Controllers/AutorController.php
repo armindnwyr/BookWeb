@@ -127,6 +127,6 @@ class AutorController extends Controller
     {
         $autor->delete();
 
-        return redirect()->route('autors.index')->with('eliminar'==='delete');
+        return back()->with('eliminar', 'delete');
     }
 }

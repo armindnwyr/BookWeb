@@ -47,6 +47,7 @@
 @stop
 
 @section('js')
+
 @if(session('eliminar') == 'delete')
 <script>
  Swal.fire(
@@ -77,32 +78,30 @@
     })
 
   });
-</script>
 
-<script>
   $('#tinforme').DataTable({
-  responsive: true,
-  autoWidth: false,
-  "language": {
-        "lengthMenu": "Mostrar "+`
-        <select class="custom-select custom-select-sm form-control form-control-sm">
-          <option value="10">10</option> 
-          <option value="25">25</option> 
-          <option value="50">50</option> 
-          <option value="100">100</option> 
-          <option value="-1">All</option> 
-        </select>
-        `+" registros por paginas",
-        "zeroRecords": "Nada encontrado - lo siento",
-        "info": "Mostrando la pagina _PAGE_ de _PAGES_",
-        "infoEmpty": "No records available",
-        "infoFiltered": "(filtrado de _MAX_ registro total)",
-        "search":"Buscar: ",
-        "paginate":{
-          "next": "Siguiente",
-          "previous": "Anterior"
-        }
-    }
-});
+    responsive: true,
+    autoWidth: false,
+    "language": {
+          "lengthMenu": "Mostrar "+`
+          <select class="custom-select custom-select-sm form-control form-control-sm">
+            <option value="10">10</option> 
+            <option value="25">25</option> 
+            <option value="50">50</option> 
+            <option value="100">100</option> 
+            <option value="-1">All</option> 
+          </select>
+          `+" registros por paginas",
+          "zeroRecords": "Nada encontrado - lo siento",
+          "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+          "infoEmpty": "No records available",
+          "infoFiltered": "(filtrado de _MAX_ registro total)",
+          "search":"Buscar: ",
+          "paginate":{
+            "next": "Siguiente",
+            "previous": "Anterior"
+          }
+      }
+  });
 </script>
 @stop

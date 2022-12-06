@@ -167,6 +167,6 @@ class InformeController extends Controller
     {
         $informe->delete();
 
-        return redirect()->route('informes.index')->with('eliminar' === 'delete');
+        return back()->with('eliminar', 'delete');
     }
 }
