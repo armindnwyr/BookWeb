@@ -28,11 +28,27 @@ class DatabaseSeeder extends Seeder
         $this->call(DocenteSeeder::class);
         $this->call(AutorSeeder::class);
         $this->call(LibroSeeder::class);
+        //Usuario Administrador
         $user=User::create([
             'name'=>'admin',
             'email'=>'admin@gmail.com',
             'password'=>bcrypt('administrador'),
         ]);
         $user->assignRole([1]);
+        //Usuario Jefe de Area
+        $jefe=User::create([
+            'name'=>'Jefe de Area',
+            'email'=>'jefe@gmail.com',
+            'password'=>bcrypt('jefedearea'), 
+        ]);
+        $jefe->assignRole([2]);
+        //Usuario Practicante
+        $prt=User::create([
+            'name'=>'Practicante',
+            'email'=>'practicante@gmail.com',
+            'password'=>bcrypt('practicante1'), 
+        ]);
+
+        $prt->assignRole([3]);
     }
 }

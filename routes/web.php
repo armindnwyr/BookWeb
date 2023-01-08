@@ -12,6 +12,7 @@ use App\Http\Controllers\BinformeController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolesController;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Contracts\Role;
 
 /*
@@ -31,6 +32,7 @@ use Spatie\Permission\Contracts\Role;
 Route::get('/',[BibliotecaController::class, 'index']);
 
 Auth::routes();
+Auth::routes(['register' => false]);
 
 //--------------DOCENTE---------------------//
 
