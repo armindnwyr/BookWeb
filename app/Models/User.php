@@ -49,18 +49,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function adminlte_image()
-    {
-        return 'https://picsum.photos/300/300';
-    }
+    // public function adminlte_image()
+    // {
+    //     $img = Libro::first();
+    //     return $img->li_image;
+    // }
 
     public function adminlte_desc()
     {
-        return 'Administrador';
+        $user = $this->roles()->first();
+        return $user->name;
     }
 
     public function adminlte_profile_url()
     {
         return 'profile/username';
     }
+
+
 }
