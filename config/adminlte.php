@@ -316,6 +316,12 @@ return [
             'icon'   => 'fa fa-fw fa-home',
         ],
         [
+            'text'    => 'Pagina Principal',
+            'icon'    => 'fas fa-fw fa-spinner',
+            'route'  => 'biblioteca.index',
+            'icon_color' => 'light',
+        ],
+        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
@@ -331,47 +337,9 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
         ['header' => 'labels'],
         [
-            'text' => 'Usuario',
+            'text' => 'Usuarios',
             'route' => 'usuarios.index',
             'icon' => 'fa fa-user-secret fa-fw',
             'active' => ['usuarios*'],
@@ -387,7 +355,7 @@ return [
             'can' => 'roles.index',
         ],
         [
-            'text' => 'Docente',
+            'text' => 'Docentes',
             'route' => 'docentes.index',
             'icon' => 'fa fa-users fa-fw',
             'active' => ['docente*'],
@@ -395,7 +363,7 @@ return [
             'can' => 'docentes.index',
         ],
         [
-            'text' => 'Autor',
+            'text' => 'Estudiantes',
             'route' => 'autors.index',
             'icon' => 'fa fa-users fa-fw',
             'active' => ['autor*'],
@@ -403,7 +371,7 @@ return [
             'can' => 'autors.index'
         ],
         [
-            'text' => 'Categoria',
+            'text' => 'Categorias',
             'route' => 'categorias.index',
             'icon' => 'fa fa-bars fa-fw',
             'active' => ['categorias*'],
@@ -411,7 +379,7 @@ return [
             'can' => 'categorias.index'
         ],
         [
-            'text' => 'Informe',
+            'text' => 'Informes',
             'route' => 'informes.index',
             'icon' => 'fa fa-file-pdf fa-fw',
             'active' => ['informe*'],
