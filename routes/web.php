@@ -32,7 +32,7 @@ use Spatie\Permission\Contracts\Role;
 Route::get('/',[BibliotecaController::class, 'index']);
 
 Auth::routes();
-Auth::routes(['register' => false]);
+Auth::routes(["register" => false]);
 
 //--------------DOCENTE---------------------//
 
