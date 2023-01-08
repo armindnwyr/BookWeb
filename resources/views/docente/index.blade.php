@@ -3,12 +3,13 @@
 @section('title', 'Docente')
 
 @section('content_header')
-    <h1 class="text-center font-weight-bold text-uppercase">Lista de Docentes</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Gestión de Docentes</h1>
 @stop
 
 @section('content')
-
-<a class="btn btn-info mb-3" href="{{route('docentes.create')}}">Crear nuevo docente</a>
+@can('docentes.create')
+<a class="btn btn-info mb-3" href="{{route('docentes.create')}}">Registrar docente</a>
+@endcan
 <div class="card">
   <div class="card-body">
       <div class="table-responsive">    
@@ -20,7 +21,9 @@
               <th>Materno</th>
               <th>Sexo</th>
               <th>Celular</th>
+              @can('docentes.edit','docentes.destroy')
               <th>Acciones</th>
+              @endcan
             </tr>
           </thead>
           <tbody>
@@ -31,10 +34,12 @@
               <td>{{$item->doce_materno}}</td>
               <td>{{$item->doce_sexo}}</td>
               <td>{{$item->doce_celular}}</td>
+              @can('docentes.edit','docentes.destroy')
               <td width="140px">
                 <a href="{{route('docentes.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
                 <form action="{{route('docentes.destroy', $item)}}" method="post" style="display: inline" class="eliminar"> @csrf @method('delete')<x-adminlte-button class="btn-sm" type="submit" theme="outline-danger" icon="fas fa-lg fa-trash"/></form>
               </td>
+              @endcan
             </tr>
             @endforeach
           </tbody>

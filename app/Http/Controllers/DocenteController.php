@@ -15,6 +15,10 @@ class DocenteController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:docentes.index')->only('index');
+        $this->middleware('can:docentes.create')->only('create','store');
+        $this->middleware('can:docentes.edit')->only('edit','update');
+        $this->middleware('can:docentes.destroy')->only('destroy');
     }
     
     public function index()

@@ -15,6 +15,10 @@ class AutorController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:autors.index')->only('index');
+        $this->middleware('can:autors.create')->only('create','store');
+        $this->middleware('can:autors.edit')->only('edit','update');
+        $this->middleware('can:autors.destroy')->only('destroy');
     }
     public function index()
     {

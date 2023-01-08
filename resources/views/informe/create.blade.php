@@ -3,7 +3,7 @@
 @section('title', 'Crear Informe')
 
 @section('content_header')
-    <h1 class="text-center font-weight-bold text-uppercase">Crear Informe</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Registrar Informe</h1>
 @stop
 
 @section('content')

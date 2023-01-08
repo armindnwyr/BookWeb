@@ -23,6 +23,10 @@ class InformeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:informes.index')->only('index');
+        $this->middleware('can:informes.create')->only('create','store');
+        $this->middleware('can:informes.edit')->only('edit','update');
+        $this->middleware('can:informes.destroy')->only('destroy');
     }
     public function index()
     {

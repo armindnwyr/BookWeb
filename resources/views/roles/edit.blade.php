@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <a href="" class="btn btn-info m-3">Regresar</a>
+                <a href="{{route('roles.index')}}" class="btn btn-info m-3">Regresar</a>
                 <button class="btn btn-success m-3">Enviar</button>
             </div>
             </form>

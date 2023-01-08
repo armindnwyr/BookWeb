@@ -3,11 +3,13 @@
 @section('title', 'Informe')
 
 @section('content_header')
-    <h1 class="text-center font-weight-bold text-uppercase">Lista de Informes</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Gestión de Informes</h1>
 @stop
 
 @section('content')
-<a class="btn btn-info mb-3" href="{{route('informes.create')}}">Crear Nuevo Informe</a>
+@can('informes.create')
+<a class="btn btn-info mb-3" href="{{route('informes.create')}}">Registrar Informe</a>
+@endcan
 <div class="card">
   <div class="card-body">
     <div class="table-responsive">    
@@ -20,7 +22,9 @@
               <th>Docente</th>
               <th>Practicas</th>
               <th>Estudiante</th>
+              @can('informes.edit','informes.destroy')
               <th>Acciones</th>
+              @endcan
             </tr>
           </thead>
           <tbody>
@@ -32,11 +36,13 @@
               <td>{{$item->docente->doce_nombre}} {{$item->docente->doce_paterno}} {{$item->docente->doce_materno}}</td>
               <td>{{$item->categoria->cate_nombre}}</td>
               <td>{{$item->autor->au_nombre}} {{$item->autor->au_paterno}} {{$item->autor->au_materno}}</td>
+              @can('informes.edit','informes.destroy')
               <td width="140px">
                 <a href="{{$item->info_pdf}}" class="btn btn-outline-dark btn-sm" target="_blank"><i class="fas fa-lg fa-file"></i></a>
                 <a href="{{route('informes.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
                 <form action="{{route('informes.destroy', $item)}}" method="post" style="display: inline;" class="eliminar"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
               </td>
+              @endcan
             </tr>
             @endforeach
           </tbody>

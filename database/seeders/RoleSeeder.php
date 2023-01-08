@@ -16,41 +16,51 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-       $role1 = Role::create(['name' => 'Admin']);
-       $role2 = Role::create(['name' => 'Boss']);
-       $role2 = Role::create(['name' => 'Asistente']);
-
+        $role1 = Role::create(['name' => 'Admin']);
+        $role2 = Role::create(['name' => 'Boss']);
+        $role2 = Role::create(['name' => 'Asistente']);
+        
+       Permission::create(['name'=>'roles.index']);
+       Permission::create(['name'=>'roles.create']);
+       Permission::create(['name'=>'roles.edit']);
+       Permission::create(['name'=>'roles.destroy']);
+       Permission::create(['name'=>'usuarios.index']);
+       Permission::create(['name'=>'usuarios.create']);
+       Permission::create(['name'=>'usuarios.edit']);
+       Permission::create(['name'=>'usuarios.destroy']);
        Permission::create(['name' => 'home']);
        /*PERMISON PARA DOCENTE*/
-       Permission::create(['name' => 'docente.index']);
-       Permission::create(['name' => 'docente.create']);
-       Permission::create(['name' => 'docente.edit']);
-       Permission::create(['name' => 'docente.destroy']);
+       Permission::create(['name' => 'docentes.index']);
+       Permission::create(['name' => 'docentes.create']);
+       Permission::create(['name' => 'docentes.edit']);
+       Permission::create(['name' => 'docentes.destroy']);
 
 
        /*PERMISON PARA AUTOR*/
-       Permission::create(['name' => 'autor.index']);
-       Permission::create(['name' => 'autor.create']);
-       Permission::create(['name' => 'autor.edit']);
-       Permission::create(['name' => 'autor.destroy']);
+       Permission::create(['name' => 'autors.index']);
+       Permission::create(['name' => 'autors.create']);
+       Permission::create(['name' => 'autors.edit']);
+       Permission::create(['name' => 'autors.destroy']);
 
        /*PERMISON PARA CATEGORIA*/
-       Permission::create(['name' => 'categoria.index']);
-       Permission::create(['name' => 'categoria.create']);
-       Permission::create(['name' => 'categoria.edit']);
-       Permission::create(['name' => 'categoria.destroy']);
+       Permission::create(['name' => 'categorias.index']);
+       Permission::create(['name' => 'categorias.create']);
+       Permission::create(['name' => 'categorias.edit']);
+       Permission::create(['name' => 'categorias.destroy']);
 
        /*PERMISON PARA INFORME*/
-       Permission::create(['name' => 'informe.index']);
-       Permission::create(['name' => 'informe.create']);
-       Permission::create(['name' => 'informe.edit']);
-       Permission::create(['name' => 'informe.destroy']);
+       Permission::create(['name' => 'informes.index']);
+       Permission::create(['name' => 'informes.create']);
+       Permission::create(['name' => 'informes.edit']);
+       Permission::create(['name' => 'informes.destroy']);
 
               /*PERMISON PARA LIBRO*/
-       Permission::create(['name' => 'libro.index']);
-       Permission::create(['name' => 'libro.create']);
-       Permission::create(['name' => 'libro.edit']);
-       Permission::create(['name' => 'libro.destroy']);
+       Permission::create(['name' => 'libros.index']);
+       Permission::create(['name' => 'libros.create']);
+       Permission::create(['name' => 'libros.edit']);
+       Permission::create(['name' => 'libros.destroy']);
+
+
        $permisos = Permission::all();
 
            $role1->syncPermissions($permisos);

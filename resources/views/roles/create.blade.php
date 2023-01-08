@@ -3,7 +3,7 @@
 @section('title', 'Usuario')
 
 @section('content_header')
-    <h1 class="text-center">Crear Roles</h1>
+    <h1 class="text-center">Registrar Roles</h1>
 @stop
 
 @section('content')
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <a href="" class="btn btn-info m-3 col-md-3">Regresar</a>
+                <a href="{{route('roles.index')}}" class="btn btn-info m-3 col-md-3">Regresar</a>
                 <button class="btn btn-success m-3 col-md-3">Enviar</button>
             </div>
             </form>

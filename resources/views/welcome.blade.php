@@ -117,7 +117,7 @@
                         <div class="service">
                             <img src="{{ $li->li_image }}" alt="">
                             <h5>{{ $li->li_titulo }}</h5>
-                            <p>{{ substr($li->li_descripcion, 0, 320) }} ...</p>
+                            <p>{{ Str::limit($li->li_descripcion, 305)}}</p>
                         </div>
                     </div>
                 @endforeach

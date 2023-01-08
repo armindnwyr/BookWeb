@@ -18,6 +18,10 @@ class RolesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:roles.index')->only('index');
+        $this->middleware('can:roles.create')->only('create','store');
+        $this->middleware('can:roles.edit')->only('edit','update');
+        $this->middleware('can:roles.destroy')->only('destroy');
     }
     public function index()
     {
@@ -54,7 +58,7 @@ class RolesController extends Controller
 
         $role = Role::create(['name'=>$request->input('nombre')]);
         $role->syncPermissions($request->input('permisos'));
-        dd($request->all());
+        // dd($request->all());
         return redirect()->route('roles.index');
     }
 

@@ -376,6 +376,7 @@ return [
             'icon' => 'fa fa-user-secret fa-fw',
             'active' => ['usuarios*'],
             'icon_color' => 'light',
+            'can' => 'usuarios.index'
         ],
         [
             'text' => 'Roles',
@@ -383,6 +384,7 @@ return [
             'icon' => 'fa fa-sort fa-fw',
             'active' => ['roles*'],
             'icon_color' => 'light',
+            'can' => 'roles.index',
         ],
         [
             'text' => 'Docente',
@@ -390,6 +392,7 @@ return [
             'icon' => 'fa fa-users fa-fw',
             'active' => ['docente*'],
             'icon_color' => 'light',
+            'can' => 'docentes.index',
         ],
         [
             'text' => 'Autor',
@@ -397,6 +400,7 @@ return [
             'icon' => 'fa fa-users fa-fw',
             'active' => ['autor*'],
             'icon_color' => 'light',
+            'can' => 'autors.index'
         ],
         [
             'text' => 'Categoria',
@@ -404,6 +408,7 @@ return [
             'icon' => 'fa fa-bars fa-fw',
             'active' => ['categorias*'],
             'icon_color' => 'light',
+            'can' => 'categorias.index'
         ],
         [
             'text' => 'Informe',
@@ -411,6 +416,7 @@ return [
             'icon' => 'fa fa-file-pdf fa-fw',
             'active' => ['informe*'],
             'icon_color' => 'light',
+            'can' => 'informes.index'
         ],
         [
             'text' => 'Libros',
@@ -418,6 +424,7 @@ return [
             'icon' => 'fa fa-book fa-fw',
             'active' => ['libro*'],
             'icon_color' => 'light',
+            'can' => 'libros.index'
         ],
     ],
 
@@ -464,6 +471,11 @@ return [
                     'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
+                // [
+                //     'type' => 'js',
+                //     'asset' => true,
+                //     'location' => 'https://app.embed.im/snow.js',
+                // ],
                 [
                     'type' => 'js',
                     'asset' => true,

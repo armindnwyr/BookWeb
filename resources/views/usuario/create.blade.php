@@ -3,11 +3,10 @@
 @section('title', 'Usuario')
 
 @section('content_header')
-    <h1 class="text-center">Lista de Docentes</h1>
+    <h1 class="text-center">Registrar Usuario</h1>
 @stop
 
 @section('content')
-<a href="" class="btn btn-info mb-3">Regresar</a>
 <div class="row">
     <div class="col-md-6 offset-md-3 mt-5">
 <div class="card">
@@ -18,19 +17,28 @@
         <div class="form-row">
             <div class="col-md-6">
                 <label for="">Nombre</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="name" value="{{old('nombre')}}">
+                @error('nombre')
+                <small class="text-danger">{{$message}}</small>
+                @enderror 
             </div>
             <div class="col-md-6">
                 <label for="">Correo</label>
-                <input type="text" class="form-control" name="email">
+                <input type="text" class="form-control" name="email" value="{{old('correo')}}">
+                @error('nombre')
+                <small class="text-danger">{{$message}}</small>
+                @enderror 
             </div>
             <div class="col-md-6">
                 <label for="">Contraseña</label>
-                <input type="text" class="form-control" name="password">
+                <input type="password" class="form-control" name="password" value="{{old('contraseña')}}">
+                @error('contraseña')
+                <small class="text-danger">{{$message}}</small>
+                @enderror 
             </div>
             <div class="col-md-6">
                 <label for="">Confirmar Contraseña</label>
-                <input type="text" class="form-control" name="contrasena-confirmar">
+                <input type="password" class="form-control" name="contrasena-confirmar">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputState">Rol</label>
@@ -41,7 +49,10 @@
                 </select>
               </div>
         </div>
-        <button class="btn btn-info">Enviar</button>
+        <div class="row justify-content-center">
+        <a href="{{route('usuarios.index')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
+        <button class="btn btn-success m-3 col-md-3">Enviar</button>
+        </div>
         </form>
     </div>
 </div>

@@ -3,7 +3,7 @@
 @section('title', 'Crear Categoria')
 
 @section('content_header')
-    <h1 class="text-center">Crear una Nueva Categoria</h1>
+    <h1 class="text-center">Registrar Categoria</h1>
 @stop
 
 @section('content')

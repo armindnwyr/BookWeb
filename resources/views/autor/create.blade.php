@@ -3,7 +3,7 @@
 @section('title', 'Crear Estudiante')
 
 @section('content_header')
-    <h1 class="text-center font-weight-bold text-uppercase">Crear Estudiante</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Registrar estudiante</h1>
 @stop
 
 @section('content')

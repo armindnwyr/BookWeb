@@ -3,11 +3,11 @@
 @section('title', 'Usuario')
 
 @section('content_header')
-    <h1 class="text-center">Lista de Docentes</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Editar Usuario</h1>
 @stop
 
 @section('content')
-<a href="" class="btn btn-info mb-3">Regresar</a>
+<div class="col-md-6 offset-md-3 mt-5">
 <div class="card">
     <div class="card-body">
         <form action="{{route('usuarios.update',$usuario)}}" method="POST">
@@ -42,8 +42,12 @@
 
               </div>
         </div>
-        <button class="btn btn-info">Enviar</button>
+        <div class="row justify-content-center">
+        <a href="{{route('usuarios.index')}}" class="btn btn-info m-3">Regresar</a>
+        <button class="btn btn-success m-3">Enviar</button>
+        </div>
         </form>
+    </div>
     </div>
 </div>
 @stop

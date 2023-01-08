@@ -15,6 +15,10 @@ class CategoriaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('can:categorias.index')->only('index');
+        $this->middleware('can:categorias.create')->only('create','store');
+        $this->middleware('can:categorias.edit')->only('edit','update');
+        $this->middleware('can:categorias.destroy')->only('destroy');
     }
 
     public function index()

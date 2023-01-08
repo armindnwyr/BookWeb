@@ -3,7 +3,7 @@
 @section('title', 'Libro Digital')
 
 @section('content_header')
-    <h1 class="text-center font-weight-bold text-uppercase">Lista de libros</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Gestión de libros</h1>
 @stop
 
 {{-- @section('css')
@@ -15,19 +15,22 @@
 @stop
 
 @section('content')
-
-<a href="{{route('libros.create')}}" class="btn btn-info mb-3">Crear Nuevo Libro</a>
+@can('libros.create')
+<a href="{{route('libros.create')}}" class="btn btn-info mb-3">Registrar libro</a>
+@endcan
 <div class="card">
   <div class="card-body">
 <div class="table-responsive">
     <table id="tlibro" class="table">
-        <thead class="thead-dark">
+        <thead class="thead-dark text-center">
           <tr>
             <th>Titulo</th>
             <th>Autor</th>
             <th>Imagen</th>
             <th>Descripcion</th>
+            @can('libros.edit','libros.destroy')
             <th>Acciones</th>
+            @endcan
           </tr>
         </thead>
         <tbody>
@@ -36,12 +39,14 @@
             <td><a href="{{route('libros.show', $li)}}" class="text-decoration-none">{{$li->li_titulo}}</a></td>
             <td>{{$li->li_autor}}</td>
             <td><img src="{{asset($li->li_image)}}" alt="" width="50px"></td>
-            <td class="text-justify" >{{$li->li_descripcion}}</td>
+            <td class="text-justify" >{{Str::limit($li->li_descripcion, 200)}}</td>
+            @can('libros.edit','libros.destroy')
             <td width="140px">
               <a href="{{$li->li_enlace}}" class="btn btn-outline-dark btn-sm" target="_blank"><i class="fas fa-lg fa-file"></i></a>
               <a href="{{route('libros.edit', $li)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
               <form action="{{route('libros.destroy', $li)}}" method="post" class="d-inline eliminar"> @csrf @method('delete')<button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
             </td>
+            @endcan
           </tr>
           {{-- <img src="{{$li->li_image}}" alt=""> --}}
           @endforeach

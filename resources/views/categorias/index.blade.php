@@ -3,28 +3,34 @@
 @section('title', 'Practicas')
 
 @section('content_header')
-    <h1>Lista de Tipo de Practica</h1>
+    <h1 class="text-center font-weight-bold text-uppercase">Gestión de Tipo de Practica</h1>
 @stop
 
 @section('content')
-<a class="btn btn-info mb-3" href="{{route('categorias.create')}}">Crear Nueva Categoria</a>
+@can('categorias.create')
+<a class="btn btn-info mb-3" href="{{route('categorias.create')}}">Registrar categoria</a>
+@endcan
 <div class="card">
   <div class="card-body">
     <table class="table table-striped text-center" id="tcategoria">
       <thead class="thead-dark">
         <tr>
           <th>Nombre</th>
+          @can('categorias.edit','categorias.destroy')
           <th>Acciones</th>
+          @endcan
         </tr>
       </thead>
       <tbody>
         @foreach ($categorias as $item)
         <tr>
           <td>{{$item->cate_nombre}}</td>
+          @can('categorias.edit','categorias.destroy')
           <td width="140px">
             <a href="{{route('categorias.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
             <form action="{{route('categorias.destroy', $item)}}" method="post" style="display: inline" class="eliminar"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
           </td>
+          @endcan
         </tr>
         @endforeach
       </tbody>
