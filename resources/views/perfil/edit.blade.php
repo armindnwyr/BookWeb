@@ -12,10 +12,10 @@
 <div class="card">
     <div class="card-body">
         <form action="" method="POST" enctype="multipart/form-data">
-        @method('POST')
+        @method('put')
         @csrf
         <div class="form-row">
-            <div class="row justify-content-center">
+            {{-- <div class="row justify-content-center">
                 <div class="col-md-6">
                     <label>Seleccionar Foto</label>
                     <img src="\storage\imagenes\default.jpg" id="output"  class="rounded img-thumbnail img-fluid" width="300" height="300">
@@ -24,14 +24,14 @@
                     <label class="custom-file-label" for="inputGroupFile01">Seleccione una Imagen</label>
                     </div>
                 </div>
-                </div>
+                </div> --}}
             <div class="col-md-6">
                 <label for="">Nombre</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}">
             </div>
             <div class="col-md-6">
                 <label for="">Correo</label>
-                <input type="text" class="form-control" name="email">
+                <input type="text" class="form-control" name="email" value="{{Auth::user()->email}}">
             </div>
 
             <div class="col-md-6">
@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-6">
                 <label for="">Confirmar Contraseña</label>
-                <input type="text" class="form-control" name="contrasena-confirmar">
+                <input type="text" class="form-control" name="contrasena_confirmar">
             </div>
         </div>
         <div class="row justify-content-center mt-4">

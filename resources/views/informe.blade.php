@@ -33,7 +33,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbar-toggler">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="navbar-brand" href="#">
                 </a>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
@@ -45,6 +45,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('login')}}" target="_blink">Login</a>
                     </li>
                 </ul>
             </div>

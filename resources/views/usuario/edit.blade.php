@@ -24,11 +24,11 @@
             </div>
             <div class="col-md-6">
                 <label for="">Contraseña</label>
-                <input type="text" class="form-control" value="" name="password">
+                <input type="password" class="form-control" value="" name="password">
             </div>
             <div class="col-md-6">
                 <label for="">Confirmar Contraseña</label>
-                <input type="text" class="form-control" value="" name="contrasena-confirmar">
+                <input type="password" class="form-control" value="" name="contrasena-confirmar">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputState">Rol</label>

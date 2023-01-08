@@ -100,12 +100,18 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $usuario=User::find($id);
-        //dd($request);
+
+        if($request->input('password')){
+            $this->validate($request,[
+                'password' => 'same:contrasena-confirmar',
+            ]);
+            $usuario->password=Hash::make($request->input('password'));
+        }
+
+
         $usuario->name=$request->input('name');
         $usuario->email=$request->input('email');
-
         $usuario->save();
         DB::table('model_has_roles')->Where('model_id',$id)->delete();
         $usuario->assignRole($request->input('rol'));

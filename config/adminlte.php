@@ -326,17 +326,12 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'route'  => 'perfil.index',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'profile',
+        //     'route'  => 'perfil.index',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],   
         ['header' => 'labels'],
         [
             'text' => 'Usuarios',
