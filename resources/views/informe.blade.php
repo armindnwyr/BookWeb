@@ -41,7 +41,7 @@
                         <a class="nav-link" aria-current="page" href="/">Libros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/informe">Informe</a>
+                        <a class="nav-link active" href="/informe">Informe de Practicas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
@@ -86,10 +86,10 @@
     <section id="milestone">
         <div class="container">
             <div class="row text-center justify-content-center gy-4">
-                <div class="col-lg-2 col-sm-6">
+                {{-- <div class="col-lg-2 col-sm-6">
                     <h1 class="display-4">90</h1>
                     <p class="mb-0">Tesis de Pregrado</p>
-                </div>
+                </div> --}}
                 <div class="col-lg-2 col-sm-6">
                     <h1 class="display-4">45</h1>
                     <p class="mb-0">Informes de Practicas</p>
@@ -130,13 +130,13 @@
                       <div class="card-body">
                         <div class="row  align-items-center">
                           <div class="col-1 col-sm-2 d-none d-sm-block d-flex aligns-items-center justify-content-center">
-                            <img src="https://docplayer.es/docs-images/40/3207205/images/page_1.jpg"
+                            <img src="/img/info_portada.png"
                                  class="img-fluid" />
                           </div>
                           <div class="col-md-10 parrafo-informe">
                             <h3 class="fs-4">{{$informe->info_nombre}}</h3>
                             <div class="row">
-                              <p class="fs-6">{{$informe->autor->au_nombre}} (Universidad Nacional del Altiplano - Puno, {{$informe->info_fecha}})</p>
+                              <p class="fs-6">{{$informe->autor->au_nombre}} {{$informe->autor->au_paterno}} {{$informe->autor->au_materno}} (Universidad Nacional del Altiplano - Puno, {{$informe->info_fecha}})</p>
                               <p class="lh-sm" style="text-align: justify;">
                                 {{Str::limit($informe->info_descripcion, 900)}}
                               </p>

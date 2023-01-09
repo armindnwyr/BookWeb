@@ -41,19 +41,19 @@
                         <a class="nav-link" aria-current="page" href="/">Libros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/informe">Informe</a>
+                        <a class="nav-link" href="/informe">Informe de Practicas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{route('login')}}" target="_blink">Login</a>
-                    </li>
-                    @can('home')    
+                    </li> --}}
+                    {{-- @can('home')    
                     <li class="nav-item">
                         <a class="nav-link" href="home" >Dashboard</a>
                     </li>
-                    @endcan
+                    @endcan --}}
                 </ul>
             </div>
         </div>
@@ -153,7 +153,7 @@
                                     <a href="" class="text-decoration-none"><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->info_fecha}}</a>
                                 </div> --}}
                                 <div class="col-md-12 mt-4">
-                                    <h4>Visualizar Libro</h4>
+                                    <h4>Material Digital</h4>
                                     <a class="text-decoration-none" href="{{$libro->li_enlace}}" target="_blink"><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$libro->li_titulo}} -  UNAP - EPIS</a>
                                 </div>
                                 {{-- <div class="col-md-12 mt-4">

@@ -41,19 +41,19 @@
                         <a class="nav-link" aria-current="page" href="/">Libros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/informe">Informe</a>
+                        <a class="nav-link active" href="/informe">Informe de Practicas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{route('login')}}" target="_blink">Login</a>
-                    </li>
-                    @can('home')    
+                    </li> --}}
+                    {{-- @can('home')    
                     <li class="nav-item">
                         <a class="nav-link" href="home" >Dashboard</a>
                     </li>
-                    @endcan
+                    @endcan --}}
                 </ul>
             </div>
         </div>
@@ -135,7 +135,7 @@
                               <div class="col-sm-3">
                                 <div class="row">
                                   <div class="col-md-12">
-                                      <img alt="No Thumbnail [100%x160]" class="img-thumbnail" data-src="holder.js/100%x160/text:No Thumbnail" style=" width: 100%; display: block;" src="https://docplayer.es/docs-images/40/3207205/images/page_1.jpg" data-holder-rendered="true">
+                                      <img alt="No Thumbnail [100%x160]" class="img-thumbnail" data-src="holder.js/100%x160/text:No Thumbnail" style=" width: 100%; display: block;" src="/img/info_portada.png" data-holder-rendered="true">
                                   </div>
                                 </div>
                               </div>
@@ -148,7 +148,7 @@
                                     <a class="text-decoration-none" href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->autor->au_nombre}} {{$informe->autor->au_paterno}} {{$informe->autor->au_materno}}</a>
                                 </div>
                                 <div class="col-md-12 mt-4">
-                                    <h4>Fecha de publicación</h4>
+                                    <h4>Fecha de presentación</h4>
                                     <a href="" class="text-decoration-none"><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->info_fecha}}</a>
                                 </div>
                                 <div class="col-md-12 mt-4">

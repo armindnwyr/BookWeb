@@ -42,7 +42,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Libros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/informe">Informe</a>
+                        <a class="nav-link" href="/informe">Informe de Practicas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
@@ -87,10 +87,10 @@
     <section id="milestone">
         <div class="container">
             <div class="row text-center justify-content-center gy-4">
-                <div class="col-lg-2 col-sm-6">
+                {{-- <div class="col-lg-2 col-sm-6">
                     <h1 class="display-4">90</h1>
                     <p class="mb-0">Tesis de Pregrado</p>
-                </div>
+                </div> --}}
                 <div class="col-lg-2 col-sm-6">
                     <h1 class="display-4">45</h1>
                     <p class="mb-0">Informes de Practicas</p>
