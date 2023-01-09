@@ -10,7 +10,7 @@ class BibliotecaController extends Controller
 
     public function index()
     {
-        $libro = libro::all(); //::paginate(); para mostrar solo una cantidad de datos
+        $libro = libro::select('*')->orderBy('id', 'desc')->get(); //::paginate(); para mostrar solo una cantidad de datos
 
         return view('welcome', compact('libro'));
     }

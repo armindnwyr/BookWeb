@@ -77,6 +77,8 @@ Route::get('biblioteca',[BibliotecaController::class, 'index'])->name('bibliotec
 
 Route::get('/informe', [BinformeController::class, 'index']);
 
+Route::get('informe/{informe}',[BinformeController::class,'show'])->name('informe.show');
+
 
 //--------------CATEGORIA---------------------//
 

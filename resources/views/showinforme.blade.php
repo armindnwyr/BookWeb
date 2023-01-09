@@ -60,7 +60,7 @@
     </nav>
 
     <!-- SLIDER -->
-    <div class="owl-carousel owl-theme hero-slider">
+    {{-- <div class="owl-carousel owl-theme hero-slider">
         <div class="slide slide1">
             <div class="container">
                 <div class="row">
@@ -81,9 +81,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- MILESTONE -->
-    <section id="milestone">
+    {{-- <section id="milestone">
         <div class="container">
             <div class="row text-center justify-content-center gy-4">
                 <div class="col-lg-2 col-sm-6">
@@ -104,11 +104,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- Seccion de Informe --}}
     <section id="services" class="text-center">
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
@@ -118,72 +118,62 @@
                             Pre-Profesionales. Te invitamos a conocer nuestros ultimos ingresos.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            {{-- Card de Informe --}}
             <div class="container">
-                @foreach ($informe as $informe)
-                <div class="row mt-4">
-                  <div class="col-12">
-                    <div class="card titulo-informe">
-                    <a href="{{route('informe.show', $informe)}}">
-                      <div class="card-body">
-                        <div class="row  align-items-center">
-                          <div class="col-1 col-sm-2 d-none d-sm-block d-flex aligns-items-center justify-content-center">
-                            <img src="https://docplayer.es/docs-images/40/3207205/images/page_1.jpg"
-                                 class="img-fluid" />
-                          </div>
-                          <div class="col-md-10 parrafo-informe">
-                            <h3 class="fs-4">{{$informe->info_nombre}}</h3>
-                            <div class="row">
-                              <p class="fs-6">{{$informe->autor->au_nombre}} (Universidad Nacional del Altiplano - Puno, {{$informe->info_fecha}})</p>
-                              <p class="lh-sm" style="text-align: justify;">
-                                {{$informe->info_descripcion}}
-                              </p>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                              <h3>
+                                Evaluación de Compuestos Orgánicos Volátiles (COV) y la percepción en la salud de los trabajadores en la empresa de transporte terrestre de hidrocarburos y carga en general – Autoservicios Luchin E.I.R.L.
+                              </h3>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </a>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="row">
+                                
+                              <div class="col-sm-3">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                      <img alt="No Thumbnail [100%x160]" class="img-thumbnail" data-src="holder.js/100%x160/text:No Thumbnail" style=" width: 100%; display: block;" src="https://i0.wp.com/biblioteca2.uc3m.es/aquibiblioteca/wp-content/uploads/sites/4/2019/11/icono-tesisgris3x600.jpg" data-holder-rendered="true">
+                                  </div>
+                                  <div class="col-md-12 mt-4">
+                                      <h5>Ver</h5>
+                                      <a href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i> Yesica_Tesis_Licenciatura_2022.pdf (4.142Mb)</a>
+                                  </div>
+                                  <div class="col-md-12 mt-4">
+                                      <h5>Fecha</h5>
+                                      <a href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i> 2022-12-02</a>
+                                  </div>
+                                  <div class="col-md-12 mt-4">
+                                      <h5>Autor</h5>
+                                      <a href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i> Crisóstomo López, Hulda Jany</a>
+                                  </div>
+                                  <div class="col-md-12 mt-4">
+                                      <h5>Ver</h5>
+                                      <a href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i> Yesica_Tesis_Licenciatura_2022.pdf (4.142Mb)</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-8">
+                                <p class="text-justify">
+                                  En las empresas de transporte y logística el ritmo de trabajo implica horas laborales extensas y esto aumenta los niveles de exposición a diversos riesgos químicos y físicos que se presentan en el rubro. Por este motivo se escogió la empresa Autoservicios Luchin EIRL para evaluar especialmente los riesgos químicos por compuestos orgánicos volátiles a la cual se encuentran expuestos sus trabajadores y conocer la percepción de los trabajadores en cuanto a estos riesgos. Los riesgos químicos incluyen la exposición a compuestos tóxicos y cancerígenos. La medición de COVs en el ambiente laboral al que están vulnerables los trabajadores se determinó a través de un Detector de gas de marca MSA ALTAIR 5X PID. Obteniendo como resultado que el monóxido de carbono fue el único gas detectable con una cantidad de 1.422±0.02 ppm en el área de mantenimiento y soldadura. De igual forma se determinó que los trabajadores tienen conocimiento sobre los riesgos presentes en la empresa en cuanto a calidad del airey en general se encuentran satisfechos con las condiciones laborales. Sin embargo, la mayoría indica que la exposición a COVs en el trabajo es causal de desmejora de su salud.
+                                </p>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
                     </div>
-                  </div>
                 </div>
-                @endforeach
-              </div> 
-          
-            {{-- <div class="row g-4" id="paginated-list" aria-live="polite">
-                @foreach ($libro as $li)
-                    <div class="col-12 col-lg-4 col-md-6 g-4">
-                        <div class="service">
-                            <img src="{{ $li->li_image }}" alt="">
-                            <h5>{{ $li->li_titulo }}</h5>
-                            <p>{{ substr($li->li_descripcion, 0, 320) }} ...</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="pagination-container"style="position: relative; width: auto;">
-                        <button class="pagination-button" id="prev-button" aria-label="Previous page"
-                            title="Previous page">&lt;</button>
-                        <div id="pagination-numbers" style="margin: 0"></div>
-                        <button class="pagination-button" id="next-button" aria-label="Next page"
-                            title="Next page">&gt;</button>
-                    </div>
-                </div>
-            </div> --}}
-        </div>
-        {{-- <div class="row">
-            <div class="col-md-12">
-            {{$libro->links('pagination::bootstrap-4') }}
-            </div>
-        </div>       --}}
+              </div>
+
 
     </section>
 
     {{-- Miembros de la Biblioteca --}}
-    <section id="team">
+    {{-- <section id="team">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -223,7 +213,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- Pie de Pagina (footer) --}}
     <footer>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\libro;
+use App\Models\informe;
 use Illuminate\Http\Request;
 
 class BinformeController extends Controller
@@ -14,9 +14,9 @@ class BinformeController extends Controller
      */
     public function index()
     {
-        $libro = libro::all(); //::paginate(); para mostrar solo una cantidad de datos
+        $informe = Informe::select('*')->orderBy('id', 'desc')->get(); //::paginate(); para mostrar solo una cantidad de datos
 
-        return view('informe', compact('libro'));
+        return view('informe', compact('informe'));
     }
 
     /**
@@ -48,7 +48,7 @@ class BinformeController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('showinforme');
     }
 
     /**

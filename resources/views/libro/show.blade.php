@@ -3,40 +3,59 @@
 @section('title', 'Libro ' . $libro->li_titulo)
 
 @section('content_header')
-    
+<a href="{{route('libros.index')}}" class="btn btn-info mb-3">Regresar</a>
+
 @stop
 
-<link rel="stylesheet" href="/css/style2.css">
 
 @section('content')
-    {{-- <div class="container">
-    <div class="row mt-2">
-    <div class="col-md-12 offset-md-12 mt-4">
-        <div class="card">
-        <div class="card-body">
-            <div class="row  align-items-center">
-            <div class="">
-                <img src="{{$libro->li_image}}" class="img-fluid" width="400" height="600">
+<div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12 ">
+          <h4 class="text-uppercase">
+            {{ $libro->li_titulo }}
+          </h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            
+          <div class="col-sm-5">
+            <div class="row">
+              <div class="col-md-12">
+                  <img alt="No Thumbnail [100%x160]" class="img-thumbnail" data-src="holder.js/100%x160/text:No Thumbnail" style=" width: 100%; display: block;" src="{{$libro->li_image}}" data-holder-rendered="true">
+              </div>
             </div>
-            <div class="col-md-10">
-                <h5 style="text-align: justify;">{{$libro->li_titulo}}</h5>
-                <div class="row">
-                <p class="fs-6">{{$libro->li_autor}} (Universidad Nacional del Altiplano - Puno, {{$libro->updated_at}})</p>
-                <p class="lh-sm" style="text-align: justify;">
-                    {{$libro->li_descripcion}}
+          </div>
+          <div class="col-md-7">
+            <div class="row">
+              <div class="col-md-12">
+                <p class="text-justify">
+                  {{$libro->li_descripcion}}
                 </p>
-                </div>
+              </div>
+              <div class="col-md-12 mt-4 align-self-center">
+                  <ul class="list-none">
+                    <li class="mt-2"><span class="font-weight-bold mt-2">Título original</span> {{$libro->li_titulo}}</li>
+                    {{-- <li class="mt-2"><span class="font-weight-bold">Rating</span> 8.03</li> --}}
+                    <li class="mt-2"><span class="font-weight-bold">Autor</span> {{$libro->li_autor}}</li>
+                    <li class="mt-2"><span class="font-weight-bold">Enlace</span> <a href="{{$libro->li_enlace}}" >Visulizar</a></li>
+                    {{-- <li class="mt-2"><span class="font-weight-bold">Géneros</span> 2023-01-05</li>
+                    <li class="mt-2"><span class="font-weight-bold">Mas detalles en</span> 2023-01-05</li> --}}
+                  </ul>
+              </div>
             </div>
-            </div>
+          </div>
+          </div>
         </div>
-        <div class="row justify-content-center">
-            <a href="{{route('libros.index')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
-        </div>
-        </div>
+      </div>
+
     </div>
-    </div>
-</div> --}}
-<div class="container py-5">
+</div>
+
+{{-- <div class="container py-5">
     <div class="card">
         <div class="card-body">
             <h1 class="text-center font-weight-bold text-uppercase">{{ $libro->li_titulo }}</h1>
@@ -59,6 +78,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 @stop

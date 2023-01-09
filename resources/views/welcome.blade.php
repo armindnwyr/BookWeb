@@ -50,6 +50,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('login')}}" >Login</a>
                     </li>
+                    @can('home')    
+                    <li class="nav-item">
+                        <a class="nav-link" href="home" >Dashboard</a>
+                    </li>
+                    @endcan
                 </ul>
             </div>
         </div>
