@@ -57,8 +57,11 @@ class User extends Authenticatable
 
     public function adminlte_desc()
     {
-        $user = $this->roles()->first();
+        if($user = $this->roles()->first()){
         return $user->name;
+        }else{
+            return 'No asignado';
+        }
     }
 
     public function adminlte_profile_url()

@@ -121,13 +121,11 @@
             </div> --}}
 
             <div class="container">
+                <h3>{{$informe->info_nombre}}</h3>
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                              <h3>
-                                Evaluación de Compuestos Orgánicos Volátiles (COV) y la percepción en la salud de los trabajadores en la empresa de transporte terrestre de hidrocarburos y carga en general – Autoservicios Luchin E.I.R.L.
-                              </h3>
                             </div>
                           </div>
                           <div class="row">
@@ -137,30 +135,30 @@
                               <div class="col-sm-3">
                                 <div class="row">
                                   <div class="col-md-12">
-                                      <img alt="No Thumbnail [100%x160]" class="img-thumbnail" data-src="holder.js/100%x160/text:No Thumbnail" style=" width: 100%; display: block;" src="https://i0.wp.com/biblioteca2.uc3m.es/aquibiblioteca/wp-content/uploads/sites/4/2019/11/icono-tesisgris3x600.jpg" data-holder-rendered="true">
-                                  </div>
-                                  <div class="col-md-12 mt-4">
-                                      <h5>Ver</h5>
-                                      <a href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i> Yesica_Tesis_Licenciatura_2022.pdf (4.142Mb)</a>
-                                  </div>
-                                  <div class="col-md-12 mt-4">
-                                      <h5>Fecha</h5>
-                                      <a href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i> 2022-12-02</a>
-                                  </div>
-                                  <div class="col-md-12 mt-4">
-                                      <h5>Autor</h5>
-                                      <a href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i> Crisóstomo López, Hulda Jany</a>
-                                  </div>
-                                  <div class="col-md-12 mt-4">
-                                      <h5>Ver</h5>
-                                      <a href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i> Yesica_Tesis_Licenciatura_2022.pdf (4.142Mb)</a>
+                                      <img alt="No Thumbnail [100%x160]" class="img-thumbnail" data-src="holder.js/100%x160/text:No Thumbnail" style=" width: 100%; display: block;" src="https://docplayer.es/docs-images/40/3207205/images/page_1.jpg" data-holder-rendered="true">
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-md-8">
-                                <p class="text-justify">
-                                  En las empresas de transporte y logística el ritmo de trabajo implica horas laborales extensas y esto aumenta los niveles de exposición a diversos riesgos químicos y físicos que se presentan en el rubro. Por este motivo se escogió la empresa Autoservicios Luchin EIRL para evaluar especialmente los riesgos químicos por compuestos orgánicos volátiles a la cual se encuentran expuestos sus trabajadores y conocer la percepción de los trabajadores en cuanto a estos riesgos. Los riesgos químicos incluyen la exposición a compuestos tóxicos y cancerígenos. La medición de COVs en el ambiente laboral al que están vulnerables los trabajadores se determinó a través de un Detector de gas de marca MSA ALTAIR 5X PID. Obteniendo como resultado que el monóxido de carbono fue el único gas detectable con una cantidad de 1.422±0.02 ppm en el área de mantenimiento y soldadura. De igual forma se determinó que los trabajadores tienen conocimiento sobre los riesgos presentes en la empresa en cuanto a calidad del airey en general se encuentran satisfechos con las condiciones laborales. Sin embargo, la mayoría indica que la exposición a COVs en el trabajo es causal de desmejora de su salud.
+                              <div class="col-md-9">
+                                <p class="fs-6" style="text-align: justify;">
+                                    {{Str::limit($informe->info_descripcion, 1000)}}
                                 </p>
+                                <div class="col-md-12 mt-4">
+                                    <h4>Autor</h4>
+                                    <a class="text-decoration-none" href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->autor->au_nombre}} {{$informe->autor->au_paterno}} {{$informe->autor->au_materno}}</a>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <h4>Fecha de publicación</h4>
+                                    <a href="" class="text-decoration-none"><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->info_fecha}}</a>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <h4>Visualizar documento</h4>
+                                    <a class="text-decoration-none" href="{{$informe->info_pdf}}" target="_blink"><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->info_nombre}}.pdf -  UNAP</a>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <h4>Practicas pre-profesionales</h4>
+                                    <a class="text-decoration-none" href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->categoria->cate_nombre}}</a>
+                                </div>
                               </div>
                               </div>
                             </div>
@@ -168,6 +166,36 @@
                     </div>
                 </div>
               </div>
+{{-- 
+              <div class="container">
+                @foreach ($informei as $informe)
+                <div class="row mt-4">
+                  <div class="col-12">
+                    <div class="card titulo-informe">
+                    <a href="{{route('informe.show', $informe)}}">
+                      <div class="card-body">
+                        <div class="row  align-items-center">
+                          <div class="col-1 col-sm-2 d-none d-sm-block d-flex aligns-items-center justify-content-center">
+                            <img src="https://docplayer.es/docs-images/40/3207205/images/page_1.jpg"
+                                 class="img-fluid" />
+                          </div>
+                          <div class="col-md-10 parrafo-informe">
+                            <h3 class="fs-4">{{$informe->info_nombre}}</h3>
+                            <div class="row">
+                              <p class="fs-6">{{$informe->autor->au_nombre}} (Universidad Nacional del Altiplano - Puno, {{$informe->info_fecha}})</p>
+                              <p class="lh-sm" style="text-align: justify;">
+                                {{Str::limit($informe->info_descripcion, 900)}}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    </div>
+                  </div>
+                </div>
+                @endforeach
+              </div> --}}
 
 
     </section>

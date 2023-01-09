@@ -46,9 +46,10 @@ class BinformeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Informe $informe)
     {
-        return view('showinforme');
+        $informei = Informe::select('*')->orderBy('id', 'desc')->get();
+        return view('showinforme', compact('informe','informei'));
     }
 
     /**

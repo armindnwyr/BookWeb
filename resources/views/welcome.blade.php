@@ -124,7 +124,10 @@
                 @foreach ($libro as $li)
                     <div class="col-12 col-lg-4 col-md-6 g-4">
                         <div class="service">
-                            <img src="{{ $li->li_image }}" alt="">
+                            <a class="text-decoration-none text-dark" href="{{route('biblioteca.show', $li)}}"> 
+                                <img src="{{ $li->li_image }}" alt="">
+                            </a>
+                            
                             <h5>{{ $li->li_titulo }}</h5>
                             <p>{{ Str::limit($li->li_descripcion, 305)}}</p>
                         </div>

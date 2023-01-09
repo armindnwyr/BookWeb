@@ -41,7 +41,7 @@
                         <a class="nav-link" aria-current="page" href="/">Libros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/informe">Informe</a>
+                        <a class="nav-link" href="/informe">Informe</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
@@ -60,7 +60,7 @@
     </nav>
 
     <!-- SLIDER -->
-    <div class="owl-carousel owl-theme hero-slider">
+    {{-- <div class="owl-carousel owl-theme hero-slider">
         <div class="slide slide1">
             <div class="container">
                 <div class="row">
@@ -81,9 +81,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- MILESTONE -->
-    <section id="milestone">
+    {{-- <section id="milestone">
         <div class="container">
             <div class="row text-center justify-content-center gy-4">
                 <div class="col-lg-2 col-sm-6">
@@ -104,11 +104,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- Seccion de Informe --}}
     <section id="services" class="text-center">
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
@@ -118,11 +118,58 @@
                             Pre-Profesionales. Te invitamos a conocer nuestros ultimos ingresos.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            {{-- Card de Informe --}}
+
             <div class="container">
-                @foreach ($informe as $informe)
+                <h3>{{$libro->li_titulo}}</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="row">
+                                
+                              <div class="col-sm-3">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                      <img alt="No Thumbnail [100%x160]" class="img-thumbnail" data-src="holder.js/100%x160/text:No Thumbnail" style=" width: 100%; display: block;" src="{{$libro->li_image}}" data-holder-rendered="true">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-9">
+                                <p class="fs-6" style="text-align: justify;">
+                                    {{Str::limit($libro->li_descripcion, 1000)}}
+                                </p>
+                                <div class="col-md-12 mt-4">
+                                    <h4>Autor</h4>
+                                    <a class="text-decoration-none" href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$libro->li_autor}}</a>
+                                </div>
+                                {{-- <div class="col-md-12 mt-4">
+                                    <h4>Fecha de publicación</h4>
+                                    <a href="" class="text-decoration-none"><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->info_fecha}}</a>
+                                </div> --}}
+                                <div class="col-md-12 mt-4">
+                                    <h4>Visualizar Libro</h4>
+                                    <a class="text-decoration-none" href="{{$libro->li_enlace}}" target="_blink"><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$libro->li_titulo}} -  UNAP - EPIS</a>
+                                </div>
+                                {{-- <div class="col-md-12 mt-4">
+                                    <h4>Practicas pre-profesionales</h4>
+                                    <a class="text-decoration-none" href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$informe->categoria->cate_nombre}}</a>
+                                </div> --}}
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+              </div>
+{{-- 
+              <div class="container">
+                @foreach ($informei as $informe)
                 <div class="row mt-4">
                   <div class="col-12">
                     <div class="card titulo-informe">
@@ -149,41 +196,13 @@
                   </div>
                 </div>
                 @endforeach
-              </div> 
-          
-            {{-- <div class="row g-4" id="paginated-list" aria-live="polite">
-                @foreach ($libro as $li)
-                    <div class="col-12 col-lg-4 col-md-6 g-4">
-                        <div class="service">
-                            <img src="{{ $li->li_image }}" alt="">
-                            <h5>{{ $li->li_titulo }}</h5>
-                            <p>{{ substr($li->li_descripcion, 0, 320) }} ...</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="pagination-container"style="position: relative; width: auto;">
-                        <button class="pagination-button" id="prev-button" aria-label="Previous page"
-                            title="Previous page">&lt;</button>
-                        <div id="pagination-numbers" style="margin: 0"></div>
-                        <button class="pagination-button" id="next-button" aria-label="Next page"
-                            title="Next page">&gt;</button>
-                    </div>
-                </div>
-            </div> --}}
-        </div>
-        {{-- <div class="row">
-            <div class="col-md-12">
-            {{$libro->links('pagination::bootstrap-4') }}
-            </div>
-        </div>       --}}
+              </div> --}}
+
 
     </section>
 
     {{-- Miembros de la Biblioteca --}}
-    <section id="team">
+    {{-- <section id="team">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -223,7 +242,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     {{-- Pie de Pagina (footer) --}}
     <footer>
