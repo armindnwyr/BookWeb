@@ -14,7 +14,7 @@
     <form action="{{route('docentes.index')}}" method="post">
       @csrf
       <div class="form-row">
-        <div class="form-group col-md-6 mt-2">
+        <div class="form-group col-md-6 mt-2 col-12">
           <label>Nombre</label>
           <input type="text" class="form-control" id="inputEmail4" name="nombre" value="{{old('nombre')}}">
             @error('nombre')
