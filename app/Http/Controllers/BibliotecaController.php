@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\libro;
 use Illuminate\Http\Request;
-use Psy\Readline\Libedit;
+
 
 class BibliotecaController extends Controller
 {
 
-    
+
     public function index()
     {
         $libro = libro::select('*')->orderBy('id', 'desc')->get(); //::paginate(); para mostrar solo una cantidad de datos
@@ -22,4 +22,25 @@ class BibliotecaController extends Controller
         $libro = Libro::find($id);
         return view('showwelcome', compact('libro'));
     }
+   
+    
+    public function search(Request $request)
+    {
+        
+        $term = $request->get('term');
+        
+        $query = Libro::where('li_titulo', 'LIKE', '%' . $term . '%')->get();
+        
+        $data = [];
+
+        foreach($query as $query){
+            $data[] = [
+                'id' => $query->id,
+                'label' => $query->li_titulo,
+            ];
+        }
+
+        return $data;
+    }
+
 }

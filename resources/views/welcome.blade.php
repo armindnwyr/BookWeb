@@ -45,15 +45,16 @@
                         <a class="nav-link" href="/informe">Informe de Practicas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
+                        <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de
+                            Tesis</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}" >Login</a>
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
-                    @can('home')    
-                    <li class="nav-item">
-                        <a class="nav-link" href="home" >Dashboard</a>
-                    </li>
+                    @can('home')
+                        <li class="nav-item">
+                            <a class="nav-link" href="home">Dashboard</a>
+                        </li>
                     @endcan
                 </ul>
             </div>
@@ -109,6 +110,9 @@
 
     <section id="services" class="text-center">
         <div class="container">
+            {{-- Probando buscador  --}}
+            <input class="typeahead form-control" type="text" name="search" id="search" >
+            {{-- Probando buscador  --}}
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
@@ -124,12 +128,12 @@
                 @foreach ($libro as $li)
                     <div class="col-12 col-lg-4 col-md-6 g-4">
                         <div class="service">
-                            <a class="text-decoration-none text-dark" href="{{route('biblioteca.show', $li)}}"> 
+                            <a class="text-decoration-none text-dark" href="{{ route('biblioteca.show', $li) }}">
                                 <img src="{{ $li->li_image }}" alt="">
                             </a>
-                            
+
                             <h5>{{ $li->li_titulo }}</h5>
-                            <p>{{ Str::limit($li->li_descripcion, 305)}}</p>
+                            <p>{{ Str::limit($li->li_descripcion, 305) }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -229,6 +233,33 @@
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/page.js"></script>
+
+
+    {{-- <script src="/vendor/jquery/jquery.js"></script> --}}
+    <script src="/vendor/jquery-ui-1.13.2/jquery-ui.js"></script>
+    <script>
+        $('#search').autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '{{ route('biblioteca.search') }}',
+                    dataType: 'json',
+                    data: {
+                        term: request.term
+                    },
+
+                    success: function(data) {
+                        response(data);
+                    }
+
+                });
+            },
+            select: function(event, ui) {
+                // $('#search').val(ui.item.id);
+                window.location.href = 'biblioteca/' + ui.item.id;
+                
+            }
+        });
+    </script>
 </body>
 
 </html>

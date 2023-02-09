@@ -74,6 +74,7 @@ Route::resource('libros', LibroController::class);
 
 Route::get('biblioteca',[BibliotecaController::class, 'index'])->name('biblioteca.index');
 Route::get('biblioteca/{biblioteca}',[BibliotecaController::class, 'show'])->name('biblioteca.show');
+Route::get('search/',[BibliotecaController::class,'search'])->name('biblioteca.search');
 
 
 Route::get('/informe', [BinformeController::class, 'index']);
