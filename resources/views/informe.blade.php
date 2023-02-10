@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ asset('vendor/jquery-ui-1.13.2/jquery-ui.min.css') }}">
+
 
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
@@ -33,6 +35,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            @if (Route::has('login'))
             <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="navbar-brand" href="#">
                 </a>
@@ -46,16 +49,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}" target="_blink">Login</a>
-                    </li>
-                    @can('home')    
+                    @auth
                     <li class="nav-item">
                         <a class="nav-link" href="home" >Dashboard</a>
                     </li>
-                    @endcan
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('login')}}" target="_blink">Login</a>
+                    </li>
+                    @endauth
                 </ul>
             </div>
+            @endif
         </div>
     </nav>
 
@@ -109,6 +114,11 @@
     {{-- Seccion de Informe --}}
     <section id="services" class="text-center">
         <div class="container">
+            <h1 for="">Buscar</h1>
+            <form action="">
+            <div class="input-group mb-3 ">
+                <input type="search" class=" form-control rounded text-center" placeholder="¿Que informe de practicas deseas buscar?" id="search">        </div>
+            </form>
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
@@ -257,6 +267,30 @@
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/page.js"></script>
+    <script src="/vendor/jquery-ui-1.13.2/jquery-ui.js"></script>
+    <script>
+        $('#search').autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: '{{ route('informe.search') }}',
+                    dataType: 'json',
+                    data: {
+                        term: request.term
+                    },
+
+                    success: function(data) {
+                        response(data);
+                    }
+
+                });
+            },
+            select: function(event, ui) {
+                $('#search2').val(ui.item.id);
+                window.location.href = 'informe/' + ui.item.id;
+
+            }
+        });
+    </script>
 </body>
 
 </html>

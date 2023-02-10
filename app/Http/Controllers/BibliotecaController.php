@@ -24,7 +24,7 @@ class BibliotecaController extends Controller
     }
    
     
-    public function search(Request $request)
+    public function buscar(Request $request)
     {
         
         $term = $request->get('term');

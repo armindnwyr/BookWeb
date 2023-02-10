@@ -52,6 +52,25 @@ class BinformeController extends Controller
         return view('showinforme', compact('informe','informei'));
     }
 
+    public function search(Request $request)
+    {
+        
+        $term = $request->get('term');
+        
+        $query = Informe::where('info_nombre', 'LIKE', '%' . $term . '%')->get();
+        
+        $data = [];
+
+        foreach($query as $query){
+            $data[] = [
+                'id' => $query->id,
+                'label' => $query->info_nombre,
+            ];
+        }
+
+        return $data;
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

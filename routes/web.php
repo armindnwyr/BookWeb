@@ -72,14 +72,14 @@ Route::resource('docentes', DocenteController::class);
 
 Route::resource('libros', LibroController::class);
 
+Route::get('buscar/',[BibliotecaController::class,'buscar'])->name('biblioteca.buscar');
 Route::get('biblioteca',[BibliotecaController::class, 'index'])->name('biblioteca.index');
 Route::get('biblioteca/{biblioteca}',[BibliotecaController::class, 'show'])->name('biblioteca.show');
-Route::get('search/',[BibliotecaController::class,'search'])->name('biblioteca.search');
 
 
-Route::get('/informe', [BinformeController::class, 'index']);
-
+Route::get('informe', [BinformeController::class, 'index']);
 Route::get('informe/{informe}',[BinformeController::class,'show'])->name('informe.show');
+Route::get('search/',[BinformeController::class,'search'])->name('informe.search');
 
 
 //--------------CATEGORIA---------------------//

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/owl.theme.default.min.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ asset('vendor/jquery-ui-1.13.2/jquery-ui.min.css') }}">
 
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
@@ -33,7 +34,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+            @if (Route::has('login'))
             <div class="collapse navbar-collapse" id="navbarNav">
                 <a class="navbar-brand" href="#">
                 </a>
@@ -48,16 +49,19 @@
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de
                             Tesis</a>
                     </li>
+                    @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="home">Dashboard</a>
+                    </li>
+                    @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
-                    @can('home')
-                        <li class="nav-item">
-                            <a class="nav-link" href="home">Dashboard</a>
-                        </li>
-                    @endcan
+                    @endauth
+                    
                 </ul>
             </div>
+            @endif
         </div>
     </nav>
 
@@ -111,14 +115,22 @@
     <section id="services" class="text-center">
         <div class="container">
             {{-- Probando buscador  --}}
-            <input class="typeahead form-control" type="text" name="search" id="search" >
+            <h1 for="">Buscar</h1>
+            <form action="">
+            <div class="input-group mb-3 ">
+                <input type="search" class=" form-control rounded text-center" placeholder="¿Que libro deseas buscar?" id="search">
+
+            </div>
+            </form>
+            {{-- <input class="typeahead form-control" type="text" name="search" id="search"> --}}
             {{-- Probando buscador  --}}
             <div class="row">
                 <div class="col-12">
                     <div class="intro">
                         <h6>Conoce nuestros</h6>
                         <h1>Nuevos Ingresos</h1>
-                        <p class="mx-auto">En la biblioteca especializada de la EPIS. Contamos con nuevos libros en cada
+                        <p class="mx-auto">En la biblioteca especializada de la EPIS. Contamos con nuevos libros en
+                            cada
                             momento. Te invitamos a conocer nuestros ultimos ingresos.</p>
                     </div>
                 </div>
@@ -241,7 +253,7 @@
         $('#search').autocomplete({
             source: function(request, response) {
                 $.ajax({
-                    url: '{{ route('biblioteca.search') }}',
+                    url: '{{ route('biblioteca.buscar') }}',
                     dataType: 'json',
                     data: {
                         term: request.term
@@ -254,9 +266,9 @@
                 });
             },
             select: function(event, ui) {
-                // $('#search').val(ui.item.id);
+                $('#search2').val(ui.item.id);
                 window.location.href = 'biblioteca/' + ui.item.id;
-                
+
             }
         });
     </script>
