@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{ asset('vendor/jquery-ui-1.13.2/jquery-ui.min.css') }}">
 
+
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     {{-- Titulo de la Pagina --}}
@@ -29,38 +30,41 @@
     <!-- BARRA DE NAVEGACION -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Book<span class="dot">Web</span></a>
+            <a class="navbar-brand" href="/">Book<span class="dot">Web</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             @if (Route::has('login'))
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <a class="navbar-brand" href="#">
-                </a>
-                <ul class="navbar-nav d-flex justify-content-center align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Libros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/informe">Informe de Practicas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de
-                            Tesis</a>
-                    </li>
-                    @auth
-                    <li class="nav-item">
-                        <a class="nav-link" href="home">Dashboard</a>
-                    </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>
-                    @endauth
-                    
-                </ul>
-            </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <a class="navbar-brand" href="#">
+                    </a>
+                    <ul class="navbar-nav d-flex justify-content-center align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page"
+                                href="/">Libros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->is('informe') ? 'active' : '' }}" href="/informe"
+                                :active="request() - > routeIs('binforme.index')">Informe de Practicas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de
+                                Tesis</a>
+                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="home">Dashboard</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="{{ route('login') }}"
+                                    target="_blink">Login</a>
+                            </li>
+                        @endauth
+
+                    </ul>
+                </div>
             @endif
         </div>
     </nav>
@@ -112,15 +116,17 @@
         </div>
     </section>
 
+
     <section id="services" class="text-center">
+
         <div class="container">
             {{-- Probando buscador  --}}
             <h1 for="">Buscar</h1>
             <form action="">
-            <div class="input-group mb-3 ">
-                <input type="search" class=" form-control rounded text-center" placeholder="¿Que libro deseas buscar?" id="search">
-
-            </div>
+                <div class=" col-md-6 offset-md-3 container">
+                    <input type="search" class="shadow p-3 mb-5 form-control text-center"
+                        placeholder="¿Que libro deseas buscar?" id="search">
+                </div>
             </form>
             {{-- <input class="typeahead form-control" type="text" name="search" id="search"> --}}
             {{-- Probando buscador  --}}
@@ -136,38 +142,51 @@
                 </div>
             </div>
 
-            <div class="row g-4" id="paginated-list" aria-live="polite">
+            {{-- -------probando --}}
+            <div class=" row row-cols-1 row-cols-md-2 row-cols-lg-3 card-content">
                 @foreach ($libro as $li)
-                    <div class="col-12 col-lg-4 col-md-6 g-4">
-                        <div class="service">
-                            <a class="text-decoration-none text-dark" href="{{ route('biblioteca.show', $li) }}">
-                                <img src="{{ $li->li_image }}" alt="">
+                    <div class="col">
+                        <div class="card mb-4">
+                            <a href="{{ route('biblioteca.show', $li) }}">
+                                <img src="{{ $li->li_image }}" class="card-img-top" alt="{{ $li->li_titulo }}">
                             </a>
-
-                            <h5>{{ $li->li_titulo }}</h5>
-                            <p>{{ Str::limit($li->li_descripcion, 305) }}</p>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $li->li_titulo }}</h5>
+                                <p class="card-text">
+                                    {{ Str::limit($li->li_descripcion, 200) }}
+                                </p>
+                                <div class="mb-1">
+                                    <a href="{{ route('biblioteca.show', $li) }}" class="btn btn-sm btn-primary">Leer más..</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="pagination-container"style="position: relative; width: auto;">
-                        <button class="pagination-button" id="prev-button" aria-label="Previous page"
-                            title="Previous page">&lt;</button>
-                        <div id="pagination-numbers" style="margin: 0"></div>
-                        <button class="pagination-button" id="next-button" aria-label="Next page"
-                            title="Next page">&gt;</button>
-                    </div>
+            <div class="contenedor">
+                <div class="pagination">
                 </div>
             </div>
-        </div>
-        {{-- <div class="row">
-            <div class="col-md-12">
-            {{$libro->links('pagination::bootstrap-4') }}
-            </div>
-        </div>       --}}
+          
 
+            {{-- <div class=" row g-4 card-content" aria-live="polite">
+                @foreach ($libro as $li)
+                    <div class="card col-12 col-lg-4 col-md-6">
+                        <div class="service">
+                            <a class="text-decoration-none text-dark" href="{{ route('biblioteca.show', $li) }}">
+                                <img src="{{ $li->li_image }}" alt="">
+                            </a>
+                            <h5>{{ $li->li_titulo }}</h5>
+                            <p>{{ Str::limit($li->li_descripcion, 200) }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div> --}}
+            {{-- {{ $libro->links() }} --}}
+            {{-- <div class="contenedor">
+                <div class="pagination"></div>
+            </div> --}}
+        </div>
     </section>
 
 
@@ -244,7 +263,7 @@
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
     <script src="/js/app.js"></script>
-    <script src="/js/page.js"></script>
+    <script src="/js/paginate.js"></script>
 
 
     {{-- <script src="/vendor/jquery/jquery.js"></script> --}}

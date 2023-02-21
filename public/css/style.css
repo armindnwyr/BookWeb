@@ -13,37 +13,43 @@
     width: 80px;
     margin: 10px;
   } */
-  .titulo-informe a {
+.titulo-informe a {
     text-decoration: none;
-  }
-  .card {
+}
+
+.card {
     box-shadow: 2px 2px 2px 1px rgba(113, 112, 112, 0.2);
-  }
-  .parrafo-informe p {
+}
+
+.parrafo-informe p {
     color: #686a6c;
     font-size: 1rem;
     font-family: "Barlow", sans-serif;
     font-weight: Normal;
-  }
-  .navbar-collapse a {
+}
+
+.navbar-collapse a {
     font-size: 20px;
     font-weight: bold;
-  }
-  .navbar {
+}
+
+.navbar {
     padding: 2rem;
     background-color: #f5f6f7;
-  }
-  .navbar-collapse {
+}
+
+.navbar-collapse {
     align-items: center;
-    justify-content: space-between;  
-  }
-  .footer-texto {
+    justify-content: space-between;
+}
+
+.footer-texto {
     font-size: 1.5rem;
     padding: 20px;
     margin-bottom: 30px;
-  }
-  
-  .iconos-redes-sociales a {
+}
+
+.iconos-redes-sociales a {
     width: 50px;
     height: 50px;
     display: flex;
@@ -55,32 +61,32 @@
     border-radius: 50%;
     text-decoration: none;
     transition: all 0.2s ease-in;
-  }
-  
-  .iconos-redes-sociales i {
+}
+
+.iconos-redes-sociales i {
     color: white;
     font-size: 1.5rem;
     transition: all 0.2s ease-in;
-  }
-  
-  .iconos-redes-sociales a:hover {
+}
+
+.iconos-redes-sociales a:hover {
     background-color: white;
     border: 2px solid rgb(13, 110, 253);
-  }
-  
-  .iconos-redes-sociales a:hover i {
+}
+
+.iconos-redes-sociales a:hover i {
     color: black;
-  }
-  
-  .derechos-de-autor {
+}
+
+.derechos-de-autor {
     font-size: 15px;
     color: #aeaeae;
     padding: 20px;
-  }
+}
 
 /* Seccion Personal */
 
-.image .personal-img{
+.image .personal-img {
     height: 150px;
     width: 150px;
     margin: 10px 10px 20px 10px;
@@ -90,9 +96,9 @@
     --brand: #023e8a;
     --dark: #092032;
     --body: #516171;
-    --border: rgba(0,0,0,0.08);
+    --border: rgba(0, 0, 0, 0.08);
     --shadow: 0px 6px 30px rgba(0, 0, 0, 0.08);
-    
+
 }
 
 body {
@@ -101,8 +107,16 @@ body {
     line-height: 1.7;
 }
 
-h1,h2,h3,h4,h5,h6,
-.display-1,.display-2,.display-3,.display-4 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
     font-weight: 700;
     color: var(--dark);
 }
@@ -138,7 +152,7 @@ section {
 
 
 .hero-slider .owl-prev,
-.hero-slider .owl-next{
+.hero-slider .owl-next {
     background-color: rgba(255, 255, 255, 0.3) !important;
     width: 60px !important;
     height: 60px !important;
@@ -160,27 +174,28 @@ section {
 .owl-prev {
     left: 0;
 }
+
 .owl-next {
     right: 0;
 }
 
 .hero-slider .owl-prev:hover,
 .hero-slider .owl-next:hover {
-    background-color: var(--brand) !important; 
+    background-color: var(--brand) !important;
 }
 
-.owl-dot.active span{
+.owl-dot.active span {
     background-color: var(--brand) !important;
 }
 
 
- /* slide */
- .slide {
-     min-height: 100vh;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     position: relative;
+/* slide */
+.slide {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .slide1 {
@@ -241,12 +256,14 @@ section {
     background-color: #fff;
     color: var(--brand);
 }
-.conditions-section{
+
+.conditions-section {
     margin: 20px 0;
 }
-.conditions-section a{
-   color: #fff;
-   margin: 0 10px;
+
+.conditions-section a {
+    color: #fff;
+    margin: 0 10px;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -286,13 +303,16 @@ section {
     color: #fff;
 }
 
-.intro {margin-bottom: 36px;
-text-align: center;}
+.intro {
+    margin-bottom: 36px;
+    text-align: center;
+}
 
 .intro p {
     max-width: 500px;
 }
-.intro h6{
+
+.intro h6 {
     color: var(--brand);
     font-weight: 400;
     text-transform: uppercase;
@@ -337,13 +357,15 @@ text-align: center;}
     margin-bottom: 14px;
 }
 
-img{
-    max-width: 100%;
-    max-height: 100%;
+.card-img-top {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
 
 }
+
 .service img {
-    width: auto; 
+    width: auto;
     height: 300px;
 }
 
@@ -393,13 +415,14 @@ img{
 .project h6 {
     color: #fff;
 }
+
 /* Miembros de la biblioteca */
 
 .team-member {
     text-align: center;
 }
 
-.team-member .image{
+.team-member .image {
     position: relative;
     z-index: 2;
     overflow: hidden;
@@ -448,7 +471,8 @@ img{
 
 #reviews {
 
-    background: linear-gradient(-90deg, rgba(8, 32, 50, 0.8), rgba(8, 32, 50, 0.8)), url(../img/bg_banner4.jpg), #082032;;
+    background: linear-gradient(-90deg, rgba(8, 32, 50, 0.8), rgba(8, 32, 50, 0.8)), url(../img/bg_banner4.jpg), #082032;
+    ;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -536,7 +560,8 @@ img{
 }
 
 footer {
-    background: linear-gradient(0deg, rgba(8, 32, 50, 0.9), rgba(8, 32, 50, 0.9)), url(../img/bg_banner5.jpg), #082032;;
+    background: linear-gradient(0deg, rgba(8, 32, 50, 0.9), rgba(8, 32, 50, 0.9)), url(../img/bg_banner5.jpg), #082032;
+    ;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -589,7 +614,8 @@ input.form-control {
 
 .form-control {
     background-color: rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.04);;
+    border-color: rgba(0, 0, 0, 0.04);
+    ;
 }
 
 .form-control:focus {
@@ -600,36 +626,18 @@ input.form-control {
 .hidden {
     display: none;
 }
-    
-.pagination-container {
-    width: calc(100% - 15rem);
+
+.contenedor {
+    min-height: 10vh;
     display: flex;
-    align-items: center;
-    position: absolute;
-    bottom: 10;
-    padding: 2rem 0;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.pagination-number,
-.pagination-button{
-    font-size: 1.1rem;
-    background-color: transparent;
-    border: none;
-    margin: 0.25rem 0.25rem;
-    cursor: pointer;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: .2rem;
-}
+.pagination{
+    text-align: center;
+    margin: 30px 30px 60px;
+    user-select: none;
+  }
 
-.pagination-number:hover,
-.pagination-button:not(.disabled):hover {
-    color: #fff;
-    background: rgba(8, 32, 50, 0.9);
-}
-
-.pagination-number.active {
-    color: rgb(255, 255, 255);
-    background: rgba(8, 32, 50, 0.9);
-}

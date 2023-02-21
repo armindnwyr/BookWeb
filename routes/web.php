@@ -29,10 +29,9 @@ use Spatie\Permission\Contracts\Role;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/',[BibliotecaController::class, 'index']);
+Route::get('/',[BibliotecaController::class, 'index'])->name('biblioteca.index');
 
-Auth::routes();
-Auth::routes(["register" => false]);
+Auth::routes(['register' => false]);
 
 //--------------DOCENTE---------------------//
 
@@ -77,7 +76,7 @@ Route::get('biblioteca',[BibliotecaController::class, 'index'])->name('bibliotec
 Route::get('biblioteca/{biblioteca}',[BibliotecaController::class, 'show'])->name('biblioteca.show');
 
 
-Route::get('informe', [BinformeController::class, 'index']);
+Route::get('informe', [BinformeController::class, 'index'])->name('binforme.index');
 Route::get('informe/{informe}',[BinformeController::class,'show'])->name('informe.show');
 Route::get('search/',[BinformeController::class,'search'])->name('informe.search');
 

@@ -38,10 +38,10 @@
                 </a>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Libros</a>
+                        <a class="nav-link {{ request()->is('biblioteca*') ? 'active' : '' }}" aria-current="page" href="/">Libros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/informe">Informe de Practicas</a>
+                        <a class="nav-link {{ request()->is('informe*') ? 'active' : '' }}" href="/informe">Informe de Practicas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de Tesis</a>

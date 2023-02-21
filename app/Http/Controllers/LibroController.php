@@ -26,7 +26,7 @@ class LibroController extends Controller
 
     public function index()
     {
-        $libros = libro::all(); //::paginate(); para mostrar solo una cantidad de datos
+        $libros = libro::select('*')->orderBy('id', 'desc')->get(); //::paginate(); para mostrar solo una cantidad de datos
         
         return view('libro.index', compact('libros'));
     }
