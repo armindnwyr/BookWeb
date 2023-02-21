@@ -120,6 +120,7 @@
 </script>
 <script>
     $('#tlibro').DataTable({
+      order: [[2, 'desc']],
       responsive: true,
       autoWidth: false,     
       "language": {
