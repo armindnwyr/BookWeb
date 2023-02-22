@@ -1,99 +1,72 @@
-const paginationNumbers = document.getElementById("pagination-numbers");
-const paginatedList = document.getElementById("paginated-list");
-const listItems = paginatedList.querySelectorAll("div");
-const nextButton = document.getElementById("next-button");
-const prevButton = document.getElementById("prev-button");
-
-const paginationLimit = 72;
-const pageCount = Math.ceil(listItems.length / paginationLimit);
-let currentPage = 1;
-
-const disableButton = (button) => {
-  button.classList.add("disabled");
-  button.setAttribute("disabled", true);
-};
-
-const enableButton = (button) => {
-  button.classList.remove("disabled");
-  button.removeAttribute("disabled");
-};
-
-const handlePageButtonsStatus = () => {
-  if (currentPage === 1) {
-    disableButton(prevButton);
-  } else {
-    enableButton(prevButton);
+function getPageList(totalPages, page, maxLength){
+  function range(start, end){
+    return Array.from(Array(end - start + 1), (_, i) => i + start);
   }
 
-  if (pageCount === currentPage) {
-    disableButton(nextButton);
-  } else {
-    enableButton(nextButton);
+  var sideWidth = maxLength < 9 ? 1 : 2;
+  var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+  var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+
+  if(totalPages <= maxLength){
+    return range(1, totalPages);
   }
-};
 
-const handleActivePageNumber = () => {
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    button.classList.remove("active");
-    const pageIndex = Number(button.getAttribute("page-index"));
-    if (pageIndex == currentPage) {
-      button.classList.add("active");
-    }
-  });
-};
-
-const appendPageNumber = (index) => {
-  const pageNumber = document.createElement("button");
-  pageNumber.className = "pagination-number";
-  pageNumber.innerHTML = index;
-  pageNumber.setAttribute("page-index", index);
-  pageNumber.setAttribute("aria-label", "Page " + index);
-
-  paginationNumbers.appendChild(pageNumber);
-};
-
-const getPaginationNumbers = () => {
-  for (let i = 1; i <= pageCount; i++) {
-    appendPageNumber(i);
+  if(page <= maxLength - sideWidth - 1 - rightWidth){
+    return range(1, maxLength - sideWidth - 1).concat(0, range(totalPages - sideWidth + 1, totalPages));
   }
-};
 
-const setCurrentPage = (pageNum) => {
-  currentPage = pageNum;
+  if(page >= totalPages - sideWidth - 1 - rightWidth){
+    return range(1, sideWidth).concat(0, range(totalPages- sideWidth - 1 - rightWidth - leftWidth, totalPages));
+  }
 
-  handleActivePageNumber();
-  handlePageButtonsStatus();
-  
-  const prevRange = (pageNum - 1) * paginationLimit;
-  const currRange = pageNum * paginationLimit;
+  return range(1, sideWidth).concat(0, range(page - leftWidth, page + rightWidth), 0, range(totalPages - sideWidth + 1, totalPages));
+}
 
-  listItems.forEach((item, index) => {
-    item.classList.add("hidden");
-    if (index >= prevRange && index < currRange) {
-      item.classList.remove("hidden");
-    }
+$(function(){
+  var numberOfItems = $(".card-content .card").length;
+  var limitPerPage = 6; //How many card items visible per a page
+  var totalPages = Math.ceil(numberOfItems / limitPerPage);
+  var paginationSize = 9; //How many page elements visible in the pagination
+  var currentPage;
+
+  function showPage(whichPage){
+    if(whichPage < 1 || whichPage > totalPages) return false;
+
+    currentPage = whichPage;
+
+    $(".card-content .card").hide().slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage).show();
+
+    $(".pagination li").slice(1, -1).remove();
+
+    getPageList(totalPages, currentPage, paginationSize).forEach(item => {
+      $("<li>").addClass("page-item").addClass(item ? "current-page" : "dots")
+      .toggleClass("active", item === currentPage).append($("<a>").addClass("page-link")
+      .attr({href: "javascript:void(0)"}).text(item || "...")).insertBefore(".next-page");
+    });
+
+    $(".previous-page").toggleClass("disable", currentPage === 1);
+    $(".next-page").toggleClass("disable", currentPage === totalPages);
+    return true;
+  }
+
+  $(".pagination").append(
+    $("<li>").addClass("page-item").addClass("previous-page").append($("<a>").addClass("page-link").attr({href: "javascript:void(0)"}).text("<")),
+    $("<li>").addClass("page-item").addClass("next-page").append($("<a>").addClass("page-link").attr({href: "javascript:void(0)"}).text(">"))
+  );
+
+  $(".card-content").show();
+  showPage(1);
+
+  $(document).on("click", ".pagination li.current-page:not(.active)", function(){
+    return showPage(+$(this).text());
   });
-};
 
-window.addEventListener("load", () => {
-  getPaginationNumbers();
-  setCurrentPage(1);
-
-  prevButton.addEventListener("click", () => {
-    setCurrentPage(currentPage - 1);
+  $(".next-page").on("click", function(){
+    return showPage(currentPage + 1);
   });
 
-  nextButton.addEventListener("click", () => {
-    setCurrentPage(currentPage + 1);
-  });
-
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    const pageIndex = Number(button.getAttribute("page-index"));
-
-    if (pageIndex) {
-      button.addEventListener("click", () => {
-        setCurrentPage(pageIndex);
-      });
-    }
+  $(".previous-page").on("click", function(){
+    return showPage(currentPage - 1);
   });
 });
+      

@@ -3,7 +3,7 @@ function getPageList(totalPages, page, maxLength){
       return Array.from(Array(end - start + 1), (_, i) => i + start);
     }
   
-    var sideWidth = maxLength < 9 ? 1 : 2;
+    var sideWidth = maxLength < 9 ?  1 : 4;
     var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
     var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
   
@@ -41,7 +41,7 @@ function getPageList(totalPages, page, maxLength){
       getPageList(totalPages, currentPage, paginationSize).forEach(item => {
         $("<li>").addClass("page-item").addClass(item ? "current-page" : "dots")
         .toggleClass("active", item === currentPage).append($("<a>").addClass("page-link")
-        .attr({href: "javascript:void(0)"}).text(item || "...")).insertBefore(".next-page");
+        .attr({href: "javascript:void(0)"}).text(item || "°°°")).insertBefore(".next-page");
       });
   
       $(".previous-page").toggleClass("disable", currentPage === 1);

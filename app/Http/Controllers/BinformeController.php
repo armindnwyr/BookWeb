@@ -14,7 +14,7 @@ class BinformeController extends Controller
      */
     public function index()
     {
-        $informe = Informe::select('*')->orderBy('id', 'desc')->get(); //::paginate(); para mostrar solo una cantidad de datos
+        $informe = Informe::select('*')->orderBy('info_fecha', 'desc')->get(); //::paginate(); para mostrar solo una cantidad de datos
 
         return view('informe', compact('informe'));
     }

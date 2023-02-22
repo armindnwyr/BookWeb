@@ -14,6 +14,10 @@ class informe extends Model
     //protected $fillable = ['doce_id', 'cate_id', 'au_id'];
     //return $this->belongsTo(Autor::class, 'au_id', 'id');
 
+    protected $casts = [
+        'info_fecha' => 'datetime',
+    ];
+    
     public function autor(){
         return $this->belongsTo(Autor::class);
     }
