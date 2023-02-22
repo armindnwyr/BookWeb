@@ -24,7 +24,7 @@
                     </li>
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Dashboard</a>
+                            <a class="nav-link" href="{{ route('home') }}" target="_blink">Dashboard</a>
                         </li>
                     @else
                         <li class="nav-item">
