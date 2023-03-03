@@ -50,8 +50,8 @@ class AutorController extends Controller
             'materno'=>'required',
             'codigo'=>'required|numeric',
             'sexo'=>'required',
-            'correo'=>'required',
-            'celular'=>'required|numeric',
+            // 'correo'=>'required|email',
+            // 'celular'=>'numeric',
         ]);
 
         $autores = new Autor();
@@ -61,8 +61,8 @@ class AutorController extends Controller
         $autores->au_materno = $request->materno;
         $autores->au_codigo = $request->codigo;
         $autores->au_sexo = $request->sexo;
-        $autores->au_correo = $request->correo;
-        $autores->au_celular = $request->celular;
+        $autores->au_correo;
+        $autores->au_celular;
         
         $autores->save();
         
@@ -106,8 +106,8 @@ class AutorController extends Controller
             'materno'=>'required',
             'codigo'=>'required|numeric',
             'sexo'=>'required',
-            'correo'=>'required',
-            'celular'=>'required|numeric',
+            // 'correo'=>'required|email',
+            // 'celular'=>'required|numeric',
         ]);
 
         //$autores = new Autor();
@@ -117,8 +117,8 @@ class AutorController extends Controller
         $autor->au_materno = $request->materno;
         $autor->au_codigo = $request->codigo;
         $autor->au_sexo = $request->sexo;
-        $autor->au_correo = $request->correo;
-        $autor->au_celular = $request->celular;
+        $autor->au_correo;
+        $autor->au_celular;
         
         $autor->save();
         

@@ -51,8 +51,8 @@ class DocenteController extends Controller
             'paterno'=> 'required',
             'materno'=> 'required',
             'genero' => 'required',
-            'celular' => 'numeric',
-            'correo' => 'required',
+            // 'celular' => 'numeric',
+            // 'correo' => 'required',
         ]);
 
         //return $request->all();
@@ -62,8 +62,8 @@ class DocenteController extends Controller
         $docente->doce_paterno = $request->paterno;
         $docente->doce_materno = $request->materno;
         $docente->doce_sexo = $request->genero;
-        $docente->doce_celular = $request->celular;
-        $docente->doce_correo = $request->correo;
+        // $docente->doce_celular = $request->celular;
+        // $docente->doce_correo = $request->correo;
 
        $docente->save();
 
@@ -106,8 +106,8 @@ class DocenteController extends Controller
             'paterno'=> 'required',
             'materno'=> 'required',
             'genero' => 'required',
-            'celular' => 'required',
-            'correo' => 'required',
+            // 'celular' => 'required',
+            // 'correo' => 'required',
         ]);
 
         //return $request->all();
@@ -116,8 +116,8 @@ class DocenteController extends Controller
         $docente->doce_paterno = $request->paterno;
         $docente->doce_materno = $request->materno;
         $docente->doce_sexo = $request->genero;
-        $docente->doce_celular = $request->celular;
-        $docente->doce_correo = $request->correo;
+        // $docente->doce_celular = $request->celular;
+        // $docente->doce_correo = $request->correo;
 
        $docente->save();
 

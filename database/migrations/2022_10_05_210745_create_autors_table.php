@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('autors', function (Blueprint $table) {
             $table->id();
-            $table->string('au_nombre', 60);
-            $table->string('au_paterno', 60);
-            $table->string('au_materno', 60);
+            $table->string('au_nombre');
+            $table->string('au_paterno');
+            $table->string('au_materno');
             $table->integer('au_codigo')->lenght(6);
             $table->enum('au_sexo',['Masculino','Femenino','No Especificado']);
-            $table->string('au_correo', 60);
-            $table->integer('au_celular')->lenght(9);
+            $table->string('au_correo')->nullable();
+            $table->integer('au_celular')->nullable()->lenght(9);
             $table->timestamps();
         });
     }

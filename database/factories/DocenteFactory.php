@@ -20,8 +20,9 @@ class DocenteFactory extends Factory
             'doce_nombre'=>$this->faker->name(),
             'doce_paterno'=>$this->faker->name(),
             'doce_materno'=>$this->faker->name(),
-            'doce_celular'=>$this->faker->randomNumber(9,true),
-            'doce_correo'=>$this->faker->unique()->safeEmail(),
+            'doce_sexo' =>$this->faker->randomElement(array('Masculino', 'Femenino', 'No Especificado')),
+            // 'doce_celular'=>$this->faker->randomNumber(9,true),
+            // 'doce_correo'=>$this->faker->unique()->safeEmail(),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
             'updated_at' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null),
         ];

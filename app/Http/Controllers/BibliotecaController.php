@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 class BibliotecaController extends Controller
 {
 
-
-    public function index()
+    public function __invoke()
     {
         $libro = libro::select('*')->orderBy('id', 'desc')->get(); //::paginate(); para mostrar solo una cantidad de datos
 
         return view('welcome', compact('libro'));
     }
+
 
     public function show($id)
     {

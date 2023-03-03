@@ -70,7 +70,10 @@ Route::resource('docentes', DocenteController::class);
 
 Route::resource('libros', LibroController::class);
 
-Route::get('/',[BibliotecaController::class, 'index'])->name('biblioteca.index');
+Route::get('/',BibliotecaController::class,function (){
+
+    return view('welcome');
+})->name('biblioteca.index');
 Route::get('buscar/',[BibliotecaController::class,'buscar'])->name('biblioteca.buscar');
 Route::get('biblioteca/{biblioteca}',[BibliotecaController::class, 'show'])->name('biblioteca.show');
 

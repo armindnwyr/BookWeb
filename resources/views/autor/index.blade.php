@@ -21,8 +21,6 @@
                     <th>Materno</th>
                     <th>Codigo</th>
                     <th>Sexo</th>
-                    <th>Correo</th>
-                    <th>Celular</th>
                     @can('autors.edit','autors.destroy')
                     <th>Acciones</th>
                     @endcan
@@ -36,8 +34,6 @@
                     <td>{{$item->au_materno}}</td>
                     <td>{{$item->au_codigo}}</td>
                     <td>{{$item->au_sexo}}</td>
-                    <td>{{$item->au_correo}}</td>
-                    <td>{{$item->au_celular}}</td>
                     @can('autors.edit','autors.destroy')
                     <td width="140px">
                         <a href="{{route('autors.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>

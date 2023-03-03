@@ -20,7 +20,7 @@
               <th>Paterno</th>
               <th>Materno</th>
               <th>Sexo</th>
-              <th>Celular</th>
+              {{-- <th>Celular</th> --}}
               @can('docentes.edit','docentes.destroy')
               <th>Acciones</th>
               @endcan
@@ -33,7 +33,7 @@
               <td>{{$item->doce_paterno}}</td>
               <td>{{$item->doce_materno}}</td>
               <td>{{$item->doce_sexo}}</td>
-              <td>{{$item->doce_celular}}</td>
+              {{-- <td>{{$item->doce_celular}}</td> --}}
               @can('docentes.edit','docentes.destroy')
               <td width="140px">
                 <a href="{{route('docentes.edit', $item)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>

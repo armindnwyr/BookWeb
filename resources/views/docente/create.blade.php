@@ -51,7 +51,7 @@
           <small class="text-danger">{{$message}}</small>
           @enderror 
         </div>
-        <div class="form-group col-md-6 mt-2">
+        {{-- <div class="form-group col-md-6 mt-2">
           <label>Numero de Celular</label>
           <input type="text" class="form-control" id="inputEmail4" name="celular" value="{{old('celular')}}">
           @error('celular')
@@ -64,7 +64,7 @@
           @error('correo')
           <small class="text-danger">{{$message}}</small>
           @enderror 
-        </div>
+        </div> --}}
       </div>
       <div class="row justify-content-center">
         <a href="{{route('docentes.store')}}" class="btn btn-info m-3 col-md-3 p-1">Regresar</a>
