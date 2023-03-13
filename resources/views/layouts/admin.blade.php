@@ -17,6 +17,7 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="{{ asset('vendor/jquery-ui-1.13.2/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="/css/cardSlider.css">
 
     <title>Biblioteca Especializada - EPIS</title>
 </head>
@@ -50,4 +51,5 @@
             </div>
         </div>
     </div> --}}
-
+</body>
+</html>

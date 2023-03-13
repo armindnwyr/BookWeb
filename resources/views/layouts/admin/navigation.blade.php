@@ -11,7 +11,8 @@
                 </a>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }} {{ request()->is('biblioteca*') ? 'active' : '' }}" href="{{ route('biblioteca.index') }}">Libros</a>
+                        <a class="nav-link {{ request()->is('libro*') ? 'active' : '' }}" href="{{ route('libro.index') }}"
+                            >Libro</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('informe*') ? 'active' : '' }}" href="{{ route('binforme.index') }}"

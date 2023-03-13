@@ -12,6 +12,7 @@ use App\Http\Controllers\BinformeController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Contracts\Role;
 
@@ -69,13 +70,12 @@ Route::resource('docentes', DocenteController::class);
 
 
 Route::resource('libros', LibroController::class);
+Route::get('/',WelcomeController::class,function (){
+    return view('welcome');})->name('welcome.index');
 
-Route::get('/',BibliotecaController::class,function (){
-
-    return view('welcome');
-})->name('biblioteca.index');
+Route::get('libro',[BibliotecaController::class, 'index'])->name('libro.index');
+Route::get('libro/{libro}',[BibliotecaController::class, 'show'])->name('biblioteca.show');
 Route::get('buscar/',[BibliotecaController::class,'buscar'])->name('biblioteca.buscar');
-Route::get('biblioteca/{biblioteca}',[BibliotecaController::class, 'show'])->name('biblioteca.show');
 
 
 Route::get('informe', [BinformeController::class, 'index'])->name('binforme.index');

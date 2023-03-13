@@ -318,7 +318,7 @@ return [
         [
             'text'    => 'Pagina Principal',
             'icon'    => 'fas fa-fw fa-spinner',
-            'route'  => 'biblioteca.index',
+            'route'  => 'welcome.index',
             'icon_color' => 'light',
         ],
         [

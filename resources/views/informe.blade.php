@@ -1,9 +1,9 @@
 @include('layouts.admin')
 @include('layouts.admin.navigation')
-
+{{-- 
 @include('layouts.admin.slider')
 
-@include('layouts.admin.mileston')
+@include('layouts.admin.mileston') --}}
 {{-- Seccion de Informe --}}
 <section id="services" class="text-center">
     <div class="container">

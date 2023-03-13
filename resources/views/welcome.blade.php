@@ -6,19 +6,13 @@
 
 @include('layouts.admin.mileston')
 
-<section id="services" class="text-center">
+<section id="services" class="text-center" style="backdrop-filter: yellow">
 
     <div class="container">
-        {{-- Probando buscador  --}}
-        <h1 for="">Buscar</h1>
-        <form action="">
-            <div class=" col-md-6 offset-md-3 container">
-                <input type="search" class="shadow p-3 mb-5 form-control text-center"
-                    placeholder="¿Que libro deseas buscar?" id="search">
-            </div>
-        </form>
+
         {{-- <input class="typeahead form-control" type="text" name="search" id="search"> --}}
         {{-- Probando buscador  --}}
+
         <div class="row">
             <div class="col-12">
                 <div class="intro">
@@ -31,31 +25,31 @@
             </div>
         </div>
 
-        {{-- -------probando --}}
-        <div class=" row row-cols-1 row-cols-md-2 row-cols-lg-3 card-content">
-            @foreach ($libro as $li)
-                <div class="col">
-                    <div class="card mb-4">
-                        <a href="{{ route('biblioteca.show', $li) }}">
-                            <img src="{{ $li->li_image }}" class="card-img-top" alt="{{ $li->li_titulo }}">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $li->li_titulo }}</h5>
-                            <p class="card-text">
-                                {{ Str::limit($li->li_descripcion, 200) }}
-                            </p>
-                            <div class="mb-1">
-                                <a href="{{ route('biblioteca.show', $li) }}" class="btn btn-sm btn-primary">Leer
-                                    más..</a>
+        <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach ($libro as $item)
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <div class="img-wrapper"><img src="{{ $item->li_image }}" class="d-block w-100" alt="..."> </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $item->li_titulo }}</h5>
+                                <p class="card-text">{{ Str::limit($item->li_descripcion, 300) }}</p>
+                                {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        </div>
-        <div class="contenedor">
-            <div class="pagination">
+                @endforeach
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </section>
@@ -90,4 +84,3 @@
         }
     });
 </script>
-

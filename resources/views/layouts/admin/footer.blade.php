@@ -30,5 +30,5 @@
 <script src="/js/app.js"></script>
 <script src="/js/page.js"></script>
 <script src="/js/paginate.js"></script>
-
 <script src="/vendor/jquery-ui-1.13.2/jquery-ui.js"></script>
+<script src="/js/cardSlider.js"></script>
