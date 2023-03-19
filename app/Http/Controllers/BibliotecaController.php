@@ -17,9 +17,9 @@ class BibliotecaController extends Controller
     }
 
 
-    public function show($id)
+    public function show(libro $libro)
     {
-        $libro = Libro::find($id);
+        // $libro = Libro::find($id);
         return view('showwelcome', compact('libro'));
     }
    
@@ -36,6 +36,7 @@ class BibliotecaController extends Controller
         foreach($query as $query){
             $data[] = [
                 'id' => $query->id,
+                'slug' => $query->li_slug,
                 'label' => $query->li_titulo,
             ];
         }

@@ -22,7 +22,7 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-5">
           <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
-              <h5 class="card-title text-center mb-5">Inciar Sesion</h5>
+              <h5 class="card-title text-center mb-5">Iniciar Sesion</h5>
               <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-floating mb-3">

@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('libros', function (Blueprint $table) {
             $table->id();
-            $table->string('li_titulo', 80);
-            $table->string('li_autor', 80);
+            $table->string('li_titulo');
+            $table->string('li_autor');
+            $table->string('li_slug')->unique();
             $table->longText('li_descripcion');
-            $table->string('li_enlace', 100);
-            $table->string('li_image', 80);
+            $table->string('li_enlace');
+            $table->string('li_image');
             $table->timestamps();
         });
     }
