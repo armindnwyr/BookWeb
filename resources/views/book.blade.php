@@ -67,7 +67,7 @@
 @include('layouts.admin.footer')
 <script>
     $('#search').autocomplete({
-        minLength:2,   
+        minLength:3,   
         delay:500,
         source: function(request, response) {
             $.ajax({
@@ -85,7 +85,7 @@
         },
         select: function(event, ui) {
             $('#search2').val(ui.item.id);
-            window.location.href = 'libro/' + ui.item.id;
+            window.location.href = 'libro/' + ui.item.slug;
 
         }
     });
