@@ -30,4 +30,9 @@ class informe extends Model
         return $this->belongsTo(Categoria::class);
     }
 
+    public function getRouteKeyName(){
+
+        return 'info_slug';
+    }
+
 }

@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\categoria;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Str;
 
 class InformeController extends Controller
 {
@@ -30,7 +30,7 @@ class InformeController extends Controller
     }
     public function index()
     {
-        $informe = Informe::All();
+        $informe = Informe::all();
         return view('informe.index', compact('informe'));
     }
 
@@ -73,6 +73,7 @@ class InformeController extends Controller
         $informe = new informe();
 
         $informe->info_nombre = $request->nombre;
+        $informe->info_slug = Str::slug($informe->info_nombre);
         $informe->info_descripcion = $request->descripcion;
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;
@@ -153,6 +154,7 @@ class InformeController extends Controller
         //$informe = new informe();
 
         $informe->info_nombre = $request->nombre;
+        $informe->info_slug = Str::slug($informe->nombre);
         $informe->info_descripcion = $request->descripcion;
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('info_centro', 60);
             $table->string('info_pdf');
             $table->date('info_fecha');
+            $table->string('info_slug')->unique();
             //$table->unsignedBigInteger('docente_id')->nullable();
             //$table->unsignedBigInteger('categoria_id')->nullable();
             //$table->unsignedBigInteger('autor_id')->nullable();

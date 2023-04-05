@@ -16,14 +16,14 @@
 
         .image {
             margin: 11px;
-            overflow:hidden;
+            overflow: hidden;
             width: 100%;
             height: 700px;
             background-size: cover;
             border-radius: 5px;
         }
     </style>
-    <form action="{{route('libros.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('libros.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-6 position-relative mr-4 text-center">
             <figure>
@@ -35,9 +35,9 @@
                     Actualizar imagen
                     <input name="imagen" type="file" class="d-none" accept="image/*" value="{{ old('imagen') }}"
                         onchange="loadFile(event)">
-                        @error('imagen')
-                        <small class="text-danger">{{$message}}</small>
-                        @enderror
+                    @error('imagen')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </label>
             </div>
         </div>
@@ -47,16 +47,24 @@
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <label>Titulo</label>
-                            <input type="text" class="form-control" placeholder="Titulo" name="titulo"
-                                value="{{old('titulo')}}">
+                            <input type="text" class="form-control" placeholder="Titulo" name="titulo" id="titulo"
+                                value="{{ old('titulo') }}" onkeyup="string_to_slug()">
                             @error('titulo')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Slug</label>
+                            <input type="text" class="form-control" name="slug" id="slug"
+                                value="{{ old('slug') }}">
+                            @error('slug')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group col-sm-12">
                             <label>Autor</label>
                             <input type="text" class="form-control" placeholder="Autor" name="autor"
-                                value="{{old('autor')}}">
+                                value="{{ old('autor') }}">
                             @error('autor')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
@@ -64,7 +72,7 @@
                         <div class="form-group col-sm-12">
                             <label>Enlace de drive</label>
                             <input type="text" class="form-control" placeholder="drive" name="drive"
-                                value="{{old('drive')}}">
+                                value="{{ old('drive') }}">
                             @error('drive')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
@@ -72,7 +80,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Descripción</label>
-                        <textarea class="form-control" rows="5" name="descripcion" value="">{{old('descripcion')}}</textarea>
+                        <textarea class="form-control" rows="5" name="descripcion" value="">{{ old('descripcion') }}</textarea>
                         @error('descripcion')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -96,6 +104,26 @@
             output.src = URL.createObjectURL(event.target.files[0]);
             output = document.getElementById("output").width = "300"
         };
+    </script>
+
+     <script>
+        function string_to_slug() {
+
+            titulo = document.getElementById("titulo").value;
+            titulo = titulo.replace(/^\s+|\s+$/g, '');
+            titulo = titulo.toLowerCase();
+            var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+            var to = "aaaaeeeeiiiioooouuuunc------";
+            for (var i = 0, l = from.length; i < l; i++) {
+                titulo = titulo.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+            }
+            titulo = titulo.replace(/[^a-z0-9 -]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-');
+
+            document.getElementById('slug').value = titulo;
+
+        }
     </script>
 
 @stop

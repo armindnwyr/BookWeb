@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Informe>
  */
@@ -16,8 +16,10 @@ class InformeFactory extends Factory
      */
     public function definition()
     {
+        $nombre = $this->faker->name();
         return [
-            'info_nombre' => $this->faker->name(),
+            'info_nombre' => $nombre,
+            'info_slug' => Str::slug($nombre),
             'info_descripcion' => $this->faker->realText(),
             'info_codigo' => $this->faker->randomDigit(),
             'info_centro' => $this->faker->title(),

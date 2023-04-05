@@ -53,6 +53,7 @@ class LibroController extends Controller
     {
         $request->validate([
             'titulo'=> 'required',
+            'slug' => 'required|unique:libros,li_slug',
             'autor'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
@@ -65,13 +66,17 @@ class LibroController extends Controller
         $libro = new libro();
 
         $libro->li_titulo = $request->titulo;
-        $libro->li_slug = Str::slug($libro->li_titulo);
+        // $libro->li_slug = Str::slug($libro->li_titulo);
+        $libro->li_slug = Str::slug($request->titulo);
         $libro->li_autor = $request->autor;
         $libro->li_enlace = $request->drive;
         $libro->li_image =  $url = Storage::url($imagenes);
         $libro->li_descripcion = $request->descripcion;
         
+        
+
         $libro->save();
+
 
         return redirect()->route('libros.index');
 
@@ -111,10 +116,10 @@ class LibroController extends Controller
     {
         $request->validate([
             'titulo'=> 'required',
+            'slug' => 'required|unique:libros,li_slug,'.$libro->li_slug,
             'autor'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
-            'slug' => 'unique:libro',
         ]);
 
         // $libro = libro::find(32);
@@ -142,7 +147,7 @@ class LibroController extends Controller
         
 
         $libro->li_titulo = $request->titulo;
-        $libro->li_slug = Str::slug($libro->li_titulo);
+        $libro->li_slug = Str::slug($request->titulo);
         $libro->li_autor = $request->autor;
         $libro->li_enlace = $request->drive;
         $libro->li_descripcion = $request->descripcion;

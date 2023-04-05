@@ -87,7 +87,7 @@
         },
         select: function(event, ui) {
             $('#search2').val(ui.item.id);
-            window.location.href = 'informe/' + ui.item.id;
+            window.location.href = 'informe/' + ui.item.slug;
 
         }
     });

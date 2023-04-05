@@ -64,6 +64,7 @@ class BinformeController extends Controller
         foreach($query as $query){
             $data[] = [
                 'id' => $query->id,
+                'slug' => $query->info_slug,
                 'label' => $query->info_nombre,
             ];
         }
