@@ -58,6 +58,7 @@ class InformeController extends Controller
     {
         $request->validate([
             'nombre'=>'required',
+            'slug' => 'required|unique:informes,info_slug',
             'descripcion'=>'required',
             'codigo'=>'required',
             'pdf'=>'required',
@@ -73,7 +74,7 @@ class InformeController extends Controller
         $informe = new informe();
 
         $informe->info_nombre = $request->nombre;
-        $informe->info_slug = Str::slug($informe->info_nombre);
+        $informe->info_slug = Str::slug($request->nombre);
         $informe->info_descripcion = $request->descripcion;
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;
@@ -124,6 +125,7 @@ class InformeController extends Controller
     {
         $request->validate([
             'nombre'=>'required',
+            'slug' => 'required|unique:informes,info_slug,'.$informe->id,
             'descripcion'=>'required',
             'codigo'=>'required',
             'fecha'=>'required',
@@ -154,7 +156,7 @@ class InformeController extends Controller
         //$informe = new informe();
 
         $informe->info_nombre = $request->nombre;
-        $informe->info_slug = Str::slug($informe->nombre);
+        $informe->info_slug = Str::slug($request->nombre);
         $informe->info_descripcion = $request->descripcion;
         $informe->info_codigo = $request->codigo;
         $informe->info_centro = $request->centro;

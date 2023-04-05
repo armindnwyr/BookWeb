@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('informes', function (Blueprint $table) {
             $table->id();
-            $table->string('info_nombre', 80);
-            $table->longText('info_descripcion');
-            $table->string('info_codigo', 10);
-            $table->string('info_centro', 60);
-            $table->string('info_pdf');
-            $table->date('info_fecha');
+            $table->string('info_nombre');
             $table->string('info_slug')->unique();
+            $table->longText('info_descripcion');
+            $table->string('info_codigo');
+            $table->string('info_centro');
+            $table->string('info_pdf');
+            $table->timestamp('info_fecha');
             //$table->unsignedBigInteger('docente_id')->nullable();
             //$table->unsignedBigInteger('categoria_id')->nullable();
             //$table->unsignedBigInteger('autor_id')->nullable();

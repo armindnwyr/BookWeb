@@ -116,7 +116,7 @@ class LibroController extends Controller
     {
         $request->validate([
             'titulo'=> 'required',
-            'slug' => 'required|unique:libros,li_slug,'.$libro->li_slug,
+            'slug' => 'required|unique:libros,li_slug,'.$libro->id,
             'autor'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
