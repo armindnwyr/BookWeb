@@ -38,7 +38,9 @@
                             @can('usuarios.edit','usuario.destroy')
                             <td>
                                 <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-outline-success btn-sm"><i class="fas fa-lg fa-edit"></i></a>
+                                @if ($usuario->id != 1)
                                 <form action="{{route('usuarios.destroy',$usuario->id)}}" method="post" class="d-inline-block"> @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fas fa-lg fa-trash"></i></button></form>
+                                @endif
                             </td>
                             @endcan
                         </tr>

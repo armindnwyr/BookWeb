@@ -26,7 +26,16 @@
                                 </p>
                                 <div class="col-md-12 mt-4">
                                     <h4>Autor</h4>
-                                    <a class="text-decoration-none" href=""><i aria-hidden="true" class="glyphicon  glyphicon-file"></i>{{$libro->li_autor}}</a>
+                                    <ul>
+                                      @foreach ($libro->escritors as $item)
+                                      <li style="list-style:none">
+                                      <span class="badge bg-dark text-light">{{  $item->nombres }} {{ $item->apellidos }}</span>
+
+                                      </li>
+                                      @endforeach
+                                    </ul>
+                                   
+
                                 </div>
                                 {{-- <div class="col-md-12 mt-4">
                                     <h4>Fecha de publicación</h4>

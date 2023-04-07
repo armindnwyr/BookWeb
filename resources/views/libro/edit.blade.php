@@ -62,9 +62,12 @@
                         </div>
                         <div class="form-group col-sm-12">
                             <label>Autor</label>
-                            <input type="text" class="form-control" placeholder="Autor" name="autor"
-                                value="{{ old('autor', $libro->li_autor) }}">
-                            @error('autor')
+                            <select class="js-example-basic-multiple form-control" name="autors[]" multiple="multiple">
+                                @foreach ($escritor as $es)
+                                    <option value="{{ $es->id }}" @if($libro->escritors->contains($es->id)) selected @endif>{{ $es->nombres }} {{ $es->apellidos }}</option>
+                                @endforeach
+                              </select>
+                            @error('autors')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -96,6 +99,11 @@
 @stop
 
 @section('js')
+    <script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+    </script>
 
     <script>
         var loadFile = function(event) {

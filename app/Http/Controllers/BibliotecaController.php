@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\escritor;
 use App\Models\libro;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,6 @@ class BibliotecaController extends Controller
     public function index()
     {
         $libro = libro::select('*')->orderBy('id', 'desc')->get(); //::paginate(); para mostrar solo una cantidad de datos
-
         return view('book', compact('libro'));
     }
 
@@ -20,6 +20,8 @@ class BibliotecaController extends Controller
     public function show(libro $libro)
     {
         // $libro = Libro::find($id);
+        // $escritor = escritor::all();
+
         return view('showwelcome', compact('libro'));
     }
    

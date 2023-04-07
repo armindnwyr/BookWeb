@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Escritor;
 use App\Models\libro;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
@@ -40,7 +41,8 @@ class LibroController extends Controller
      */
     public function create()
     {
-        return view('libro.create');
+        $escritor = Escritor::all();
+        return view('libro.create', ['escritor' => $escritor]);
     }
 
     /**
@@ -49,34 +51,40 @@ class LibroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, libro $libro)
     {
         $request->validate([
             'titulo'=> 'required',
             'slug' => 'required|unique:libros,li_slug',
-            'autor'=> 'required',
+            'autors'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
             'imagen' => 'required|image|max:2048',
         ]);
 
-        //return $request->all();
         $imagenes = $request->file('imagen')->store('public/imagenes');
-        
+        $url = Storage::url($imagenes);
+
+        // $libro = libro::create([
+        //     'li_titulo' => $request->titulo,
+        //     'li_slug' => Str::slug($request->titulo),
+        //     'li_enlace' => $request->drive,
+        //     'li_image' =>  $url,
+        //     'li_descripcion' => $request->descripcion,
+        // ]);
+       
         $libro = new libro();
 
+        
         $libro->li_titulo = $request->titulo;
-        // $libro->li_slug = Str::slug($libro->li_titulo);
-        $libro->li_slug = Str::slug($request->titulo);
-        $libro->li_autor = $request->autor;
+        $libro->li_slug  = Str::slug($request->titulo);
         $libro->li_enlace = $request->drive;
-        $libro->li_image =  $url = Storage::url($imagenes);
-        $libro->li_descripcion = $request->descripcion;
-        
-        
-
+        $libro->li_image = $url;
+        $libro->li_descripcion =$request->descripcion; 
+       
         $libro->save();
 
+        $libro->escritors()->attach($request->input('autors'));
 
         return redirect()->route('libros.index');
 
@@ -102,7 +110,9 @@ class LibroController extends Controller
      */
     public function edit(libro $libro)
     {
-        return view('libro.edit', compact('libro'));
+        $escritor = Escritor::all();
+
+        return view('libro.edit', compact('libro', 'escritor'));
     }
 
     /**
@@ -117,7 +127,7 @@ class LibroController extends Controller
         $request->validate([
             'titulo'=> 'required',
             'slug' => 'required|unique:libros,li_slug,'.$libro->id,
-            'autor'=> 'required',
+            'autors'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
         ]);
@@ -148,10 +158,11 @@ class LibroController extends Controller
 
         $libro->li_titulo = $request->titulo;
         $libro->li_slug = Str::slug($request->titulo);
-        $libro->li_autor = $request->autor;
         $libro->li_enlace = $request->drive;
         $libro->li_descripcion = $request->descripcion;
-        
+
+        $libro->escritors()->sync($request->input('autors'));
+
         $libro->save();
         
         return redirect()->route('libros.index');

@@ -61,8 +61,8 @@ class AutorController extends Controller
         $autores->au_materno = $request->materno;
         $autores->au_codigo = $request->codigo;
         $autores->au_sexo = $request->sexo;
-        $autores->au_correo;
-        $autores->au_celular;
+        $autores->au_correo = $request->correo;
+        $autores->au_celular = $request->celular;
         
         $autores->save();
         

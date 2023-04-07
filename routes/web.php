@@ -9,6 +9,7 @@ use App\Http\Controllers\AutorController;
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\BibliotecaController;
 use App\Http\Controllers\BinformeController;
+use App\Http\Controllers\EscritorController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolesController;
@@ -141,6 +142,6 @@ Route::resource('informes', InformeController::class);
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('roles', RolesController::class);
 Route::resource('perfil', PerfilController::class);
-
+Route::resource('escritor', EscritorController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('libros', function (Blueprint $table) {
+        Schema::create('escritors', function (Blueprint $table) {
             $table->id();
-            $table->string('li_titulo');
-            $table->string('li_slug')->unique();
-            $table->longText('li_descripcion');
-            $table->string('li_enlace');
-            $table->string('li_image');
+            $table->mediumText('nombres');
+            $table->mediumText('apellidos');
+            $table->Text('bibliografia');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('libros');
+        Schema::dropIfExists('escritors');
     }
 };

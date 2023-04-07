@@ -326,6 +326,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        
         // ['header' => 'account_settings'],
         // [
         //     'text' => 'profile',
@@ -388,6 +389,14 @@ return [
             'active' => ['libro*'],
             'icon_color' => 'light',
             'can' => 'libros.index'
+        ],
+        [
+            'text' => 'Escritores',
+            'route' => 'escritor.index',
+            'icon' => 'fa fa-users fa-fw',
+            'active' => ['escritor*'],
+            'icon_color' => 'light',
+            // 'can' => 'libros.index'
         ],
     ],
 
@@ -472,16 +481,16 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
                 ],
             ],

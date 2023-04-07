@@ -24,7 +24,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($roles as $rol)
+                    @foreach($roles as $rol)
+                    @if ($rol->id != 1)
                     <tr>
                         <td>{{$rol->name}}</td>
                         <td>
@@ -39,6 +40,7 @@
                         </td>
                         @endcan
                     </tr>
+                    @endif
                 @endforeach
                 </tbody>
             </table>

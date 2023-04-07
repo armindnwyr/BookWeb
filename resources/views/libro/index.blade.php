@@ -12,6 +12,8 @@
 
 @section('css')
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/keytable/2.7.0/css/keyTable.bootstrap4.min.css"> --}}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 @stop
 
 @section('content')
@@ -87,6 +89,7 @@
 {{-- <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script> --}}
 {{-- <script src="https://cdn.datatables.net/keytable/2.7.0/js/dataTables.keyTable.min.js"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @if(session('eliminar') == 'delete')
 <script>
  Swal.fire(

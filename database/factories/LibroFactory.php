@@ -21,7 +21,7 @@ class LibroFactory extends Factory
         return [
             'li_titulo'=>$titulo,
             'li_slug' => Str::slug($titulo),
-            'li_autor'=>$this->faker->name(),
+            // 'li_autor'=>$this->faker->name(),
             'li_descripcion'=>$this->faker->realText(500),
             'li_enlace'=>$this->faker->url(),
             'li_image'=>$this->faker->imageUrl(),
