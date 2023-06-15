@@ -25,13 +25,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // categoria::factory(2)->create();
+        categoria::factory(2)->create();
 
         $this->call(RoleSeeder::class);
-        // $this->call(DocenteSeeder::class);
-        // $this->call(AutorSeeder::class);
-        // $this->call(LibroSeeder::class);
-        // $this->call(InformeSeeder::class);
+        $this->call(DocenteSeeder::class);
+        $this->call(AutorSeeder::class);
+        $this->call(LibroSeeder::class);
+        $this->call(InformeSeeder::class);
         //Usuario Administrador
         $user=User::create([
             'name'=>'admin',
