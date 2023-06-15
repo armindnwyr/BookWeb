@@ -32,7 +32,7 @@ use Spatie\Permission\Contracts\Role;
     return view('welcome');
 });*/
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
 //--------------DOCENTE---------------------//
 
