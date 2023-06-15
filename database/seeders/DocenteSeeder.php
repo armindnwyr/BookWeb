@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\docente;
+use Database\Factories\DocenteFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

@@ -13,8 +13,8 @@ class docente extends Model
         'doce_paterno',
         'doce_materno',
         'doce_sexo',
-        'doce_celular',
-        'doce_correo',
+        // 'doce_celular',
+        // 'doce_correo',
     ];
 
     public function informes(){
