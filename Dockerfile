@@ -1,27 +1,20 @@
-FROM php:8.0.2-apache
-WORKDIR /var/www/html
+FROM php:8.2-apache as php
 
-# Mod Rewrite
-RUN a2enmod rewrite
+RUN apt-get update -y
+RUN apt-get install -y unzip libpq-dev libcurl4-gnutls-dev
+RUN docker-php-ext-install pdo pdo_mysql bcmath
 
-# Linux Library
-RUN apt-get update -y && apt-get install -y \
-    libicu-dev \
-    libmariadb-dev \
-    unzip zip \
-    zlib1g-dev \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    libjpeg62-turbo-dev \
-    libpng-dev
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
 
-# Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# PHP Extension
-RUN docker-php-ext-install gettext intl pdo_mysql gd
+WORKDIR /var/www
+COPY . .
 
-RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
 
+COPY --from=composer:2.3.5 /usr/bin/composer /usr/bin/composer
+
+RUN npm install
+
+ENV PORT=8000
+ENTRYPOINT ["Docker/entrypoint.sh"]
