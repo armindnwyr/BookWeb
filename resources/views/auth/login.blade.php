@@ -23,7 +23,7 @@
           <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
               <h5 class="card-title text-center mb-5">Iniciar Sesion</h5>
-              <form action="{{ route('login') }}" method="POST">
+              <form action="{{ route('login') }}" method="POST" autocomplete="on">
                 @csrf
                 <div class="form-floating mb-3">
                   <input type="email" name="email" placeholder="user@gmail.com" class="form-control"  value="{{ old('email') }}" autofocus>
