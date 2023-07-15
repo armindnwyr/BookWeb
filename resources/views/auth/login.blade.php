@@ -23,11 +23,11 @@
           <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
               <h5 class="card-title text-center mb-5">Iniciar Sesion</h5>
-              <form method="POST" action="{{ route('login') }}" autocomplete="on">
+              <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-floating mb-3">
-                  <input type="email" id="floatingInput" placeholder="user@gmail.com" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" name="email">
-                  <label for="floatingInput">{{ __('Ingrese usuario') }}</label>
+                  <input type="email" placeholder="user@gmail.com" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" name="email" autofocus>
+                  <label>{{ __('Ingrese usuario') }}</label>
                   @error('email')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
