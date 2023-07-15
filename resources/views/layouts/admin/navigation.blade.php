@@ -19,17 +19,16 @@
                             >Informe de Practicas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blink">Repositorio de
+                        <a class="nav-link" href="http://repositorio.unap.edu.pe/" target="_blank">Repositorio de
                             Tesis</a>
                     </li>
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}" target="_blink">Dashboard</a>
+                            <a class="nav-link" href="{{ route('home') }}" target="_blank">Dashboard</a>
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="{{ route('login') }}"
-                                target="_blink">Login</a>
+                            <a class="nav-link {{ request()->is('login') ? 'active' : '' }}" href="{{ route('login') }}">Login</a>
                         </li>
                     @endauth
 
