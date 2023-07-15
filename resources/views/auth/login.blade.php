@@ -23,10 +23,10 @@
           <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
               <h5 class="card-title text-center mb-5">Iniciar Sesion</h5>
-              <form method="POST" action="{{ route('login') }}" autocomplete="off">
+              <form method="POST" action="{{ route('login') }}" autocomplete="on">
                 @csrf
                 <div class="form-floating mb-3">
-                  <input type="email" id="floatingInput" placeholder="user@gmail.com" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" name="email" required autocomplete="email" autofocus>
+                  <input type="email" id="floatingInput" placeholder="user@gmail.com" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" name="email">
                   <label for="floatingInput">{{ __('Ingrese usuario') }}</label>
                   @error('email')
                   <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
                   @enderror
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="password" id="floatingPassword" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                  <input type="password" id="floatingPassword" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password">
                   <label for="floatingPassword">{{ __('Ingrese contraseña') }}</label>
                   @error('password')
                   <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                   @enderror
                 </div>
                 <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                  <input class="form-check-input" type="checkbox" value="">
                   <label class="form-check-label" for="rememberPasswordCheck">
                     Recordarme
                   </label>
