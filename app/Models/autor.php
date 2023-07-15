@@ -12,6 +12,6 @@ class autor extends Model
 
     //Relacion de uno a muchos
     public function informes(){
-        return $this->hasMany(Informe::class);
+        return $this->hasMany(informe::class);
     }
 }

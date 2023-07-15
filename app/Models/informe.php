@@ -19,15 +19,15 @@ class informe extends Model
     ];
     
     public function autor(){
-        return $this->belongsTo(Autor::class);
+        return $this->belongsTo(autor::class);
     }
 
     public function docente(){
-        return $this->belongsTo(Docente::class);
+        return $this->belongsTo(docente::class);
     }
 
     public function categoria(){
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(categoria::class);
     }
 
     public function getRouteKeyName(){

@@ -18,6 +18,6 @@ class docente extends Model
     ];
 
     public function informes(){
-        return $this->hasMany(Informe::class);
+        return $this->hasMany(informe::class);
     }
 }

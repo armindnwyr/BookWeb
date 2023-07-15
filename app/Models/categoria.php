@@ -10,6 +10,6 @@ class categoria extends Model
     use HasFactory;
     
     public function informes(){
-        return $this->hasMany(Informe::class);
+        return $this->hasMany(informe::class);
     }
 }
