@@ -26,7 +26,7 @@ class InformeFactory extends Factory
             'info_pdf' => $this->faker->url(),
             'info_fecha' => $this->faker->date(),
             'docente_id' => $this->faker->numberBetween(1,20),
-            'categoria_id' => $this->faker->numberBetween(1,2),
+            // 'categoria_id' => $this->faker->numberBetween(1,2),
             'autor_id' => $this->faker->numberBetween(1,20),
         ];
     }

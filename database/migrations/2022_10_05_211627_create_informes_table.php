@@ -28,7 +28,7 @@ return new class extends Migration
 
             //Llave Foranea
             $table->foreignId('docente_id')->constrained('docentes')->onDelete('cascade');
-            $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
+            $table->foreignId('categoria_id')->nullable()->constrained('categorias')->onDelete('cascade');
             $table->foreignId('autor_id')->constrained('autors')->onDelete('cascade');
 
             $table->timestamps();
