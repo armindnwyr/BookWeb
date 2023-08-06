@@ -9,7 +9,9 @@ use App\Http\Controllers\AutorController;
 use App\Http\Controllers\InformeController;
 use App\Http\Controllers\BibliotecaController;
 use App\Http\Controllers\BinformeController;
+use App\Http\Controllers\DatatableController;
 use App\Http\Controllers\EscritorController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolesController;
@@ -34,40 +36,11 @@ use Spatie\Permission\Contracts\Role;
 
 Auth::routes(['register' => true]);
 
-//--------------DOCENTE---------------------//
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('docente',[DocenteController::class,'index'])->name('docente.index');
-
-// Route::get('docente/create', [DocenteController::class, 'create'])->name('docente.create');
-
-// Route::get('docente/{docente}', [DocenteController::class, 'show'])->name('curso.show');
-
-// Route::post('docente',[DocenteController::class,'store'])->name('docente.store');
-
-// Route::get('docente/{docente}/edit',[DocenteController::class,'edit'])->name('docente.edit');
-
-// Route::put('docente/{docente}',[DocenteController::class,'update'])->name('docente.update');
-
-// Route::delete('docente/{docente}',[DocenteController::class,'destroy'])->name('docente.destroy');
 
 Route::resource('docentes', DocenteController::class);
-//--------------LIBRO---------------------//
-
-// Route::get('libro',[LibroController::class,'index'])->name('libro.index');
-
-// Route::get('libro/create', [LibroController::class, 'create'])->name('libro.create');
-
-// Route::get('libro/{libro}', [LibroController::class, 'show'])->name('libro.show');
-
-// Route::post('libro',[LibroController::class,'store'])->name('libro.store');
-
-// Route::get('libro/{libro}/edit',[LibroController::class,'edit'])->name('libro.edit');
-
-// Route::put('libro/{libro}',[LibroController::class,'update'])->name('libro.update');
-
-// Route::delete('libro/{libro}',[LibroController::class,'destroy'])->name('libro.destroy');
 
 
 Route::resource('libros', LibroController::class);
@@ -78,63 +51,15 @@ Route::get('libro',[BibliotecaController::class, 'index'])->name('libro.index');
 Route::get('libro/{libro}',[BibliotecaController::class, 'show'])->name('biblioteca.show');
 Route::get('buscar/',[BibliotecaController::class,'buscar'])->name('biblioteca.buscar');
 
-
 Route::get('informe', [BinformeController::class, 'index'])->name('binforme.index');
 Route::get('informe/{informe}',[BinformeController::class,'show'])->name('informe.show');
 Route::get('search/',[BinformeController::class,'search'])->name('informe.search');
 
 
-//--------------CATEGORIA---------------------//
-
-// Route::get('categoria',[CategoriaController::class,'index'])->name('categoria.index');
-
-// Route::get('categoria/create',[CategoriaController::class,'create'])->name('categoria.create');
-
-// Route::get('categoria/{show}',[CategoriaController::class,'show'])->name('categoria.show');
-
-// Route::post('categoria',[CategoriaController::class,'store'])->name('categoria.store');
-
-// Route::get('categoria/{categoria}/edit',[CategoriaController::class,'edit'])->name('categoria.edit');
-
-// Route::put('categoria/{categoria}',[CategoriaController::class,'update'])->name('categoria.update');
-
-// Route::delete('categoria/{categoria}',[CategoriaController::class,'destroy'])->name('categoria.destroy');
-
 Route::resource('categorias', CategoriaController::class);
 
-//--------------AUTOR---------------------//
-
-// Route::get('autor',[AutorController::class,'index'])->name('autor.index');
-
-// Route::get('autor/create',[AutorController::class,'create'])->name('autor.create');
-
-// Route::get('autor/{show}',[AutorController::class,'show'])->name('autor.show');
-
-// Route::post('autor',[AutorController::class,'store'])->name('autor.store');
-
-// Route::get('autor/{autor}/edit',[AutorController::class,'edit'])->name('autor.edit');
-
-// Route::put('autor/{autor}',[AutorController::class,'update'])->name('autor.update');
-
-// Route::delete('autor/{autor}',[AutorController::class,'destroy'])->name('autor.destroy');
 
 Route::resource('autors', AutorController::class);
-
-//--------------INFORME---------------------//
-
-// Route::get('informe',[InformeController::class,'index'])->name('informe.index');
-
-// Route::get('informe/create',[InformeController::class,'create'])->name('informe.create');
-
-// Route::get('informe/{show}',[InformeController::class,'show'])->name('informe.show');
-
-// Route::post('informe',[InformeController::class,'store'])->name('informe.store');
-
-// Route::get('informe/{informe}/edit',[InformeController::class,'edit'])->name('informe.edit');
-
-// Route::put('informe/{informe}',[InformeController::class,'update'])->name('informe.update');
-
-// Route::delete('informe/{informe}',[InformeController::class,'destroy'])->name('informe.destroy');
 
 Route::resource('informes', InformeController::class);
 // USUARIOS Y ROLES 
@@ -144,4 +69,5 @@ Route::resource('roles', RolesController::class);
 Route::resource('perfil', PerfilController::class);
 Route::resource('escritor', EscritorController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('datatable/libro', [DatatableController::class, 'data'])->name('datatable.libro');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

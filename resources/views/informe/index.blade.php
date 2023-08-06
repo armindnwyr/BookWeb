@@ -20,7 +20,7 @@
               <th>Codigo</th>
               <th>Centro</th>
               <th>Docente</th>
-              <th>Practicas</th>
+              {{-- <th>Practicas</th> --}}
               <th>Estudiante</th>
               @can('informes.edit','informes.destroy')
               <th>Acciones</th>
@@ -34,7 +34,7 @@
               <td>{{$item->info_codigo}}</td>
               <td>{{$item->info_centro}}</td>
               <td>{{$item->docente->doce_nombre}} {{$item->docente->doce_paterno}} {{$item->docente->doce_materno}}</td>
-              <td>{{$item->categoria->cate_nombre}}</td>
+              {{-- <td>{{$item->categoria->cate_nombre}}</td> --}}
               <td>{{$item->autor->au_nombre}} {{$item->autor->au_paterno}} {{$item->autor->au_materno}}</td>
               @can('informes.edit','informes.destroy')
               <td width="140px">

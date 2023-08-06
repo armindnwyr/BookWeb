@@ -59,29 +59,29 @@ class LibroController extends Controller
             'autors'=> 'required',
             'descripcion'=> 'required',
             'drive' => 'required',
-            'imagen' => 'required|image|max:2048',
+            // 'imagen' => 'required|image|max:2048',
         ]);
+        // if($request->hasFile('imagen')) {
+            $imagenes = $request->file('imagen')->store('public/imagenes');
+            $url = Storage::url($imagenes);
 
-        $imagenes = $request->file('imagen')->store('public/imagenes');
-        $url = Storage::url($imagenes);
+            // $libro = libro::create([
+            //     'li_titulo' => $request->titulo,
+            //     'li_slug' => Str::slug($request->titulo),
+            //     'li_enlace' => $request->drive,
+            //     'li_image' =>  $url,
+            //     'li_descripcion' => $request->descripcion,
+            // ]);
 
-        // $libro = libro::create([
-        //     'li_titulo' => $request->titulo,
-        //     'li_slug' => Str::slug($request->titulo),
-        //     'li_enlace' => $request->drive,
-        //     'li_image' =>  $url,
-        //     'li_descripcion' => $request->descripcion,
-        // ]);
-       
-        $libro = new libro();
+            $libro = new libro();
 
-        
-        $libro->li_titulo = $request->titulo;
-        $libro->li_slug  = Str::slug($request->titulo);
-        $libro->li_enlace = $request->drive;
-        $libro->li_image = $url;
-        $libro->li_descripcion =$request->descripcion; 
-       
+
+            $libro->li_titulo = $request->titulo;
+            $libro->li_slug  = Str::slug($request->titulo);
+            $libro->li_enlace = $request->drive;
+            $libro->li_image = $url;
+            $libro->li_descripcion =$request->descripcion;
+        // }
         $libro->save();
 
         $libro->escritors()->attach($request->input('autors'));

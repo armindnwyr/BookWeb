@@ -17,24 +17,24 @@ class AutorTest extends TestCase
         $this->post('autors',[ // Esto permite verificar si esta ingresando correctamente
             //a la ruta "autors"
             //Ingresamos los campos que necesitamos
-            'au_nombre' => 'Ozella Kutch',
-            'au_paterno' => 'Ms. Maida Emmerich DVM',
-            'au_materno' => 'Mr. Mac Buckridge',
-            'au_codigo' => 643175,
+            'au_nombre' => 'Prof. Paula Koch V',
+            'au_paterno' => 'Sage Treutel',
+            'au_materno' => 'Esther Rogahn',
+            'au_codigo' => 752413,
             'au_sexo' => 'Masculino',
-            'au_correo' => 'lbosco@example.net',
-            'au_celular' => 145697218,
+            'au_correo' => 'janet.barrows@example.com',
+            'au_celular' => 565096345,
         ])->assertRedirect('/');
 
         //Permite comprobar que la información almacenada existe dentro de la BD
         $this->assertDatabaseHas('autors', [
-            'au_nombre' => 'Ozella Kutch',
-            'au_paterno' => 'Ms. Maida Emmerich DVM',
-            'au_materno' => 'Mr. Mac Buckridge',
-            'au_codigo' => 643175,
+            'au_nombre' => 'Prof. Paula Koch V',
+            'au_paterno' => 'Sage Treutel',
+            'au_materno' => 'Esther Rogahn',
+            'au_codigo' => 752413,
             'au_sexo' => 'Masculino',
-            'au_correo' => 'lbosco@example.net',
-            'au_celular' => 145697218,
+            'au_correo' => 'janet.barrows@example.com',
+            'au_celular' => 565096345,
         ]);
     }
 

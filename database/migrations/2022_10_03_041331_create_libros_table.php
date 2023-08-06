@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('li_slug')->unique();
             $table->longText('li_descripcion');
             $table->string('li_enlace');
-            $table->string('li_image');
+            $table->string('li_image')->nullable();
             $table->timestamps();
         });
     }

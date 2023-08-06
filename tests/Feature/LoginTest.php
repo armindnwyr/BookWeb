@@ -43,7 +43,7 @@ class LoginTest extends TestCase
             "password" => "administrador"
         ];
         //enviamos por el metodo post con las credenciales
-        $response = $this->post('/login', $credentials);
+        $response = $this->post('login', $credentials);
         //si todo esta correcto nos va redirigir a la vista home
         $response->assertRedirect('home');
         //comprueba que las credenciales existen
@@ -78,7 +78,7 @@ class LoginTest extends TestCase
     public function loginRequireUserAuth()
     {
         $credentials = [
-            "email" => null,
+            "email" => "",
             "password" => "secret"
         ];
 
